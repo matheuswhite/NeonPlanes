@@ -69,9 +69,6 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="CheckCollision.cpp">
-      <Filter>Source Files\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="DataStore.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
@@ -101,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckCollision.cpp">
+      <Filter>Source Files\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +132,6 @@
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckCollision.h">
-      <Filter>Header Files\Tools</Filter>
     </ClInclude>
     <ClInclude Include="DataStore.h">
       <Filter>Header Files\Tools</Filter>
@@ -177,6 +174,15 @@
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckCollision.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolHeaders.h">
+      <Filter>Header Files\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

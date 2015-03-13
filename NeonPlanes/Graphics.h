@@ -1,10 +1,10 @@
 #pragma once
 
-#include "System.h"
+#include "Tool.h"
 #include "Texture.h"
 #include "Game.h"
 
-class Graphics : public System
+class Graphics : public Tool
 {
 public:
 	Graphics();

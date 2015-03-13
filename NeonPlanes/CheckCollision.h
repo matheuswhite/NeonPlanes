@@ -1,8 +1,8 @@
 #pragma once
 
-#include "System.h"
+#include "Tool.h"
 
-class CheckCollision : public System
+class CheckCollision : public Tool
 {
 public:
 	CheckCollision();

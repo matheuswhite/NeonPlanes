@@ -44,12 +44,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\Lua\5.3\include;C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\Lua\5.3\lib;C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;lua5.3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -60,14 +60,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\Lua\5.3\include;C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\Lua\5.3\lib;C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;lua5.3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -116,6 +116,8 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Texts.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Tool.h" />
+    <ClInclude Include="ToolHeaders.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

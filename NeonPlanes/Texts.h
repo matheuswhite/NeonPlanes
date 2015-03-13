@@ -1,8 +1,8 @@
 #pragma once
 
-#include "System.h"
+#include "Tool.h"
 
-class Texts : public System
+class Texts : public Tool
 {
 public:
 	Texts();

@@ -1,8 +1,6 @@
 #pragma once
 
 #include "GameStateHeaders.h"
-#include "PackageHeaders.h"
-#include "GameObject.h"
 
 class World
 {
@@ -11,16 +9,10 @@ public:
 	virtual ~World();
 	
 	static GameState* getCurrentState();
-	static Package* getCurrentPackage();
-
-	static void switchGameState(GameState* state);
-	static void switchPackage(std::string package);
-
-	static void addPackage(Package* package);
-	static Package* getPackage(std::string package);
+	static void switchGameState(std::string state);
 private:
-	static GameState* currentState;
-	static Package* currentPackage;
+	static void addGameState(GameState* state);
 
-	static std::map< std::string, Package* > map_package;
+	static GameState* currentState;
+	static std::map< std::string, GameState* > map_states;
 };

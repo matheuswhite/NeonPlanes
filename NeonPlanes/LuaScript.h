@@ -1,8 +1,9 @@
 #pragma once
 
 #include "core.h"
+#include "Tool.h"
 
-class LuaScript
+class LuaScript : public Tool
 {
 public:
 	LuaScript(const std::string& filename) {

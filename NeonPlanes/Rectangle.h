@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Vector2D.h"
+#include "Component.h"
 
-class Rectangle
+class Rectangle : public Component
 {
 public:
 	Rectangle() {}

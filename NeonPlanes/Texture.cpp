@@ -5,8 +5,8 @@ Texture::Texture(std::string pathFile)
 {
 	this->pathFile = pathFile;
 	this->texture = nullptr;
-	this->width = 0;
-	this->height = 0;
+
+	this->loadFromFile(Game::getRenderer());
 }
 
 Texture::~Texture()
@@ -30,38 +30,27 @@ void Texture::loadFromFile(SDL_Renderer* renderer) {
 		std::cerr << "Error in loadFromFile. Line: " << __LINE__ << std::endl;
 	}
 
-	this->width = loadedSurface->w;
-	this->height = loadedSurface->h;
-
 	SDL_FreeSurface(loadedSurface);
-
 	loadedSurface = nullptr;
 }
 
+/*
 void Texture::render(SDL_Rect* source, SDL_Rect* destiny, SDL_Renderer* render) {
 	SDL_RenderCopy(render, this->texture, source, destiny);
 }
+*/
 
 void Texture::free() {
 	if (this->texture != nullptr) {
 		SDL_DestroyTexture(this->texture);
-		this->width = 0;
-		this->height = 0;
 	}
-}
-
-int Texture::getWidth() const {
-	return this->width;
-}
-
-int Texture::getHeight() const {
-	return this->height;
 }
 
 SDL_Texture* Texture::getTexture() const {
 	return this->texture;
 }
 
+/*
 void Texture::setBlendMode(SDL_BlendMode blending) {
 	SDL_SetTextureBlendMode(this->texture, blending);
 }
@@ -69,7 +58,8 @@ void Texture::setBlendMode(SDL_BlendMode blending) {
 void Texture::setAlphaModulation(Uint8 alpha) {
 	SDL_SetTextureAlphaMod(this->texture, alpha);
 }
-/*if (object->lastPosition != position) {
+
+	if (object->lastPosition != position) {
 		object->frame = 0;
 	}
 
@@ -84,4 +74,5 @@ void Texture::setAlphaModulation(Uint8 alpha) {
 
 	object->source = &rect;
 
-	this->renderGameObject(object, renderer);*/
+	this->renderGameObject(object, renderer);
+*/

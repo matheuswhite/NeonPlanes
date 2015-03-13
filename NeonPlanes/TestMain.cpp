@@ -11,7 +11,7 @@ std::string IMAGE_PATH = "..\\Debug\\Images\\";
 #endif // !_DEBUG
 
 
-int main(int argc, char** argv) {
+int main1(int argc, char** argv) {
 	bool quit = false;
 
 	SDL_Event event;

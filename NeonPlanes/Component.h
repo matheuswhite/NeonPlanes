@@ -1,12 +1,9 @@
 #pragma once
 
-#include "Message.h"
 #include "GameObject.h"
 
 class Component
 {
-	//add friend class as filha. 
-	//ex.: AI -> behavior
 public:
 	Component() {
 		this->active = true;

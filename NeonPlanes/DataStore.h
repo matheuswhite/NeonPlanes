@@ -1,9 +1,9 @@
 #pragma once
 
-#include "System.h"
-#include <fstream>
+#include "Tool.h"
+#include "core.h"
 
-class DataStore : public System
+class DataStore : public Tool
 {
 public:
 	DataStore();

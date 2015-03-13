@@ -1,6 +1,6 @@
 #include "Game.h"
 
-int main(int argc, char **argv) {
+int main0(int argc, char **argv) {
 	bool running = true;
 	Uint32 startTime = 0;
 	Uint32 elapsedTime = 0;

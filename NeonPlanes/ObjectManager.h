@@ -1,8 +1,8 @@
 #pragma once
 
-#include "System.h"
+#include "Tool.h"
 
-class ObjectManager : public System
+class ObjectManager : public Tool
 {
 public:
 	ObjectManager();

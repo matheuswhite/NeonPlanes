@@ -23,24 +23,28 @@
 #include <typeinfo>
 #include <cmath>
 
-namespace utility {
-	enum objectPosition {
-		DEFAULT = -1,
-		UP,
-		DOWN,
-		LEFT,
-		RIGHT
-	};
+#ifndef _DEBUG
+//Release Mode
 
+const std::string SCRIPT_PATH = "Scripts\\";
+const std::string IMAGE_PATH = "Images\\";
+
+#else
+//Debug Mode
+
+const std::string SCRIPT_PATH = "..\\Debug\\Scripts\\";
+const std::string IMAGE_PATH = "..\\Debug\\Images\\";
+
+#endif // !_DEBUG
+
+#define GAME_FPS 1000/60
+#define SCREEN_WIDTH 400
+#define SCREEN_HEIGHT 640
+#define GAME_OBJECT_PAIR std::pair<std::string, Component*>
+
+namespace utility {
 	enum streamMode {
 		NORMAL,
-		BINARY,
-		FORCED
+		BINARY
 	};
-
-	const std::string SCRIPT_PATH = "..\\Debug\\Scripts\\";
-	const std::string IMAGE_PATH = "..\\Debug\\Images\\";
-	const std::string CONFIGURATION_PATH = "..\\Debug\\Configurations\\";
-
-	typedef void(*Callback)(void);
 }
