@@ -10,36 +10,24 @@ PauseState::~PauseState()
 {
 }
 
-void PauseState::execute_A() {
-	Command::Instance()->actionMenu();
+void PauseState::execute_BTN_SPACE() {
+	Command::select();
 }
-void PauseState::execute_X() {
-	Command::Instance()->doNothing();
+void PauseState::execute_BTN_Z() {
+	Command::doNothing();
 }
-void PauseState::execute_B() {
-	Command::Instance()->resumeGame();
-}
-void PauseState::execute_RB() {
-	Command::Instance()->doNothing();
-}
-void PauseState::execute_LB() {
-	Command::Instance()->doNothing();
-}
-void PauseState::execute_START() {
-	Command::Instance()->resumeGame();
-}
-void PauseState::execute_BACK() {
-	Command::Instance()->showMenu();
+void PauseState::execute_BTN_ENTER() {
+	Command::resume();
 }
 void PauseState::execute_LEFT() {
-	Command::Instance()->doNothing();
+	Command::doNothing();
 }
 void PauseState::execute_RIGHT() {
-	Command::Instance()->doNothing();
+	Command::doNothing();
 }
 void PauseState::execute_UP() {
-	Command::Instance()->moveMenuUp();
+	Command::moveMenuUp();
 }
 void PauseState::execute_DOWN() {
-	Command::Instance()->moveMenuDown();
+	Command::moveMenuDown();
 }

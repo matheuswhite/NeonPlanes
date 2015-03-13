@@ -1,14 +1,7 @@
 #include "Game.h"
 
-SDL_Window* Game::window = nullptr;
 SDL_Renderer* Game::renderer = nullptr;
 World* Game::world = nullptr;
-
-std::vector<System*> Game::systems;
-std::map<std::string, System*> Game::map_systems;
-
-const int Game::SCREEN_WIDTH = 640;
-const int Game::SCREEN_HEIGHT = 480;
 
 Game::Game(std::string name, int windows_x, int windows_y, int flag)
 {
@@ -16,7 +9,7 @@ Game::Game(std::string name, int windows_x, int windows_y, int flag)
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
 
-	this->window = SDL_CreateWindow(name.c_str(), windows_x, windows_y, Game::SCREEN_WIDTH, Game::SCREEN_HEIGHT, flag);
+	this->window = SDL_CreateWindow(name.c_str(), windows_x, windows_y, SCREEN_WIDTH, SCREEN_HEIGHT, flag);
 	if (this->window == nullptr)
 		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
 
@@ -40,38 +33,58 @@ Game::~Game()
 
 
 void Game::init() {
-	this->addSystem(new CheckCollision());
-	this->addSystem(new Graphics());
-	this->addSystem(new DataStore());
-	this->addSystem(new ObjectManager());
-	this->addSystem(new Texts());
+#if _DEBUG
+	//Debug Mode
 
-	((Graphics*)this->getSystem("Graphics"))->sinAnimation(M_PI, new Texture(utility::IMAGE_PATH +"Logo.png"));
+	World::switchGameState("DebugState");
+
+#else
+	//Release Mode
+
+	World::switchGameState("MainMenu");
+
+#endif // !_DEBUG
+
+	Graphics::sinAnimation(M_PI, new Texture(IMAGE_PATH + "Logo.png"));
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0){}
 }
 
 void Game::draw() {
-	for each (auto object in World::getCurrentPackage()->getGameObjects()) {
-		auto obj = dynamic_cast<Sprite*>(object);
-		obj->draw();
+	for each (auto layer in World::getCurrentState()->getLayers()) 
+	{
+		for each (auto object in layer->getGameObjects()) 
+		{
+			auto obj = dynamic_cast<Sprite*>(object);
+			obj->draw();
+		}
 	}
 }
 
 //improvisado
 void Game::update() {
-	for each (auto object in World::getCurrentPackage()->getGameObjects()) {
-		auto obj = dynamic_cast<Behavior*>(object);
-		obj->run();
+
+
+
+
+	for each (auto layer in World::getCurrentState()->getLayers())
+	{
+		for each (auto object in layer->getGameObjects())
+		{
+			auto obj = dynamic_cast<Behavior*>(object);
+			obj->run();
+		}
 	}
+
+
+
+
 }
 
 //improvisado
 bool Game::handlingEvents() {
 	SDL_Event e;
-	World::switchGameState(new PlayState());
-	World::switchPackage(typeid(PlayPackage).name());
 
 	while (SDL_PollEvent(&e) != 0) {
 		if (e.type == SDL_QUIT) {
@@ -80,15 +93,31 @@ bool Game::handlingEvents() {
 		else if (e.type == SDL_KEYDOWN) {
 			switch (e.key.keysym.sym) {
 			case SDLK_ESCAPE:
-				return false;
+#if _DEBUG
+	return false;
+#else
+	World::getCurrentState()->execute_BTN3;
+#endif
 			case SDLK_SPACE:
-				World::getCurrentState()->execute_X();
+				World::getCurrentState()->execute_BTN_SPACE;
 				break;
-			case SDLK_a:
-				World::getCurrentState()->execute_A();
+			case SDLK_z:
+				World::getCurrentState()->execute_BTN_Z;
 				break;
-			case SDLK_s:
-				World::getCurrentState()->execute_B();
+			case SDLK_KP_ENTER:
+				World::getCurrentState()->execute_BTN_ENTER;
+				break;
+			case SDLK_UP:
+				World::getCurrentState()->execute_UP;
+				break;
+			case SDLK_DOWN:
+				World::getCurrentState()->execute_DOWN;
+				break;
+			case SDLK_LEFT:
+				World::getCurrentState()->execute_LEFT;
+				break;
+			case SDLK_RIGHT:
+				World::getCurrentState()->execute_RIGHT;
 				break;
 			default:
 				break;
@@ -108,13 +137,6 @@ void Game::clear() {
 	this->window = nullptr;
 	this->renderer = nullptr;
 
-	for each (System* var in this->systems)
-	{
-		delete var;
-		var = nullptr;
-	}
-	this->systems.clear();
-
 	SDL_Quit();
 }
 
@@ -125,24 +147,4 @@ SDL_Window* Game::getWindow() {
 
 SDL_Renderer* Game::getRenderer() {
 	return renderer;
-}
-
-std::vector<System*> Game::getListSystems() {
-	return systems;
-}
-
-bool Game::addSystem(System* system) {
-	for each (System* var in systems) {
-		if (var == system) {
-			return false;
-		}
-	}
-
-	systems.push_back(system);
-	map_systems.insert(GAME_PAIR(typeid(*system).name(), system));
-	return true;
-}
-
-System* Game::getSystem(std::string system) {
-	return map_systems[system]; 
 }

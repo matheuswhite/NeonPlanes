@@ -8,36 +8,24 @@ PlayState::~PlayState()
 {
 }
 
-void PlayState::execute_A() {
-	Command::Instance()->action();
+void PlayState::execute_BTN_SPACE() {
+	Command::shoot();
 }
-void PlayState::execute_X() {
-	Command::Instance()->UseSkill();
+void PlayState::execute_BTN_Z() {
+	Command::useLightWall();
 }
-void PlayState::execute_B() {
-	Command::Instance()->doNothing();
-}
-void PlayState::execute_RB() {
-	Command::Instance()->switchRightSkill();
-}
-void PlayState::execute_LB() {
-	Command::Instance()->switchLeftSkill();
-}
-void PlayState::execute_START() {
-	Command::Instance()->pauseGame();
-}
-void PlayState::execute_BACK() {
-	Command::Instance()->showMenu();
+void PlayState::execute_BTN_ENTER() {
+	Command::pause();
 }
 void PlayState::execute_LEFT() {
-	Command::Instance()->walkLeft();
+	Command::moveLeft();
 }
 void PlayState::execute_RIGHT() {
-	Command::Instance()->walkRight();
+	Command::moveRight();
 }
 void PlayState::execute_UP() {
-	Command::Instance()->walkUp();
+	Command::moveUp();
 }
 void PlayState::execute_DOWN() {
-	Command::Instance()->walkDown();
+	Command::moveDown();
 }

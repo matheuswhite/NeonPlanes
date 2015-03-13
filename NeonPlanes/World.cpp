@@ -10,17 +10,15 @@ World::World()
 	addGameState(new PauseState());
 	addGameState(new GameOverState());
 
-	this->currentState = new DebugState();
+#if _DEBUG
+	addGameState(new DebugState());
+#endif //_DEBUG
 }
 
 World::~World()
 {
-	delete this->currentState;
-	this->currentState = nullptr;
-
 	for (auto it = this->map_states.begin(); it != this->map_states.end(); ++it) {
 		delete it->second;
-		it->second = nullptr;
 	}
 
 	this->map_states.clear();

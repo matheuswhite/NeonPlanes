@@ -2,11 +2,11 @@
 
 #include "GameState.h"
 
-class MainMenuState : public GameState
+class GameOverState : public GameState
 {
 public:
-	MainMenuState();
-	virtual ~MainMenuState();
+	GameOverState();
+	virtual ~GameOverState();
 
 	void execute_BTN_Z();
 	void execute_BTN_SPACE();

@@ -10,7 +10,5 @@ public:
 	Graphics();
 	virtual ~Graphics();
 
-	void sinAnimation(double limit, Texture* texture);
-private:
-
+	static void sinAnimation(double limit, Texture* texture);
 };

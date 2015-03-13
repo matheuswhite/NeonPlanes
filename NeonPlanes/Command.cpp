@@ -8,78 +8,50 @@ Command::~Command() {
 
 }
 
-void Command::action() {
-	std::cout << "Action!" << std::endl;
+void Command::shoot() {
+#if _DEBUG
+	std::cout << "Shoot!" << std::endl;
+#else
+
+#endif
+}
+
+void Command::useLightWall() {
+#if _DEBUG
+	std::cout << "Wall" << std::endl;
+#else
+
+#endif
+}
+
+void Command::moveUp() {
+#if _DEBUG
+	std::cout << "Up" << std::endl;
+#else
+
+#endif
+}
+
+void Command::moveDown() {
+#if _DEBUG
+	std::cout << "Down" << std::endl;
+#else
+
+#endif
 }
 
 void Command::doNothing() {
-	std::cout << "Nothing!" << std::endl;
+#if _DEBUG
+	std::cout << "DoNothing" << std::endl;
+#else
+
+#endif
 }
 
-void Command::UseSkill() {
+void Command::resume() {
+#if _DEBUG
+	std::cout << "Resume" << std::endl;
+#else
 
-}
-
-void Command::switchLeftSkill() {
-
-}
-
-void Command::switchRightSkill() {
-
-}
-
-void Command::walkUp() {
-
-}
-
-void Command::walkDown() {
-
-}
-
-void Command::walkLeft() {
-
-}
-
-void Command::walkRight() {
-
-}
-
-void Command::pauseGame() {
-
-}
-
-void Command::showMenu() {
-
-}
-
-void Command::resumeGame() {
-
-}
-
-void Command::moveMenuUp() {
-
-}
-
-void Command::moveMenuDown() {
-
-}
-
-void Command::actionMenu() {
-
-}
-
-void Command::switchTabLeft() {
-
-}
-
-void Command::switchTabRight() {
-
-}
-
-void Command::stopPointer() {
-
-}
-
-void Command::exitLockpick() {
-
+#endif
 }

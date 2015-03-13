@@ -3,6 +3,8 @@
 #include "core.h"
 #include "World.h"
 #include "GameStateHeaders.h"
+#include "ToolHeaders.h"
+#include "ComponentHeaders.h"
 
 class Game
 {

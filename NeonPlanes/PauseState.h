@@ -8,8 +8,9 @@ public:
 	PauseState();
 	virtual ~PauseState();
 
-	void execute_BTN2();
-	void execute_BTN1();
+	void execute_BTN_Z();
+	void execute_BTN_SPACE();
+	void execute_BTN_ENTER();
 	void execute_LEFT();
 	void execute_RIGHT();
 	void execute_UP();

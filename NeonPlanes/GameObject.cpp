@@ -6,7 +6,13 @@ GameObject::GameObject(Uint32 id) {
 }
 
 GameObject::~GameObject() {
+	for each (auto var in this->components)
+	{
+		delete var;
+	}
+
 	this->components.clear();
+	this->map_components.clear();
 }
 
 bool GameObject::hasComponent(std::string component) const {

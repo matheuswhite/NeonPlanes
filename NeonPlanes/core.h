@@ -23,17 +23,17 @@
 #include <typeinfo>
 #include <cmath>
 
-#ifndef _DEBUG
-//Release Mode
-
-const std::string SCRIPT_PATH = "Scripts\\";
-const std::string IMAGE_PATH = "Images\\";
-
-#else
+#if _DEBUG
 //Debug Mode
 
 const std::string SCRIPT_PATH = "..\\Debug\\Scripts\\";
 const std::string IMAGE_PATH = "..\\Debug\\Images\\";
+
+#else
+//Release Mode
+
+const std::string SCRIPT_PATH = "Scripts\\";
+const std::string IMAGE_PATH = "Images\\";
 
 #endif // !_DEBUG
 

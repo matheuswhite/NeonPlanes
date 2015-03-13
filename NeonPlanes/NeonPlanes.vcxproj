@@ -76,9 +76,12 @@
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DataStore.cpp" />
+    <ClCompile Include="DebugState.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
@@ -102,11 +105,14 @@
     <ClInclude Include="ComponentHeaders.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="DataStore.h" />
+    <ClInclude Include="DebugState.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOverState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateHeaders.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="LuaScript.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="ObjectManager.h" />
