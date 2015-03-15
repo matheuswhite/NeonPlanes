@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Tool.h"
 #include "core.h"
 
-class DataStore : public Tool
+class DataStore
 {
 public:
 	DataStore();

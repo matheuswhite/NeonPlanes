@@ -25,9 +25,6 @@
     <Filter Include="Header Files\GameStates">
       <UniqueIdentifier>{73ed7877-d879-4278-899e-2a40547bc670}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components\Utilities">
-      <UniqueIdentifier>{aff58860-b740-4c11-b510-52adf0ea9725}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects">
       <UniqueIdentifier>{d480827e-4300-443c-951f-e210e9f6d1fc}</UniqueIdentifier>
     </Filter>
@@ -39,9 +36,6 @@
     </Filter>
     <Filter Include="Source Files\GameStates">
       <UniqueIdentifier>{81013e86-9307-43ef-a524-a80dc305afcb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Utilities">
-      <UniqueIdentifier>{7e33dc69-6983-480d-ab79-b5072b7cc802}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{86f4bc66-4d22-49d6-9820-d06a40fd6417}</UniqueIdentifier>
@@ -62,12 +56,6 @@
     </ClCompile>
     <ClCompile Include="TestMain.cpp">
       <Filter>Source Files\Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="Behavior.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="DataStore.cpp">
       <Filter>Source Files\Tools</Filter>
@@ -92,9 +80,6 @@
     </ClCompile>
     <ClCompile Include="PlayState.cpp">
       <Filter>Source Files\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files\Components\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
@@ -148,9 +133,6 @@
     <ClInclude Include="Graphics.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="LuaScript.h">
-      <Filter>Header Files\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Texts.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
@@ -172,20 +154,11 @@
     <ClInclude Include="PlayState.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files\Components\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\Components\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Tool.h">
-      <Filter>Header Files\Tools</Filter>
     </ClInclude>
     <ClInclude Include="CheckCollision.h">
       <Filter>Header Files\Tools</Filter>
@@ -200,6 +173,9 @@
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
     <ClInclude Include="Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

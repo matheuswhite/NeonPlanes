@@ -5,6 +5,7 @@
 
 class GameObject {
 public:
+	GameObject(){}
 	GameObject(Uint32 id);
 	virtual ~GameObject();
 	

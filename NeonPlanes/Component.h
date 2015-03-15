@@ -1,14 +1,15 @@
 #pragma once
 
-#include "GameObject.h"
+class GameObject;
 
 class Component
 {
 public:
-	Component() {
+	Component(GameObject* obj) {
+		this->obj = obj;
 		this->active = true;
 	}
-	virtual ~Component();
+	virtual ~Component() {}
 
 	bool isActive() const {
 		return this->active;

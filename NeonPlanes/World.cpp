@@ -29,7 +29,7 @@ GameState* World::getCurrentState() {
 }
 
 void World::switchGameState(std::string state) {
-	currentState = map_states[state];
+	currentState = map_states.at(state);
 }
 
 void World::addGameState(GameState* state) {

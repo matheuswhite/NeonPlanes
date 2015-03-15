@@ -5,8 +5,8 @@
 class Behavior : public Component
 {
 public:
-	Behavior();
-	virtual ~Behavior();
+	Behavior(GameObject* obj) : Component(obj) {}
+	virtual ~Behavior() {}
 
 	virtual void run() = 0;
 };

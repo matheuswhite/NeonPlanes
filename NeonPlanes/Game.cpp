@@ -5,25 +5,43 @@ World* Game::world = nullptr;
 
 Game::Game(std::string name, int windows_x, int windows_y, int flag)
 {
-	
+	this->init = true;
+
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+	{
 		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		this->init = false;
+	}
+
+	if (IMG_Init(IMG_INIT_PNG) == 0)
+	{
+		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		this->init = false;
+	}
+
+	if (TTF_Init() < 0)
+	{
+		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		this->init = false;
+	}
 
 	this->window = SDL_CreateWindow(name.c_str(), windows_x, windows_y, SCREEN_WIDTH, SCREEN_HEIGHT, flag);
 	if (this->window == nullptr)
+	{
 		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		this->init = false;
+	}
 
 	this->renderer = SDL_CreateRenderer(this->window, -1, 0);
 	if (this->renderer == nullptr)
+	{
 		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
-	
-	this->world = new World();
-	if (this->world == nullptr)
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		this->init = false;
+	}
+}
 
-	SDL_SetRenderDrawColor(Game::getRenderer(), 255, 255, 255, 255);
-	SDL_RenderClear(Game::renderer);
-	SDL_RenderPresent(Game::renderer);
+bool Game::isInitialize() const {
+	return this->init;
 }
 
 Game::~Game()
@@ -32,26 +50,40 @@ Game::~Game()
 }
 
 
-void Game::init() {
+bool Game::initialize() {
+	this->world = new World();
+
+	if (this->world == nullptr) {
+		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		return false;
+	}
+
 #if _DEBUG
 	//Debug Mode
-
-	World::switchGameState("DebugState");
+	SDL_SetRenderDrawColor(Game::getRenderer(), 0, 255, 255, 255);
+	World::switchGameState("class DebugState");
 
 #else
 	//Release Mode
-
-	World::switchGameState("MainMenu");
+	SDL_SetRenderDrawColor(Game::getRenderer(), 255, 255, 255, 255);
+	World::switchGameState("class MainMenu");
 
 #endif // !_DEBUG
 
-	Graphics::sinAnimation(M_PI, new Texture(IMAGE_PATH + "Logo.png"));
+	SDL_RenderClear(Game::renderer);
+	SDL_RenderPresent(Game::renderer);
+
+	//Graphics::sinAnimation(M_PI, new Texture(IMAGE_PATH + "Logo.png"));
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0){}
+
+	return true;
 }
 
 void Game::draw() {
+	SDL_RenderClear(Game::getRenderer());
+
 	for each (auto layer in World::getCurrentState()->getLayers()) 
 	{
 		for each (auto object in layer->getGameObjects()) 
@@ -60,6 +92,8 @@ void Game::draw() {
 			obj->draw();
 		}
 	}
+
+	SDL_RenderPresent(Game::getRenderer());
 }
 
 //improvisado
@@ -87,41 +121,50 @@ bool Game::handlingEvents() {
 	SDL_Event e;
 
 	while (SDL_PollEvent(&e) != 0) {
-		if (e.type == SDL_QUIT) {
+		switch (e.type) {
+		case SDL_QUIT:
 			return false;
-		}
-		else if (e.type == SDL_KEYDOWN) {
+		case SDL_KEYDOWN:
 			switch (e.key.keysym.sym) {
 			case SDLK_ESCAPE:
 #if _DEBUG
-	return false;
+				return false;
 #else
-	World::getCurrentState()->execute_BTN3;
+				World::getCurrentState()->execute_BTN_ENTER();
 #endif
+				break;
 			case SDLK_SPACE:
-				World::getCurrentState()->execute_BTN_SPACE;
+				World::getCurrentState()->execute_BTN_SPACE();
 				break;
 			case SDLK_z:
-				World::getCurrentState()->execute_BTN_Z;
+				World::getCurrentState()->execute_BTN_Z();
 				break;
 			case SDLK_KP_ENTER:
-				World::getCurrentState()->execute_BTN_ENTER;
+				World::getCurrentState()->execute_BTN_ENTER();
 				break;
 			case SDLK_UP:
-				World::getCurrentState()->execute_UP;
+				World::getCurrentState()->execute_UP();
 				break;
 			case SDLK_DOWN:
-				World::getCurrentState()->execute_DOWN;
+				World::getCurrentState()->execute_DOWN();
 				break;
 			case SDLK_LEFT:
-				World::getCurrentState()->execute_LEFT;
+				World::getCurrentState()->execute_LEFT();
 				break;
 			case SDLK_RIGHT:
-				World::getCurrentState()->execute_RIGHT;
+				World::getCurrentState()->execute_RIGHT();
 				break;
 			default:
 				break;
 			}
+			break;
+		case SDL_KEYUP:
+			if (typeid(*World::getCurrentState()) == typeid(DebugState)) {
+				Command::stop();
+			}
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -137,6 +180,8 @@ void Game::clear() {
 	this->window = nullptr;
 	this->renderer = nullptr;
 
+	TTF_Quit();
+	IMG_Quit();
 	SDL_Quit();
 }
 

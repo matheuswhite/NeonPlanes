@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle(Vector2D* position, Vector2D* size)
+Rectangle::Rectangle(Vector2D* position, Vector2D* size, GameObject* obj) : Component(obj)
 {
 	this->position = position;
 	this->size = size;

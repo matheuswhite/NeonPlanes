@@ -15,6 +15,7 @@ public:
 	static void moveDown();
 	static void moveLeft();
 	static void moveRight();
+	static void stop();
 
 	static void select();
 	static void resume();

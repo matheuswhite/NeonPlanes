@@ -6,8 +6,8 @@
 class Rectangle : public Component
 {
 public:
-	Rectangle() {}
-	Rectangle(Vector2D* position, Vector2D* size);
+	Rectangle(GameObject* obj) : Component(obj) {}
+	Rectangle(Vector2D* position, Vector2D* size, GameObject* obj);
 	virtual ~Rectangle();
 
 	SDL_Rect* getRectSDL();

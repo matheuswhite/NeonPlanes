@@ -1,8 +1,6 @@
 #pragma once
 
-#include "Tool.h"
-
-class Texts : public Tool
+class Texts
 {
 public:
 	Texts();
