@@ -1,8 +1,9 @@
 #include "Layer.h"
 
 
-Layer::Layer()
+Layer::Layer(std::string name)
 {
+	this->name = name;
 }
 
 Layer::~Layer()
@@ -14,6 +15,7 @@ Layer::~Layer()
 
 	this->objects.clear();
 	this->map_objects.clear();
+	this->name.clear();
 }
 
 void Layer::addGameObject(GameObject* obj) 
@@ -30,4 +32,8 @@ GameObject* Layer::getGameObject(std::string obj) const
 std::vector<GameObject*> Layer::getGameObjects() const 
 { 
 	return this->objects; 
+}
+
+std::string Layer::getName() const {
+	return this->name;
 }
