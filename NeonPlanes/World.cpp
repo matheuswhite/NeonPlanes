@@ -1,8 +1,5 @@
 #include "World.h"
 
-GameState* World::currentState = nullptr;
-std::map< std::string, GameState* > World::map_states = {};
-
 World::World()
 {
 	addGameState(new PlayState());

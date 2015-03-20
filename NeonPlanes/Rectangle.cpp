@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle(Vector2D* position, Vector2D* size, GameObject* obj) : Component(obj)
+Rectangle::Rectangle(Vector2D* position, Vector2D* size)
 {
 	this->position = position;
 	this->size = size;
@@ -8,6 +8,9 @@ Rectangle::Rectangle(Vector2D* position, Vector2D* size, GameObject* obj) : Comp
 
 Rectangle::~Rectangle()
 {
+	delete this->position;
+	delete this->size;
+
 	this->position = nullptr;
 	this->size = nullptr;
 }
@@ -45,6 +48,10 @@ bool Rectangle::intersects(Rectangle* r) const {
 	return (distance3.x < 0) && (distance3.y < 0);
 }
 
-void Rectangle::switchPosition(Vector2D* position) {
+void Rectangle::changePosition(Vector2D* position) {
 	this->position = position;
+}
+
+void Rectangle::changeSize(Vector2D* size) {
+	this->size = size;
 }

@@ -2,9 +2,10 @@
 
 int main(int argc, char **argv) {
 	bool running = true;
-	Uint32 startTime = 0;
-	Uint32 elapsedTime = 0;
-
+	float startTime = 0;
+	float elapsedTime = 0;
+	int frames = 0;
+	float totalTime = 0;
 	
 	Game* game = new Game("LAST LEVEL - V1.0", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOW_SHOWN);
 
@@ -25,20 +26,37 @@ int main(int argc, char **argv) {
 
 
 	while (running) {
+#if _DEBUG
+		if (totalTime >= 1000) {
+			FPS_HUD::updateFPS(frames);
+			totalTime = 0;
+			frames = 0;
+		}
+#endif
 		startTime = SDL_GetTicks();
 
 		running = game->handlingEvents();
-			
+
 		if (!running)
 			break;
 
-		//game->update();
-		//game->draw();
-			
+		game->update();
+		game->draw();
+
 		elapsedTime = startTime - SDL_GetTicks();
+
 		if (elapsedTime < GAME_FPS) {
 			SDL_Delay(GAME_FPS - elapsedTime);
+#if _DEBUG
+			totalTime += GAME_FPS;
 		}
+		else { 
+			totalTime += elapsedTime;
+		}
+#else
+		}
+#endif
+		frames++;
 	}
 
 	delete game;

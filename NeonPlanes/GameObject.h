@@ -1,11 +1,10 @@
 #pragma once
 
 #include "core.h"
-#include "ComponentHeaders.h"
+#include "Component.h"
 
 class GameObject {
 public:
-	GameObject(){}
 	GameObject(Uint32 id);
 	virtual ~GameObject();
 	

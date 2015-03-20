@@ -69,9 +69,6 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Texts.cpp">
-      <Filter>Source Files\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenuState.cpp">
       <Filter>Source Files\GameStates</Filter>
     </ClCompile>
@@ -96,6 +93,12 @@
     <ClCompile Include="Layer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextSprite.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="FPS_HUD.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -118,9 +121,6 @@
     <ClInclude Include="Component.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentHeaders.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Behavior.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
@@ -133,13 +133,7 @@
     <ClInclude Include="Graphics.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Texts.h">
-      <Filter>Header Files\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>Header Files\GameStates</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateHeaders.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
     <ClInclude Include="MainMenuState.h">
@@ -163,9 +157,6 @@
     <ClInclude Include="CheckCollision.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="ToolHeaders.h">
-      <Filter>Header Files\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="GameOverState.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
@@ -177,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FPS_HUD.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSprite.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

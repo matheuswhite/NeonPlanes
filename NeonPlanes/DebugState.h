@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameState.h"
+#include "FPS_HUD.h"
 
 class DebugState : public GameState
 {

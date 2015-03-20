@@ -61,7 +61,7 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(Game::getRenderer(), 0, 255, 255, 255);
-	World::switchGameState("class DebugState");
+	this->world->switchGameState("class DebugState");
 
 #else
 	//Release Mode
@@ -82,14 +82,17 @@ bool Game::initialize() {
 }
 
 void Game::draw() {
+	
 	SDL_RenderClear(Game::getRenderer());
 
-	for each (auto layer in World::getCurrentState()->getLayers()) 
+	for each (auto layer in this->world->getCurrentState()->getVectorLayers()) 
 	{
 		for each (auto object in layer->getGameObjects()) 
 		{
 			auto obj = dynamic_cast<Sprite*>(object);
-			obj->draw();
+			if (obj != nullptr) {
+				obj->draw();
+			}
 		}
 	}
 
@@ -101,16 +104,17 @@ void Game::update() {
 
 
 
-
-	for each (auto layer in World::getCurrentState()->getLayers())
+	
+	for each (auto layer in this->world->getCurrentState()->getVectorLayers())
 	{
 		for each (auto object in layer->getGameObjects())
 		{
 			auto obj = dynamic_cast<Behavior*>(object);
-			obj->run();
+			if (obj != nullptr) {
+				obj->run();
+			}
 		}
 	}
-
 
 
 
@@ -134,32 +138,32 @@ bool Game::handlingEvents() {
 #endif
 				break;
 			case SDLK_SPACE:
-				World::getCurrentState()->execute_BTN_SPACE();
+				this->world->getCurrentState()->execute_BTN_SPACE();
 				break;
 			case SDLK_z:
-				World::getCurrentState()->execute_BTN_Z();
+				this->world->getCurrentState()->execute_BTN_Z();
 				break;
 			case SDLK_KP_ENTER:
-				World::getCurrentState()->execute_BTN_ENTER();
+				this->world->getCurrentState()->execute_BTN_ENTER();
 				break;
 			case SDLK_UP:
-				World::getCurrentState()->execute_UP();
+				this->world->getCurrentState()->execute_UP();
 				break;
 			case SDLK_DOWN:
-				World::getCurrentState()->execute_DOWN();
+				this->world->getCurrentState()->execute_DOWN();
 				break;
 			case SDLK_LEFT:
-				World::getCurrentState()->execute_LEFT();
+				this->world->getCurrentState()->execute_LEFT();
 				break;
 			case SDLK_RIGHT:
-				World::getCurrentState()->execute_RIGHT();
+				this->world->getCurrentState()->execute_RIGHT();
 				break;
 			default:
 				break;
 			}
 			break;
 		case SDL_KEYUP:
-			if (typeid(*World::getCurrentState()) == typeid(DebugState)) {
+			if (typeid(*this->world->getCurrentState()) == typeid(DebugState)) {
 				Command::stop();
 			}
 			break;
@@ -192,4 +196,8 @@ SDL_Window* Game::getWindow() {
 
 SDL_Renderer* Game::getRenderer() {
 	return renderer;
+}
+
+World* Game::getWorld() {
+	return world;
 }

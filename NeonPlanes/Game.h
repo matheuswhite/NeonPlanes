@@ -2,9 +2,8 @@
 
 #include "core.h"
 #include "World.h"
-#include "GameStateHeaders.h"
-#include "ToolHeaders.h"
-#include "ComponentHeaders.h"
+#include "Sprite.h"
+#include "Behavior.h"
 
 class Game
 {

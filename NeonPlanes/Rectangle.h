@@ -6,8 +6,7 @@
 class Rectangle : public Component
 {
 public:
-	Rectangle(GameObject* obj) : Component(obj) {}
-	Rectangle(Vector2D* position, Vector2D* size, GameObject* obj);
+	Rectangle(Vector2D* position, Vector2D* size);
 	virtual ~Rectangle();
 
 	SDL_Rect* getRectSDL();
@@ -20,7 +19,8 @@ public:
 	bool contains(Vector2D* v) const;
 	bool intersects(Rectangle* r) const;
 
-	void switchPosition(Vector2D* position);
+	void changePosition(Vector2D* position);
+	void changeSize(Vector2D* size);
 protected:
 	Vector2D* position;
 	Vector2D* size;

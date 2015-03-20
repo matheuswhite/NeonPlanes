@@ -12,6 +12,7 @@ public:
 			delete var;
 		}
 		layers.clear();
+		map_layers.clear();
 	}
 	
 	virtual void execute_BTN_Z() = 0;
@@ -22,8 +23,14 @@ public:
 	virtual void execute_UP() = 0;
 	virtual void execute_DOWN() = 0;
 
-	void addLayer(Layer* layer) { this->layers.push_back(layer); }
-	std::vector<Layer*> getLayers() const { return this->layers; }
+	void addLayer(Layer* layer) 
+	{ 
+		this->layers.push_back(layer); 
+		this->map_layers.insert(std::pair<std::string, Layer*>(layer->getName(), layer));
+	}
+	std::vector<Layer*> getVectorLayers() const { return this->layers; }
+	Layer* getLayer(std::string layer) const { return this->map_layers.at(layer); }
 protected:
 	std::vector<Layer*> layers;
+	std::map<std::string, Layer*> map_layers;
 };

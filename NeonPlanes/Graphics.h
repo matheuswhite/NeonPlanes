@@ -6,12 +6,13 @@ class Texture
 {
 public:
 	Texture(std::string pathFile);
+	Texture(SDL_Surface* surface);
 	virtual ~Texture();
 
 	SDL_Texture* getTexture() const;
 
 private:
-	void loadFromFile(SDL_Renderer* renderer);
+	void loadFromFile(SDL_Renderer* renderer, SDL_Surface* loadedSurface);
 	void free();
 
 	SDL_Texture* texture;

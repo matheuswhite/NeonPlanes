@@ -51,7 +51,18 @@ Texture::Texture(std::string pathFile)
 	this->pathFile = pathFile;
 	this->texture = nullptr;
 
-	this->loadFromFile(Game::getRenderer());
+	SDL_Surface* surface = IMG_Load(this->pathFile.c_str());
+	this->loadFromFile(Game::getRenderer(), surface);
+	SDL_FreeSurface(surface);
+	surface = nullptr;
+}
+
+Texture::Texture(SDL_Surface* surface) 
+{
+	this->pathFile = pathFile;
+	this->texture = nullptr;
+
+	this->loadFromFile(Game::getRenderer(), surface);
 }
 
 Texture::~Texture()
@@ -59,11 +70,8 @@ Texture::~Texture()
 	this->free();
 }
 
-void Texture::loadFromFile(SDL_Renderer* renderer) {
+void Texture::loadFromFile(SDL_Renderer* renderer, SDL_Surface* loadedSurface) {
 	this->free();
-
-
-	SDL_Surface* loadedSurface = IMG_Load(this->pathFile.c_str());
 
 	if (loadedSurface == nullptr) {
 		std::cerr << "Error in loadFromFile. Line: " << __LINE__ << std::endl;
@@ -74,9 +82,6 @@ void Texture::loadFromFile(SDL_Renderer* renderer) {
 	if (this->texture == nullptr) {
 		std::cerr << "Error in loadFromFile. Line: " << __LINE__ << std::endl;
 	}
-
-	SDL_FreeSurface(loadedSurface);
-	loadedSurface = nullptr;
 }
 
 void Texture::free() {
