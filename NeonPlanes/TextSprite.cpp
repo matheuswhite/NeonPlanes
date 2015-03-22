@@ -18,3 +18,11 @@ void TextSprite::draw() {
 Font* TextSprite::getFont() const {
 	return this->font;
 }
+
+void TextSprite::updateValue(std::string value) {
+	this->font->setValue(value);
+
+	delete this->texture;
+	this->texture = new Texture();
+	this->texture->loadTTF(renderer, this->font);
+}

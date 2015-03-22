@@ -12,6 +12,7 @@ public:
 	void draw();
 
 	Font* getFont() const;
+	void updateValue(std::string value);
 private:
 	Font* font;
 };

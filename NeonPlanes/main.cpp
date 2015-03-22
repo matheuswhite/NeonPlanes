@@ -26,16 +26,14 @@ int main(int argc, char **argv) {
 
 
 	while (running) {
-#if _DEBUG
 		if (totalTime >= 1000) {
+			system("cls");
 			auto hud = (FPS_HUD*)game->getGameWorld()->getCurrentState()->getLayer("Debug")->getGameObject("class FPS_HUD");
 			hud->updateFPS(frames);
+			std::cerr << "Time: " << totalTime << "\nStartTime: " << startTime << "\nElapsedTime: " << elapsedTime << "\nFrames: " << frames << std::endl;
 			totalTime = 0;
 			frames = 0;
 		}
-#endif
-		startTime = SDL_GetTicks();
-
 		running = game->handlingEvents();
 
 		if (!running)
@@ -44,20 +42,19 @@ int main(int argc, char **argv) {
 		game->update();
 		game->draw();
 
-		elapsedTime = startTime - SDL_GetTicks();
-
-		if (elapsedTime < GAME_FPS) {
-			SDL_Delay(GAME_FPS - elapsedTime);
-#if _DEBUG
+		elapsedTime = SDL_GetTicks();
+		if (elapsedTime - startTime < GAME_FPS) {
+			SDL_Delay(GAME_FPS - (elapsedTime - startTime));
 			totalTime += GAME_FPS;
+			startTime = GAME_FPS + startTime;
 		}
 		else { 
-			totalTime += elapsedTime;
+			totalTime += elapsedTime - startTime;
+			startTime = elapsedTime;
 		}
-#else
-		}
-#endif
 		frames++;
+
+		//std::cerr << "Time: " << totalTime << "\nStartTime: " << startTime << "\nElapsedTime: " << elapsedTime << "\nFrames: " << frames << std::endl << std::endl;
 	}
 
 	delete game;

@@ -93,6 +93,10 @@ void Game::draw() {
 			auto obj = dynamic_cast<Sprite*>(object);
 			if (obj != nullptr) {
 				obj->draw();
+				std::cerr << "Draw: " << typeid(*obj).name() << std::endl;
+			}
+			else {
+				//std::cerr << "Draw: " << typeid(*object).name() << std::endl;
 			}
 		}
 	}
