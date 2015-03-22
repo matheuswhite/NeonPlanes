@@ -1,5 +1,7 @@
 #pragma once
 
+#include "core.h"
+
 class Component
 {
 public:

@@ -8,14 +8,6 @@ Layer::Layer(std::string name)
 
 Layer::~Layer()
 {
-	for each (auto obj in this->objects)
-	{
-		delete obj;
-	}
-
-	this->objects.clear();
-	this->map_objects.clear();
-	this->name.clear();
 }
 
 void Layer::addGameObject(GameObject* obj) 

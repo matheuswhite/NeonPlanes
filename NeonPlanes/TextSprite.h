@@ -1,13 +1,18 @@
 #pragma once
 
 #include "Sprite.h"
+#include "Graphics.h"
 
 class TextSprite : public Sprite
 {
 public:
-	TextSprite(Rectangle* destiny, std::string value, std::string font, Uint8 size, const SDL_Color& color);
+	TextSprite(Rectangle* destiny, Font* font);
 	virtual ~TextSprite();
 
 	void draw();
+
+	Font* getFont() const;
+private:
+	Font* font;
 };
 

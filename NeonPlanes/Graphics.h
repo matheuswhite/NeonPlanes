@@ -1,33 +1,16 @@
 #pragma once
 
-#include "Game.h"
-
-class Texture
-{
-public:
-	Texture(std::string pathFile);
-	Texture(SDL_Surface* surface);
-	virtual ~Texture();
-
-	SDL_Texture* getTexture() const;
-
-private:
-	void loadFromFile(SDL_Renderer* renderer, SDL_Surface* loadedSurface);
-	void free();
-
-	SDL_Texture* texture;
-	std::string pathFile;
-};
+#include "core.h"
 
 class Graphics
 {
 public:
 	Graphics();
 	virtual ~Graphics();
-	static void sinAnimation(double limit, Texture* texture);
-	static void render(SDL_Rect* source, SDL_Rect* destiny, Texture* texture);
+	static void sinAnimation(double limit, SDL_Texture* texture);
+	static void render(SDL_Rect* source, SDL_Rect* destiny, SDL_Texture* texture);
 
 private:
-	static void setAlphaModulation(Uint8 alpha, Texture* texture);
-	static void setBlendMode(SDL_BlendMode mode, Texture* texture);
+	static void setAlphaModulation(Uint8 alpha, SDL_Texture* texture);
+	static void setBlendMode(SDL_BlendMode mode, SDL_Texture* texture);
 };

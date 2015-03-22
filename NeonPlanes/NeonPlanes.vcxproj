@@ -76,6 +76,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DataStore.cpp" />
     <ClCompile Include="DebugState.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPS_HUD.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="TestMain.cpp" />
     <ClCompile Include="TextSprite.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +105,7 @@
     <ClInclude Include="core.h" />
     <ClInclude Include="DataStore.h" />
     <ClInclude Include="DebugState.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="FPS_HUD.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -117,6 +120,7 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="TextSprite.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

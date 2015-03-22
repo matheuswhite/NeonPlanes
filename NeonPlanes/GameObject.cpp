@@ -5,15 +5,7 @@ GameObject::GameObject(Uint32 id) {
 	this->active = true;
 }
 
-GameObject::~GameObject() {
-	for each (auto var in this->components)
-	{
-		delete var;
-	}
-
-	this->components.clear();
-	this->map_components.clear();
-}
+GameObject::~GameObject() {}
 
 bool GameObject::hasComponent(std::string component) const {
 	if (this->map_components.find(component) != this->map_components.end())

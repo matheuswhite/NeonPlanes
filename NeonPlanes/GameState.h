@@ -7,13 +7,7 @@ class GameState
 {
 public:
 	GameState() {}
-	virtual ~GameState() {
-		for each (auto var in this->layers) {
-			delete var;
-		}
-		layers.clear();
-		map_layers.clear();
-	}
+	virtual ~GameState() {}
 	
 	virtual void execute_BTN_Z() = 0;
 	virtual void execute_BTN_SPACE() = 0;

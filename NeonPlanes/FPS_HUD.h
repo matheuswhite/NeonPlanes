@@ -10,7 +10,5 @@ public:
 	FPS_HUD(Uint32 id);
 	virtual ~FPS_HUD();
 
-	static void updateFPS(Uint8 fps);
-private:
-	static Uint8 fps;
+	void updateFPS(Uint8 fps);
 };

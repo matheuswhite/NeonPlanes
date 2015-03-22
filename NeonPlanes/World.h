@@ -18,5 +18,5 @@ private:
 	void addGameState(GameState* state);
 
 	GameState* currentState;
-	std::map< std::string, GameState* > map_states;
+	std::map<std::string, GameState*> map_states;
 };

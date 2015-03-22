@@ -6,7 +6,7 @@ Graphics::Graphics() {
 Graphics::~Graphics() {
 }
 
-void Graphics::sinAnimation(double limit, Texture* texture) {
+void Graphics::sinAnimation(double limit, SDL_Texture* texture) {
 	double current = 0;
 	const double pass = 0.1;
 
@@ -15,84 +15,34 @@ void Graphics::sinAnimation(double limit, Texture* texture) {
 			SDL_Delay(750);
 		}
 
-		SDL_RenderClear(Game::getRenderer());
+		SDL_RenderClear(renderer);
 
 		setBlendMode(SDL_BLENDMODE_BLEND, texture);
 		setAlphaModulation(sin(current) * 255, texture);
 		render(nullptr,nullptr,texture);
 
-		SDL_RenderPresent(Game::getRenderer());
+		SDL_RenderPresent(renderer);
 
 		current += pass;
 		SDL_Delay(100);
 	}
-	
-	delete texture;
-	SDL_RenderClear(Game::getRenderer());
-	SDL_RenderPresent(Game::getRenderer());
 }
 
-void Graphics::render(SDL_Rect* source, SDL_Rect* destiny, Texture* texture) {
-	SDL_RenderCopy(Game::getRenderer(), texture->getTexture(), source, destiny);
+void Graphics::render(SDL_Rect* source, SDL_Rect* destiny, SDL_Texture* texture) {
+	SDL_RenderCopy(renderer, texture, source, destiny);
 }
 
-void Graphics::setAlphaModulation(Uint8 alpha, Texture* texture) {
-	SDL_GetTextureAlphaMod(texture->getTexture(), &alpha);
+void Graphics::setAlphaModulation(Uint8 alpha, SDL_Texture* texture) {
+	SDL_GetTextureAlphaMod(texture, &alpha);
 }
 
-void Graphics::setBlendMode(SDL_BlendMode mode, Texture* texture) {
-	SDL_SetTextureBlendMode(texture->getTexture(), mode);
+void Graphics::setBlendMode(SDL_BlendMode mode, SDL_Texture* texture) {
+	SDL_SetTextureBlendMode(texture, mode);
 }
 
-
+/*
 //Texture
-Texture::Texture(std::string pathFile)
-{
-	this->pathFile = pathFile;
-	this->texture = nullptr;
 
-	SDL_Surface* surface = IMG_Load(this->pathFile.c_str());
-	this->loadFromFile(Game::getRenderer(), surface);
-	SDL_FreeSurface(surface);
-	surface = nullptr;
-}
-
-Texture::Texture(SDL_Surface* surface) 
-{
-	this->pathFile = pathFile;
-	this->texture = nullptr;
-
-	this->loadFromFile(Game::getRenderer(), surface);
-}
-
-Texture::~Texture()
-{
-	this->free();
-}
-
-void Texture::loadFromFile(SDL_Renderer* renderer, SDL_Surface* loadedSurface) {
-	this->free();
-
-	if (loadedSurface == nullptr) {
-		std::cerr << "Error in loadFromFile. Line: " << __LINE__ << std::endl;
-	}
-
-	this->texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
-
-	if (this->texture == nullptr) {
-		std::cerr << "Error in loadFromFile. Line: " << __LINE__ << std::endl;
-	}
-}
-
-void Texture::free() {
-	if (this->texture != nullptr) {
-		SDL_DestroyTexture(this->texture);
-	}
-}
-
-SDL_Texture* Texture::getTexture() const {
-	return this->texture;
-}
 
 /*
 if (object->lastPosition != position) {

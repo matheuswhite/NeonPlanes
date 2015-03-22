@@ -1,6 +1,5 @@
 #pragma once
 
-#include "core.h"
 #include "World.h"
 #include "Sprite.h"
 #include "Behavior.h"
@@ -18,12 +17,10 @@ public:
 	void clear();
 
 	bool isInitialize() const;
-	SDL_Window* getWindow();
+	SDL_Window* getWindow() const;
 	static SDL_Renderer* getRenderer();
-	static World* getWorld();
+	static World *getGameWorld();
 private:
-	SDL_Window* window;
 	bool init;
-	static SDL_Renderer* renderer;
-	static World* world;
+	static World *gameWorld;
 };

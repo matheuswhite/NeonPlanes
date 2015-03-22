@@ -2,10 +2,10 @@
 
 int main(int argc, char **argv) {
 	bool running = true;
-	float startTime = 0;
-	float elapsedTime = 0;
+	Uint32 startTime = 0;
+	Uint32 elapsedTime = 0;
 	int frames = 0;
-	float totalTime = 0;
+	Uint32 totalTime = 0;
 	
 	Game* game = new Game("LAST LEVEL - V1.0", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOW_SHOWN);
 
@@ -28,7 +28,8 @@ int main(int argc, char **argv) {
 	while (running) {
 #if _DEBUG
 		if (totalTime >= 1000) {
-			FPS_HUD::updateFPS(frames);
+			auto hud = (FPS_HUD*)game->getGameWorld()->getCurrentState()->getLayer("Debug")->getGameObject("class FPS_HUD");
+			hud->updateFPS(frames);
 			totalTime = 0;
 			frames = 0;
 		}

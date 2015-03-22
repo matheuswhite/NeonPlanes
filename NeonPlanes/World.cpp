@@ -14,11 +14,6 @@ World::World()
 
 World::~World()
 {
-	for (auto it = this->map_states.begin(); it != this->map_states.end(); ++it) {
-		delete it->second;
-	}
-
-	this->map_states.clear();
 }
 
 GameState* World::getCurrentState() {

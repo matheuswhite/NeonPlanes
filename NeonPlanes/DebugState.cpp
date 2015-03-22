@@ -7,7 +7,6 @@ DebugState::DebugState()
 	this->addLayer(new Layer("HUD"));
 	this->addLayer(new Layer("Debug"));
 
-
 	this->getLayer("Debug")->addGameObject(new FPS_HUD(1));
 }
 
