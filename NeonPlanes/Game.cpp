@@ -90,13 +90,14 @@ void Game::draw() {
 	{
 		for each (auto object in layer->getGameObjects()) 
 		{
-			auto obj = dynamic_cast<Sprite*>(object);
-			if (obj != nullptr) {
-				obj->draw();
-				std::cerr << "Draw: " << typeid(*obj).name() << std::endl;
-			}
-			else {
-				//std::cerr << "Draw: " << typeid(*object).name() << std::endl;
+			for each (auto component in object->getVectorComponents())
+			{
+				auto comp = dynamic_cast<Sprite*>(component);
+				if (comp)
+				{
+					((Sprite*)component)->draw();
+					//std::cerr << "Draw: " << typeid(*component).name() << std::endl;
+				}
 			}
 		}
 	}

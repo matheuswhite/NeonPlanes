@@ -10,6 +10,7 @@ public:
 	bool hasComponent(std::string component) const;
 	void addComponent(Component* component);
 	Uint32 getGameObjectID() const;
+	std::vector<Component*> getVectorComponents() const;
 	Component* getComponent(std::string component) const;
 	bool isActive() const;
 

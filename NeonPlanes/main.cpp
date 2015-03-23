@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 			system("cls");
 			auto hud = (FPS_HUD*)game->getGameWorld()->getCurrentState()->getLayer("Debug")->getGameObject("class FPS_HUD");
 			hud->updateFPS(frames);
-			std::cerr << "Time: " << totalTime << "\nStartTime: " << startTime << "\nElapsedTime: " << elapsedTime << "\nFrames: " << frames << std::endl;
+			std::cerr << "Time: " << totalTime << "\nFrames: " << frames << std::endl;
 			totalTime = 0;
 			frames = 0;
 		}
@@ -53,8 +53,6 @@ int main(int argc, char **argv) {
 			startTime = elapsedTime;
 		}
 		frames++;
-
-		//std::cerr << "Time: " << totalTime << "\nStartTime: " << startTime << "\nElapsedTime: " << elapsedTime << "\nFrames: " << frames << std::endl << std::endl;
 	}
 
 	delete game;

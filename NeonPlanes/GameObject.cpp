@@ -33,3 +33,7 @@ bool GameObject::isActive() const {
 bool GameObject::operator==(GameObject* second) const {
 	return (this->id == second->id) && (typeid(*this) == typeid(*second));
 }
+
+std::vector<Component*> GameObject::getVectorComponents() const {
+	return this->components;
+}
