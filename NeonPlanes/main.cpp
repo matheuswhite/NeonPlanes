@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Timers.h"
 
 int main(int argc, char **argv) {
 	bool running = true;
@@ -6,7 +7,7 @@ int main(int argc, char **argv) {
 	Uint32 elapsedTime = 0;
 	int frames = 0;
 	Uint32 totalTime = 0;
-	
+
 	Game* game = new Game("LAST LEVEL - V1.0", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOW_SHOWN);
 
 	if (game == nullptr || !game->isInitialize()) {
@@ -24,6 +25,9 @@ int main(int argc, char **argv) {
 		return 2;
 	}
 
+#if _DEBUG
+	SlaveTimer* testTimer = new SlaveTimer(6000);
+#endif
 
 	while (running) {
 		if (totalTime >= 1000) {
@@ -33,22 +37,31 @@ int main(int argc, char **argv) {
 			std::cerr << "Time: " << totalTime << "\nFrames: " << frames << std::endl;
 			totalTime = 0;
 			frames = 0;
+#if _DEBUG
+			if (testTimer->isFinish()) {
+				std::cerr << "Timer! " << testTimer->getDuration() << std::endl;
+				testTimer = new SlaveTimer(testTimer->getDuration() + 1000);
+			}
+#endif
 		}
+
 		running = game->handlingEvents();
 
 		if (!running)
 			break;
-
+		
 		game->update();
 		game->draw();
 
 		elapsedTime = SDL_GetTicks();
 		if (elapsedTime - startTime < GAME_FPS) {
 			SDL_Delay(GAME_FPS - (elapsedTime - startTime));
+			MasterTimer::updateSlaves(GAME_FPS);
 			totalTime += GAME_FPS;
 			startTime = GAME_FPS + startTime;
 		}
 		else { 
+			MasterTimer::updateSlaves(elapsedTime - startTime);
 			totalTime += elapsedTime - startTime;
 			startTime = elapsedTime;
 		}
