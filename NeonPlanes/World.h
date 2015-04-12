@@ -4,7 +4,6 @@
 #include "PauseState.h"
 #include "PlayState.h"
 #include "GameOverState.h"
-#include "DebugState.h"
 
 class World
 {

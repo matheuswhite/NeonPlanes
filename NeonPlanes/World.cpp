@@ -6,10 +6,6 @@ World::World()
 	addGameState(new MainMenuState());
 	addGameState(new PauseState());
 	addGameState(new GameOverState());
-
-#if _DEBUG
-	addGameState(new DebugState());
-#endif //_DEBUG
 }
 
 World::~World()

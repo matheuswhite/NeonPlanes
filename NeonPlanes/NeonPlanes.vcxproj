@@ -75,7 +75,6 @@
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DataStore.cpp" />
-    <ClCompile Include="DebugState.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPS_HUD.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -105,7 +104,6 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="DataStore.h" />
-    <ClInclude Include="DebugState.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FPS_HUD.h" />
     <ClInclude Include="Game.h" />

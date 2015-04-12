@@ -62,12 +62,12 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState("class DebugState");
+	this->gameWorld->switchGameState(typeid(PlayState).name());
 
 #else
 	//Release Mode
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	World::switchGameState("class MainMenu");
+	World::switchGameState(typeid(MainMenuState).name());
 
 #endif // !_DEBUG
 
@@ -96,7 +96,6 @@ void Game::draw() {
 				if (comp)
 				{
 					((Sprite*)component)->draw();
-					//std::cerr << "Draw: " << typeid(*component).name() << std::endl;
 				}
 			}
 		}
@@ -169,7 +168,7 @@ bool Game::handlingEvents() {
 			}
 			break;
 		case SDL_KEYUP:
-			if (typeid(*this->gameWorld->getCurrentState()) == typeid(DebugState)) {
+			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
 				Command::stop();
 			}
 			break;
