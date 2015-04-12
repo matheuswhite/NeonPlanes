@@ -90,13 +90,10 @@ void Game::draw() {
 	{
 		for each (auto object in layer->getGameObjects()) 
 		{
-			for each (auto component in object->getVectorComponents())
+			for each (auto sprite in object->getVectorSprites())
 			{
-				auto comp = dynamic_cast<Sprite*>(component);
-				if (comp)
-				{
-					((Sprite*)component)->draw();
-				}
+				if (sprite->isActive())
+					sprite->draw();
 			}
 		}
 	}
@@ -114,9 +111,10 @@ void Game::update() {
 	{
 		for each (auto object in layer->getGameObjects())
 		{
-			auto obj = dynamic_cast<Behavior*>(object);
-			if (obj != nullptr) {
-				obj->run();
+			for each (auto behavior in object->getVectorBaheviors())
+			{
+				if (behavior->isActive())
+					behavior->run();
 			}
 		}
 	}

@@ -37,3 +37,41 @@ bool GameObject::operator==(GameObject* second) const {
 std::vector<Component*> GameObject::getVectorComponents() const {
 	return this->components;
 }
+
+void GameObject::addSprite(Sprite* sprite) {
+	this->sprites.push_back(sprite);
+	this->map_sprites.insert(GAME_OBJECT_SPRITE_PAIR(typeid(*sprite).name(), sprite));
+}
+
+void GameObject::addBehavior(Behavior* behavior) {
+	this->behaviors.push_back(behavior);
+	this->map_behaviors.insert(GAME_OBJECT_BEHAVIOR_PAIR(typeid(*behavior).name(), behavior));
+}
+
+std::vector<Behavior*> GameObject::getVectorBaheviors() const {
+	return this->behaviors;
+}
+
+std::vector<Sprite*> GameObject::getVectorSprites() const {
+	return this->sprites;
+}
+
+Sprite* GameObject::getSprite(std::string sprite) const {
+	return this->map_sprites.at(sprite);
+}
+
+Behavior* GameObject::getBehavior(std::string behavior) const {
+	return this->map_behaviors.at(behavior);
+}
+
+bool GameObject::hasSprite(std::string sprite) const {
+	if (this->map_sprites.find(sprite) != this->map_sprites.end())
+		return true;
+	return false;
+}
+
+bool GameObject::hasBehavior(std::string behavior) const {
+	if (this->map_behaviors.find(behavior) != this->map_behaviors.end())
+		return true;
+	return false;
+}

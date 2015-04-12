@@ -34,6 +34,8 @@ const std::string FONT_PATH = "Fonts\\";
 #define SCREEN_WIDTH 420
 #define SCREEN_HEIGHT 590
 #define GAME_OBJECT_PAIR std::pair<std::string, Component*>
+#define GAME_OBJECT_SPRITE_PAIR std::pair<std::string, Sprite*>
+#define GAME_OBJECT_BEHAVIOR_PAIR std::pair<std::string, Behavior*>
 
 namespace utility {
 	enum streamMode {

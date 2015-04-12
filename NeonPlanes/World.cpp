@@ -18,6 +18,10 @@ GameState* World::getCurrentState() {
 
 void World::switchGameState(std::string state) {
 	currentState = map_states.at(state);
+	
+	if (state == typeid(PlayState).name()) {
+		((PlayState*)currentState)->createGameWorld();
+	}
 }
 
 void World::addGameState(GameState* state) {

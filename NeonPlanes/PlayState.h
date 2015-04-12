@@ -16,4 +16,8 @@ public:
 	void execute_RIGHT();
 	void execute_UP();
 	void execute_DOWN();
+
+	void createGameWorld();
+private:
+	bool gameWorldCreated;
 };

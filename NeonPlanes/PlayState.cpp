@@ -2,18 +2,26 @@
 
 PlayState::PlayState()
 {
-	this->addLayer(new Layer("Background"));
-	this->addLayer(new Layer("Interaction"));
-	this->addLayer(new Layer("HUD"));
-	this->addLayer(new Layer("Debug"));
-
-#if _DEBUG
-	this->getLayer("Debug")->addGameObject(new FPS_HUD(1));
-#endif // !_DEBUG
+	this->gameWorldCreated = false;
 }
 
 PlayState::~PlayState()
 {
+}
+
+void PlayState::createGameWorld() {
+	if (!this->gameWorldCreated) {
+		this->addLayer(new Layer("Background"));
+		this->addLayer(new Layer("Interaction"));
+		this->addLayer(new Layer("HUD"));
+		this->addLayer(new Layer("Debug"));
+
+#if _DEBUG
+		this->getLayer("Debug")->addGameObject(new FPS_HUD(1));
+#endif // !_DEBUG
+		
+		this->gameWorldCreated = true;
+	}
 }
 
 void PlayState::execute_BTN_SPACE() {
