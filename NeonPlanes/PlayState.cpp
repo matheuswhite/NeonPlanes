@@ -3,6 +3,13 @@
 PlayState::PlayState()
 {
 	this->gameWorldCreated = false;
+
+	this->addLayer(new Layer("Background"));
+	this->addLayer(new Layer("Interaction"));
+	this->addLayer(new Layer("HUD"));
+#if _DEBUG
+	this->addLayer(new Layer("Debug"));
+#endif
 }
 
 PlayState::~PlayState()
@@ -11,11 +18,9 @@ PlayState::~PlayState()
 
 void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
-		this->addLayer(new Layer("Background"));
-		this->addLayer(new Layer("Interaction"));
-		this->addLayer(new Layer("HUD"));
-		this->addLayer(new Layer("Debug"));
-
+		
+		//this->getLayer("Background")->addGameObject(new );
+		//this->getLayer("Interaction")->addGameObject(new );
 #if _DEBUG
 		this->getLayer("Debug")->addGameObject(new FPS_HUD(1));
 #endif // !_DEBUG

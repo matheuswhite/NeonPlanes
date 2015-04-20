@@ -40,6 +40,12 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{86f4bc66-4d22-49d6-9820-d06a40fd6417}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components\Sprites">
+      <UniqueIdentifier>{c9ac7ac8-3ac9-4825-9bc7-21e227842daa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Sprites">
+      <UniqueIdentifier>{655092f4-b10d-47aa-863c-cfb557929250}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -90,9 +96,6 @@
     <ClCompile Include="Layer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextSprite.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="FPS_HUD.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
@@ -104,6 +107,15 @@
     </ClCompile>
     <ClCompile Include="Timers.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="VerticalScrollingSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +140,6 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Behavior.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="DataStore.h">
@@ -175,9 +184,6 @@
     <ClInclude Include="FPS_HUD.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="TextSprite.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -186,6 +192,18 @@
     </ClInclude>
     <ClInclude Include="Timers.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="VerticalScrollingSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

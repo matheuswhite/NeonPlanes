@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Sprite.h"
-#include "Graphics.h"
 
 class TextSprite : public Sprite
 {

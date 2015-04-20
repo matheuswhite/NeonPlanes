@@ -1,6 +1,6 @@
 #include "TextSprite.h"
 
-TextSprite::TextSprite(Rectangle* destiny, Font* font) : Sprite(destiny)
+TextSprite::TextSprite(Rectangle* destiny, Font* font) : Sprite(destiny, font->getFont())
 {
 	this->font = font;
 	this->texture = new Texture();

@@ -40,6 +40,11 @@ void Graphics::setBlendMode(SDL_BlendMode mode, SDL_Texture* texture) {
 	SDL_SetTextureBlendMode(texture, mode);
 }
 
+//fazer
+void Graphics::renderRotated(SDL_Rect* source, SDL_Rect* destiny, SDL_Texture* texture, double angle) {
+
+}
+
 /*
 //Texture
 

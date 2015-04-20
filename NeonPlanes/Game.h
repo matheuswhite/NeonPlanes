@@ -1,8 +1,8 @@
 #pragma once
 
 #include "World.h"
-#include "Sprite.h"
 #include "Behavior.h"
+#include "Sprite.h"
 
 class Game
 {

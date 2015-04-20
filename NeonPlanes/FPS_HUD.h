@@ -2,7 +2,6 @@
 
 #include "GameObject.h"
 #include "TextSprite.h"
-#include "Rectangle.h"
 
 class FPS_HUD : public GameObject
 {

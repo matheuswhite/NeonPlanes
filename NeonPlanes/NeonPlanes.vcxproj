@@ -84,6 +84,7 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="StaticSprite.cpp" />
     <ClCompile Include="Timers.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="PauseState.cpp" />
@@ -92,6 +93,7 @@
     <ClCompile Include="TestMain.cpp" />
     <ClCompile Include="TextSprite.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="VerticalScrollingSprite.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +115,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="StaticSprite.h" />
     <ClInclude Include="Timers.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="PauseState.h" />
@@ -122,6 +125,7 @@
     <ClInclude Include="TextSprite.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="VerticalScrollingSprite.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

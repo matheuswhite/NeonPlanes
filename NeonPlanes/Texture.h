@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Font.h"
+#include "Graphics.h"
 
 class Texture
 {
