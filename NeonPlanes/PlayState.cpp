@@ -19,10 +19,10 @@ PlayState::~PlayState()
 void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
 		
-		//this->getLayer("Background")->addGameObject(new );
-		//this->getLayer("Interaction")->addGameObject(new );
+		this->getLayer("Background")->addGameObject(new Background(1));
+		this->getLayer("Interaction")->addGameObject(new Player(2));
 #if _DEBUG
-		this->getLayer("Debug")->addGameObject(new FPS_HUD(1));
+		this->getLayer("Debug")->addGameObject(new FPS_HUD(3));
 #endif // !_DEBUG
 		
 		this->gameWorldCreated = true;

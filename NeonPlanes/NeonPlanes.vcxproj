@@ -72,6 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DataStore.cpp" />
@@ -84,6 +85,7 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="StaticSprite.cpp" />
     <ClCompile Include="Timers.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
@@ -97,9 +99,12 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Debug\Images\background.png" />
+    <Image Include="..\Debug\Images\player.png" />
     <Image Include="pict3159.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Command.h" />
@@ -115,6 +120,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="StaticSprite.h" />
     <ClInclude Include="Timers.h" />
     <ClInclude Include="ObjectManager.h" />

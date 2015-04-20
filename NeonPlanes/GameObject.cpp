@@ -15,7 +15,7 @@ bool GameObject::hasComponent(std::string component) const {
 
 void GameObject::addComponent(Component* component) {
 	this->components.push_back(component);
-	this->map_components.insert(GAME_OBJECT_PAIR(typeid(*component).name() , component));
+	this->map_components.insert(GAME_OBJECT_PAIR(component->getName() , component));
 }
 
 Component* GameObject::getComponent(std::string component) const {
@@ -40,12 +40,12 @@ std::vector<Component*> GameObject::getVectorComponents() const {
 
 void GameObject::addSprite(Sprite* sprite) {
 	this->sprites.push_back(sprite);
-	this->map_sprites.insert(GAME_OBJECT_SPRITE_PAIR(typeid(*sprite).name(), sprite));
+	this->map_sprites.insert(GAME_OBJECT_SPRITE_PAIR(sprite->getName(), sprite));
 }
 
 void GameObject::addBehavior(Behavior* behavior) {
 	this->behaviors.push_back(behavior);
-	this->map_behaviors.insert(GAME_OBJECT_BEHAVIOR_PAIR(typeid(*behavior).name(), behavior));
+	this->map_behaviors.insert(GAME_OBJECT_BEHAVIOR_PAIR(behavior->getName(), behavior));
 }
 
 std::vector<Behavior*> GameObject::getVectorBaheviors() const {

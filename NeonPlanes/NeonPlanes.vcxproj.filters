@@ -117,9 +117,21 @@
     <ClCompile Include="VerticalScrollingSprite.cpp">
       <Filter>Source Files\Components\Sprites</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\player.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -204,6 +216,12 @@
     </ClInclude>
     <ClInclude Include="VerticalScrollingSprite.h">
       <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

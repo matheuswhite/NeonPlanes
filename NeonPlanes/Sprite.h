@@ -6,7 +6,7 @@
 class Sprite : public Component
 {
 public:
-	Sprite(Rectangle* destiny, std::string name) : destiny(destiny), name(name) {}
+	Sprite(Rectangle* destiny, std::string pathFile, std::string name) : destiny(destiny), pathFile(pathFile), Component(name) { this->texture = new Texture(); }
 	virtual ~Sprite() 
 	{
 		delete texture;
@@ -19,12 +19,12 @@ public:
 	Texture* getTexture() const { return this->texture; }
 	Rectangle* getSource() const { return this->source; }
 	Rectangle* getDestiny() const { return this->destiny; }
-	std::string getName() const { return this->name; }
+	std::string getPathFile() const { return this->pathFile; }
 
 protected:
 	Texture* texture;
 	Rectangle* source;
 	Rectangle* destiny;
-	std::string name;
+	std::string pathFile;
 };
 

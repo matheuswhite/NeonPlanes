@@ -5,7 +5,7 @@
 class Behavior : public Component
 {
 public:
-	Behavior() {}
+	Behavior(std::string name) : Component(name) {}
 	virtual ~Behavior() {}
 
 	virtual void run() = 0;

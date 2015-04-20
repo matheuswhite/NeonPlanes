@@ -5,7 +5,7 @@
 class TextSprite : public Sprite
 {
 public:
-	TextSprite(Rectangle* destiny, Font* font);
+	TextSprite(Rectangle* destiny, Font* font, std::string name);
 	virtual ~TextSprite();
 
 	void draw();

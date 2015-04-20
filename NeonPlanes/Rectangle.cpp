@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle(const Vector2D& position, const Vector2D& size, double angle) : position(position), size(size), angle(angle)
+Rectangle::Rectangle(const Vector2D& position, const Vector2D& size, double angle, std::string name) : position(position), size(size), angle(angle), Component(name)
 {
 	this->base.first = Vector2D(1, 0).rotatedVector(this->angle);
 	this->base.second = Vector2D(0, 1).rotatedVector(this->angle);

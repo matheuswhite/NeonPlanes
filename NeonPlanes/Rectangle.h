@@ -6,7 +6,7 @@
 class Rectangle : public Component
 {
 public:
-	Rectangle(const Vector2D& position, const Vector2D& size, double angle);
+	Rectangle(const Vector2D& position, const Vector2D& size, double angle, std::string name);
 	virtual ~Rectangle();
 
 	SDL_Rect* getRectSDL();

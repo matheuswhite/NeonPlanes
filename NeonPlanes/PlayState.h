@@ -2,6 +2,8 @@
 
 #include "GameState.h"
 #include "FPS_HUD.h"
+#include "Background.h"
+#include "Player.h"
 
 class PlayState : public GameState
 {
