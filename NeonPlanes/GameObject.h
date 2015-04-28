@@ -5,7 +5,7 @@
 
 class GameObject {
 public:
-	GameObject(Uint32 id);
+	GameObject(Uint32 id, std::string name);
 	virtual ~GameObject();
 	
 	bool hasComponent(std::string component) const;
@@ -20,7 +20,8 @@ public:
 	std::vector<Component*> getVectorComponents() const;
 	std::vector<Sprite*> getVectorSprites() const;
 	std::vector<Behavior*> getVectorBaheviors() const;
-
+	
+	std::string getName() const;
 	Component* getComponent(std::string component) const;
 	Sprite* getSprite(std::string sprite) const;
 	Behavior* getBehavior(std::string behavior) const;
@@ -31,6 +32,7 @@ public:
 protected:
 	Uint32 id;
 	bool active;
+	std::string name;
 
 	std::vector<Sprite*> sprites;
 	std::vector<Behavior*> behaviors;

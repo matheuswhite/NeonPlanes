@@ -1,6 +1,6 @@
 #include "Background.h"
 
-Background::Background(Uint32 id) : GameObject(id)
+Background::Background(Uint32 id, std::string name) : GameObject(id, name)
 {
 	this->addComponent(new Rectangle(Vector2D(0,610), Vector2D(420,590), 0, "source"));
 

@@ -1,8 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(Uint32 id) {
-	this->id = id;
-	this->active = true;
+GameObject::GameObject(Uint32 id, std::string name) : id(id), name(name), active(true) {
 }
 
 GameObject::~GameObject() {}
@@ -54,6 +52,10 @@ std::vector<Behavior*> GameObject::getVectorBaheviors() const {
 
 std::vector<Sprite*> GameObject::getVectorSprites() const {
 	return this->sprites;
+}
+
+std::string GameObject::getName() const {
+	return this->name;
 }
 
 Sprite* GameObject::getSprite(std::string sprite) const {

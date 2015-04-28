@@ -15,6 +15,7 @@
 #include <set>
 #include <typeinfo>
 #include <cmath>
+#include <memory>
 
 #if _DEBUG
 //Debug Mode

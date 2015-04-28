@@ -6,7 +6,7 @@
 class Player : public GameObject
 {
 public:
-	Player(Uint32 id);
+	Player(Uint32 id, std::string name);
 	virtual ~Player();
 
 private:

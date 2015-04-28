@@ -19,10 +19,10 @@ PlayState::~PlayState()
 void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
 		
-		this->getLayer("Background")->addGameObject(new Background(1));
-		this->getLayer("Interaction")->addGameObject(new Player(2));
+		this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background(1, "Background")));
+		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(Player(2, "Player")));
 #if _DEBUG
-		this->getLayer("Debug")->addGameObject(new FPS_HUD(3));
+		this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD(3, "FPS_HUD")));
 #endif // !_DEBUG
 		
 		this->gameWorldCreated = true;
