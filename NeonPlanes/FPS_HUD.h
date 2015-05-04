@@ -1,7 +1,8 @@
 #pragma once
 
 #include "GameObject.h"
-#include "TextSprite.h"
+#include "DynamicTextSprite.h"
+#include "StaticTextSprite.h"
 
 class FPS_HUD : public GameObject
 {

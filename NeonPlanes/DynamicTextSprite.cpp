@@ -1,25 +1,25 @@
-#include "TextSprite.h"
+#include "DynamicTextSprite.h"
 
-TextSprite::TextSprite(Rectangle* destiny, Font* font, std::string name) : Sprite(destiny, font->getFont(), name)
+DynamicTextSprite::DynamicTextSprite(Rectangle* destiny, Font* font, std::string name) : Sprite(destiny, font->getFont(), name)
 {
 	this->font = font;
 	this->texture = new Texture();
 	this->texture->loadTTF(renderer, font);
 }
 
-TextSprite::~TextSprite()
+DynamicTextSprite::~DynamicTextSprite()
 {
 }
 
-void TextSprite::draw() {
+void DynamicTextSprite::draw() {
 	Graphics::render(nullptr, destiny->getRectSDL(), this->texture->getTexture());
 }
 
-Font* TextSprite::getFont() const {
+Font* DynamicTextSprite::getFont() const {
 	return this->font;
 }
 
-void TextSprite::updateValue(std::string value) {
+void DynamicTextSprite::updateValue(std::string value) {
 	this->font->setValue(value);
 
 	delete this->texture;

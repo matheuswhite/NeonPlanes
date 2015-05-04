@@ -2,8 +2,8 @@
 
 FPS_HUD::FPS_HUD(Uint32 id, std::string name) : GameObject(id, name)
 {
-	this->addSprite(new TextSprite(new Rectangle(Vector2D(20, 20), Vector2D(70, 40), 0, "destinyName"), new Font("FPS: ", FONT_PATH + "BEBAS___.ttf", 24, utility::RED), "name"));
-	this->addSprite(new TextSprite(new Rectangle(Vector2D(90, 20), Vector2D(40, 40), 0, "destinyValue"), new Font("", FONT_PATH + "BEBAS___.ttf", 24, utility::RED), "value"));
+	this->addSprite(new StaticTextSprite(new Rectangle(Vector2D(20, 20), Vector2D(70, 40), 0, "destinyName"), new Font("FPS: ", FONT_PATH + "Aero.ttf", 28, utility::RED), "Static"));
+	this->addSprite(new DynamicTextSprite(new Rectangle(Vector2D(90, 20), Vector2D(40, 40), 0, "destinyValue"), new Font("", FONT_PATH + "Aero.ttf", 28, utility::RED), "Dynamic"));
 }
 
 FPS_HUD::~FPS_HUD()
@@ -12,9 +12,9 @@ FPS_HUD::~FPS_HUD()
 
 void FPS_HUD::updateFPS(Uint8 fps) {
 	for each (auto var in this->sprites) {
-		if (var->getName() == "value") {
+		if (var->getName() == "Dynamic") {
 			auto str = std::to_string(fps);
-			((TextSprite*)var)->updateValue(str);
+			((DynamicTextSprite*)var)->updateValue(str);
 		}
 	}
 }

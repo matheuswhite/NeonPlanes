@@ -2,11 +2,11 @@
 
 #include "Sprite.h"
 
-class TextSprite : public Sprite
+class DynamicTextSprite : public Sprite
 {
 public:
-	TextSprite(Rectangle* destiny, Font* font, std::string name);
-	virtual ~TextSprite();
+	DynamicTextSprite(Rectangle* destiny, Font* font, std::string name);
+	virtual ~DynamicTextSprite();
 
 	void draw();
 
@@ -15,4 +15,3 @@ public:
 private:
 	Font* font;
 };
-
