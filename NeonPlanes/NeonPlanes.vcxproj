@@ -72,10 +72,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AirPlane.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BlueEnemy.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DataStore.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPS_HUD.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -86,6 +89,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RedEnemy.cpp" />
     <ClCompile Include="StaticTextSprite.cpp" />
     <ClCompile Include="StaticSprite.cpp" />
     <ClCompile Include="Timers.cpp" />
@@ -98,6 +102,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VerticalScrollingSprite.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="YellowEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Debug\Images\background.png" />
@@ -105,13 +110,16 @@
     <Image Include="pict3159.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AirPlane.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Behavior.h" />
+    <ClInclude Include="BlueEnemy.h" />
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="DataStore.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FPS_HUD.h" />
     <ClInclude Include="Game.h" />
@@ -122,6 +130,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RedEnemy.h" />
     <ClInclude Include="StaticSprite.h" />
     <ClInclude Include="StaticTextSprite.h" />
     <ClInclude Include="Timers.h" />
@@ -135,6 +144,7 @@
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="VerticalScrollingSprite.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="YellowEnemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
