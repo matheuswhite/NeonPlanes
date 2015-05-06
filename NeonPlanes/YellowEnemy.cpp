@@ -2,6 +2,9 @@
 
 YellowEnemy::YellowEnemy(Uint32 id, std::string name) : Enemy(id, name)
 {
+	this->addComponent(new Rectangle(Vector2D(100, 200), Vector2D(64, 75), 0, "rectDestiny"));
+
+	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("rectDestiny"), "YellowEnemy.png", "yellow"));
 }
 
 YellowEnemy::~YellowEnemy()

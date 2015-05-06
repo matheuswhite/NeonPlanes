@@ -158,6 +158,15 @@
     <Image Include="..\Debug\Images\player.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\Debug\Images\BlueEnemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\RedEnemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\YellowEnemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Command.h">

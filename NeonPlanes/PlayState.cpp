@@ -21,6 +21,9 @@ void PlayState::createGameWorld() {
 		
 		this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background(1, "Background")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(Player(2, "Player")));
+		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy(3, "BlueEnemy")));
+		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedEnemy(4, "RedEnemy")));
+		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowEnemy(5, "YellowEnemy")));
 #if _DEBUG
 		this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD(3, "FPS_HUD")));
 #endif // !_DEBUG

@@ -4,6 +4,9 @@
 #include "FPS_HUD.h"
 #include "Background.h"
 #include "Player.h"
+#include "BlueEnemy.h"
+#include "RedEnemy.h"
+#include "YellowEnemy.h"
 
 class PlayState : public GameState
 {

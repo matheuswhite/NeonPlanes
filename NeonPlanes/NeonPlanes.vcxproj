@@ -106,7 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Debug\Images\background.png" />
+    <Image Include="..\Debug\Images\BlueEnemy.png" />
     <Image Include="..\Debug\Images\player.png" />
+    <Image Include="..\Debug\Images\RedEnemy.png" />
+    <Image Include="..\Debug\Images\YellowEnemy.png" />
     <Image Include="pict3159.jpg" />
   </ItemGroup>
   <ItemGroup>

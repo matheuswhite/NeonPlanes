@@ -74,7 +74,10 @@ bool Game::initialize() {
 	SDL_RenderClear(renderer);
 	SDL_RenderPresent(renderer);
 
-	//Graphics::sinAnimation(M_PI, new Texture(IMAGE_PATH + "Logo.png"));
+	/*
+	auto tex = new Texture();
+	tex->loadImage(renderer, IMAGE_PATH + "Logo.png");
+	Graphics::sinAnimation(M_PI, tex->getTexture());*/
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0){}
