@@ -5,7 +5,7 @@
 
 class GameObject {
 public:
-	GameObject(Uint32 id, std::string name);
+	GameObject(std::string name);
 	virtual ~GameObject();
 	
 	bool hasComponent(std::string component) const;
@@ -16,7 +16,6 @@ public:
 	void addSprite(Sprite* sprite);
 	void addBehavior(Behavior* behavior);
 
-	Uint32 getGameObjectID() const;
 	std::vector<Component*> getVectorComponents() const;
 	std::vector<Sprite*> getVectorSprites() const;
 	std::vector<Behavior*> getVectorBaheviors() const;
@@ -30,7 +29,6 @@ public:
 
 	bool operator==(GameObject* second) const;
 protected:
-	Uint32 id;
 	bool active;
 	std::string name;
 

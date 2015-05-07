@@ -5,7 +5,7 @@
 class RedEnemy : public Enemy
 {
 public:
-	RedEnemy(Uint32 id, std::string name);
+	RedEnemy(std::string name);
 	virtual ~RedEnemy();
 
 private:

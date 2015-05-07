@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(Uint32 id, std::string name) : id(id), name(name), active(true) {
+GameObject::GameObject(std::string name) : name(name), active(true) {
 }
 
 GameObject::~GameObject() {}
@@ -20,16 +20,12 @@ Component* GameObject::getComponent(std::string component) const {
 	return this->map_components.at(component);
 }
 
-Uint32 GameObject::getGameObjectID() const {
-	return this->id;
-}
-
 bool GameObject::isActive() const {
 	return this->active;
 }
 
 bool GameObject::operator==(GameObject* second) const {
-	return (this->id == second->id) && (typeid(*this) == typeid(*second));
+	return (this->name == second->name) && (typeid(*this) == typeid(*second));
 }
 
 std::vector<Component*> GameObject::getVectorComponents() const {

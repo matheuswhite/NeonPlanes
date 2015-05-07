@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(Uint32 id, std::string name) : AirPlane(id, name)
+Player::Player(std::string name) : AirPlane(name)
 {
 	this->addComponent(new Rectangle(Vector2D(200,300),Vector2D(64,45),0,"rectDestiny"));
 

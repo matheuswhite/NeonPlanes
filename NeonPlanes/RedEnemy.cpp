@@ -1,6 +1,6 @@
 #include "RedEnemy.h"
 
-RedEnemy::RedEnemy(Uint32 id, std::string name) : Enemy(id, name)
+RedEnemy::RedEnemy(std::string name) : Enemy(name)
 {
 	this->addComponent(new Rectangle(Vector2D(195, 200), Vector2D(64, 75), 0, "rectDestiny"));
 

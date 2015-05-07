@@ -5,7 +5,7 @@
 class BlueEnemy : public Enemy
 {
 public:
-	BlueEnemy(Uint32 id, std::string name);
+	BlueEnemy(std::string name);
 	virtual ~BlueEnemy();
 
 private:

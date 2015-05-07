@@ -1,6 +1,6 @@
 #include "YellowEnemy.h"
 
-YellowEnemy::YellowEnemy(Uint32 id, std::string name) : Enemy(id, name)
+YellowEnemy::YellowEnemy(std::string name) : Enemy(name)
 {
 	this->addComponent(new Rectangle(Vector2D(100, 200), Vector2D(64, 75), 0, "rectDestiny"));
 

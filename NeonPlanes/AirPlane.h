@@ -6,7 +6,7 @@
 class AirPlane : public GameObject
 {
 public:
-	AirPlane(Uint32 id, std::string name);
+	AirPlane(std::string name);
 	virtual ~AirPlane();
 
 protected:
