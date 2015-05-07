@@ -13,40 +13,11 @@ public:
 	double x;
 	double y;
 
-	Vector2D rotatedVector(double angle) {
-		Vector2D col1 = Vector2D(cos(angle), -sin(angle));
-		Vector2D col2 = Vector2D(sin(angle), cos(angle));
-
-		return Vector2D(this->innerProduct(col1), this->innerProduct(col2));
-	}
-
-	Vector2D projection(Vector2D second) {
-		double val = (this->lenght() * this->cos_between(second));
-		return Vector2D(second.normalize().x * val, second.normalize().y * val);
-	}
-
-	double projectionLenght(Vector2D second) {
-		return this->cos_between(second) * this->lenght();
-	}
-
 	double lenght() { return sqrt(this->x * this->x + this->y * this->y); }
 
 	Vector2D normalize() {
 		double val = (1 / this->lenght());
 		return Vector2D( this->x * val, this->y * val);
-	}
-
-	double innerProduct(const Vector2D& second) {
-		return (this->x * second.x) + (this->y * second.y);
-	}
-
-	double cos_between(Vector2D second) {
-		return cos(this->angle(second));
-	}
-
-	double angle(Vector2D second) {
-		double l = this->lenght() * second.lenght();
-		return acos( this->innerProduct(second)/ l);
 	}
 
 	Vector2D& operator+=(const Vector2D& v2) {
