@@ -52,6 +52,12 @@
     <Filter Include="Source Files\GameObjects\Enemies">
       <UniqueIdentifier>{17f2670d-340a-4fc3-9f1b-99f19450b04c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Projectile">
+      <UniqueIdentifier>{ff20838b-95df-445c-8067-f464e3b3d16d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Projectile">
+      <UniqueIdentifier>{7efbe9c4-ddf7-4a87-ab64-3c2ca0d1fe9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -146,6 +152,21 @@
     </ClCompile>
     <ClCompile Include="YellowEnemy.cpp">
       <Filter>Source Files\GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="RedProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="WhiteProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +294,21 @@
     </ClInclude>
     <ClInclude Include="YellowEnemy.h">
       <Filter>Header Files\GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="RedProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="WhiteProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
