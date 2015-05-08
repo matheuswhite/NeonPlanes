@@ -7,6 +7,10 @@
 #include "BlueEnemy.h"
 #include "RedEnemy.h"
 #include "YellowEnemy.h"
+#include "BlueProjectile.h"
+#include "RedProjectile.h"
+#include "YellowProjectile.h"
+#include "WhiteProjectile.h"
 
 class PlayState : public GameState
 {
