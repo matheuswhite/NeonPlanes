@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include "StaticSprite.h"
+#include "MoveBehavior.h"
 
 class Projectile : public GameObject
 {

@@ -16,9 +16,12 @@ void Command::stop() {
 #endif
 }
 
-void Command::shoot() {
+void Command::shoot(std::weak_ptr<GameObject> player) {
 #if _DEBUG
-	std::cout << "Shoot!" << std::endl;
+	auto it = player.lock();
+	if(it) {
+		((Player*)it.get())->shoot();
+	}
 #else
 
 #endif

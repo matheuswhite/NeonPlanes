@@ -10,3 +10,7 @@ RedEnemy::RedEnemy(std::string name) : Enemy(name)
 RedEnemy::~RedEnemy()
 {
 }
+
+void RedEnemy::shoot() {
+
+}

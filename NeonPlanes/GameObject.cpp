@@ -74,3 +74,20 @@ bool GameObject::hasBehavior(std::string behavior) const {
 		return true;
 	return false;
 }
+
+std::vector<std::shared_ptr<GameObject> > GameObject::getVectorPending() const {
+	return this->pending;
+}
+
+void GameObject::addPending(std::shared_ptr<GameObject> obj) {
+	this->pending.push_back(obj);
+}
+
+void GameObject::clearPending() {
+	for each (auto var in this->pending)
+	{
+		var.reset();
+	}
+
+	this->pending.clear();
+}

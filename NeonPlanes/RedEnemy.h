@@ -8,6 +8,7 @@ public:
 	RedEnemy(std::string name);
 	virtual ~RedEnemy();
 
+	void shoot();
 private:
 
 };

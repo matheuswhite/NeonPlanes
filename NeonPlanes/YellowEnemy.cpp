@@ -10,3 +10,7 @@ YellowEnemy::YellowEnemy(std::string name) : Enemy(name)
 YellowEnemy::~YellowEnemy()
 {
 }
+
+void YellowEnemy::shoot() {
+
+}

@@ -58,6 +58,12 @@
     <Filter Include="Source Files\GameObjects\Projectile">
       <UniqueIdentifier>{7efbe9c4-ddf7-4a87-ab64-3c2ca0d1fe9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components\Behavior">
+      <UniqueIdentifier>{fb2960bf-4a6a-4efe-8588-9027d17db6f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Behavior">
+      <UniqueIdentifier>{43ae3085-9e87-4fed-9c2b-fe2a11384545}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -168,6 +174,9 @@
     <ClCompile Include="YellowProjectile.cpp">
       <Filter>Source Files\GameObjects\Projectile</Filter>
     </ClCompile>
+    <ClCompile Include="MoveBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -203,9 +212,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Behavior.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="DataStore.h">
@@ -309,6 +315,12 @@
     </ClInclude>
     <ClInclude Include="YellowProjectile.h">
       <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Behavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

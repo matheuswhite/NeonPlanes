@@ -91,12 +91,15 @@ void Game::draw() {
 
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers()) 
 	{
-		for each (auto object in layer->getGameObjects()) 
+		for each (std::weak_ptr<GameObject> object in layer->getGameObjects()) 
 		{
-			for each (auto sprite in object->getVectorSprites())
-			{
-				if (sprite->isActive())
-					sprite->draw();
+			auto it = object.lock();
+			if (it) {
+				for each (auto sprite in it->getVectorSprites())
+				{
+					if (sprite->isActive())
+						sprite->draw();
+				}
 			}
 		}
 	}
@@ -112,12 +115,16 @@ void Game::update() {
 	
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers())
 	{
-		for each (auto object in layer->getGameObjects())
+		layer->addPending();
+		for each (std::weak_ptr<GameObject> object in layer->getGameObjects())
 		{
-			for each (auto behavior in object->getVectorBaheviors())
-			{
-				if (behavior->isActive())
-					behavior->run();
+			auto it = object.lock();
+			if (it) {
+				for each (auto behavior in it->getVectorBaheviors())
+				{
+					if (behavior->isActive())
+						behavior->run();
+				}
 			}
 		}
 	}

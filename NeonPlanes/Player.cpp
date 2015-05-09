@@ -11,3 +11,7 @@ Player::~Player()
 {
 }
 //64 x 45
+
+void Player::shoot() {
+	this->addPending(std::make_shared<GameObject>(WhiteProjectile("whiteProjectile")));
+}

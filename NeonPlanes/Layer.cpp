@@ -29,3 +29,31 @@ std::vector<std::shared_ptr<GameObject> > Layer::getGameObjects() const
 std::string Layer::getName() const {
 	return this->name;
 }
+
+void Layer::addPending() {
+	std::vector< std::vector< std::shared_ptr<GameObject> > > tempVector;
+
+	for each (std::weak_ptr<GameObject> i in this->objects)
+	{
+		auto gameObject = i.lock();
+		if (gameObject) {
+			if (!gameObject.get()->getVectorPending().empty()) {
+				tempVector.push_back(gameObject.get()->getVectorPending());
+
+				gameObject->clearPending();
+			}
+		}
+	}
+
+	for each (auto var in tempVector)
+	{
+		this->addVectorGameObject(var);
+	}
+}
+
+void Layer::addVectorGameObject(std::vector<std::shared_ptr<GameObject> > vector) {
+	for each (auto var in vector)
+	{
+		this->addGameObject(var);
+	}
+}
