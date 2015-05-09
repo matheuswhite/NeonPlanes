@@ -2,9 +2,9 @@
 
 Player::Player(std::string name) : AirPlane(name)
 {
-	this->addComponent(new Rectangle(Vector2D(200,300),Vector2D(64,45),"rectDestiny"));
+	this->addComponent(new Rectangle(Vector2D(200,300),Vector2D(64,45),"destiny"));
 
-	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("rectDestiny"), "player.png", "player"));
+	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("destiny"), "player.png", "StaticSprite"));
 }
 
 Player::~Player()

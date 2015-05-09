@@ -21,8 +21,8 @@ Menu::Menu(std::string name, std::vector<Item*> itens) : itens(itens), currentIt
 		}
 	}
 
-	this->addBehavior(new MenuBehavior(name, behaviors));
-	this->addSprite(new MenuSprite(nullptr, "", name, sprites));
+	this->addBehavior(new MenuBehavior("MenuBehavior", behaviors));
+	this->addSprite(new MenuSprite(nullptr, "", "MenuBehavior", sprites));
 
 	this->itens.at(0)->highlight();
 }

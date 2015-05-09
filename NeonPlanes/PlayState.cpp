@@ -19,13 +19,13 @@ void PlayState::createGameWorld() {
 		
 		this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background("Background")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(Player("Player")));
-		/*this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy("BlueEnemy")));
+		/*
+		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy("BlueEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedEnemy("RedEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowEnemy("YellowEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueProjectile("BlueProjectile")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedProjectile("RedProjectile")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowProjectile("YellowProjectile")));*/
-		//this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(WhiteProjectile("WhiteProjectile")));
 		this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD("FPS_HUD")));
 		
 		this->gameWorldCreated = true;
