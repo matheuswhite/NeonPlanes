@@ -7,9 +7,7 @@ PlayState::PlayState()
 	this->addLayer(new Layer("Background"));
 	this->addLayer(new Layer("Interaction"));
 	this->addLayer(new Layer("HUD"));
-#if _DEBUG
 	this->addLayer(new Layer("Debug"));
-#endif
 }
 
 PlayState::~PlayState()
@@ -20,7 +18,6 @@ void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
 		
 		this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background("Background")));
-#if _DEBUG
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(Player("Player")));
 		/*this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy("BlueEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedEnemy("RedEnemy")));
@@ -30,7 +27,6 @@ void PlayState::createGameWorld() {
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowProjectile("YellowProjectile")));*/
 		//this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(WhiteProjectile("WhiteProjectile")));
 		this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD("FPS_HUD")));
-#endif // !_DEBUG
 		
 		this->gameWorldCreated = true;
 	}

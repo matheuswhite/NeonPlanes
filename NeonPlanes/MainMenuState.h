@@ -1,6 +1,9 @@
 #pragma once
 
 #include "GameState.h"
+#include "Background.h"
+#include "Menu.h"
+#include "FPS_HUD.h"
 
 class MainMenuState : public GameState
 {

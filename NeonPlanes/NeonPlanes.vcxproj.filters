@@ -46,12 +46,6 @@
     <Filter Include="Source Files\Components\Sprites">
       <UniqueIdentifier>{655092f4-b10d-47aa-863c-cfb557929250}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameObjects\Enemies">
-      <UniqueIdentifier>{0f245885-00bc-42d9-9d66-bc38f7174c14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GameObjects\Enemies">
-      <UniqueIdentifier>{17f2670d-340a-4fc3-9f1b-99f19450b04c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjects\Projectile">
       <UniqueIdentifier>{ff20838b-95df-445c-8067-f464e3b3d16d}</UniqueIdentifier>
     </Filter>
@@ -63,6 +57,24 @@
     </Filter>
     <Filter Include="Source Files\Components\Behavior">
       <UniqueIdentifier>{43ae3085-9e87-4fed-9c2b-fe2a11384545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Menu">
+      <UniqueIdentifier>{2bab8662-e661-41c6-9374-bfd7cdb4de19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Menu">
+      <UniqueIdentifier>{97acdc17-0872-4485-a263-c4fb9cce2b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\AirPlane">
+      <UniqueIdentifier>{5df2ca0a-4204-4ccb-beed-08f2a94ed5d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\AirPlane\Enemies">
+      <UniqueIdentifier>{0f245885-00bc-42d9-9d66-bc38f7174c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\AirPlane">
+      <UniqueIdentifier>{134fa821-b22d-4991-9121-b83f626f909e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\AirPlane\Enemies">
+      <UniqueIdentifier>{17f2670d-340a-4fc3-9f1b-99f19450b04c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +144,6 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="DynamicTextSprite.cpp">
       <Filter>Source Files\Components\Sprites</Filter>
     </ClCompile>
@@ -144,20 +153,17 @@
     <ClCompile Include="Graphics.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="AirPlane.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\GameObjects\Enemies</Filter>
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="BlueEnemy.cpp">
-      <Filter>Source Files\GameObjects\Enemies</Filter>
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="RedEnemy.cpp">
-      <Filter>Source Files\GameObjects\Enemies</Filter>
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="YellowEnemy.cpp">
-      <Filter>Source Files\GameObjects\Enemies</Filter>
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Source Files\GameObjects\Projectile</Filter>
@@ -176,6 +182,27 @@
     </ClCompile>
     <ClCompile Include="MoveBehavior.cpp">
       <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\GameObjects\AirPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="AirPlane.cpp">
+      <Filter>Source Files\GameObjects\AirPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="HighlightTextSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="HighlightItem.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,29 +304,23 @@
     <ClInclude Include="Background.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="DynamicTextSprite.h">
       <Filter>Header Files\Components\Sprites</Filter>
     </ClInclude>
     <ClInclude Include="StaticTextSprite.h">
       <Filter>Header Files\Components\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="AirPlane.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Header Files\GameObjects\Enemies</Filter>
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="BlueEnemy.h">
-      <Filter>Header Files\GameObjects\Enemies</Filter>
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="RedEnemy.h">
-      <Filter>Header Files\GameObjects\Enemies</Filter>
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="YellowEnemy.h">
-      <Filter>Header Files\GameObjects\Enemies</Filter>
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="BlueProjectile.h">
       <Filter>Header Files\GameObjects\Projectile</Filter>
@@ -321,6 +342,30 @@
     </ClInclude>
     <ClInclude Include="MoveBehavior.h">
       <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="AirPlane.h">
+      <Filter>Header Files\GameObjects\AirPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\GameObjects\AirPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="HighlightTextSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="HighlightItem.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

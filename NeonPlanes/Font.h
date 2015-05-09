@@ -14,6 +14,7 @@ public:
 	SDL_Color getColor() const;
 
 	void setValue(std::string value);
+	void setColor(SDL_Color color);
 
 private:
 	std::string value;

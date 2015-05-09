@@ -12,6 +12,6 @@ public:
 
 	Font* getFont() const;
 	void updateValue(std::string value);
-private:
+protected:
 	Font* font;
 };

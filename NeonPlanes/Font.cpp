@@ -27,3 +27,7 @@ SDL_Color Font::getColor() const {
 void Font::setValue(std::string value) {
 	this->value = value;
 }
+
+void Font::setColor(SDL_Color color) {
+	this->color = color;
+}
