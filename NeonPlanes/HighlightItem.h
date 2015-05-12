@@ -1,9 +1,9 @@
 #pragma once
 
 #include "HighlightTextSprite.h"
-#include "Item.h"
+#include "GameObject.h"
 
-class HighlightItem : public Item
+class HighlightItem : public GameObject
 {
 public:
 	HighlightItem(std::string name, Rectangle* destiny, Font* font, SDL_Color highlightColor);

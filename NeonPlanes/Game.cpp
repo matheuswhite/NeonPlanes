@@ -62,7 +62,7 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(typeid(PlayState).name());
+	this->gameWorld->switchGameState(typeid(MainMenuState).name());
 
 #else
 	//Release Mode

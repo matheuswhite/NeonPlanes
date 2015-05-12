@@ -8,15 +8,15 @@
 class Menu : public GameObject
 {
 public:
-	Menu(std::string name, std::vector<Item*> itens);
+	Menu(std::string name, std::vector<HighlightItem*> itens);
 	virtual ~Menu();
 	
 	void nextItem();
 	void prevItem();
 
-	void addItem(Item* item);
+	void addItem(HighlightItem* item);
 	void clearAllItem();
 private:
 	int currentItem;
-	std::vector<Item*> itens;
+	std::vector<HighlightItem*> itens;
 };

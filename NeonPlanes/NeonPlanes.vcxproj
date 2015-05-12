@@ -94,6 +94,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuBehavior.cpp" />
     <ClCompile Include="MoveBehavior.cpp" />
+    <ClCompile Include="TitleText.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="RedEnemy.cpp" />
@@ -144,12 +145,12 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="HighlightItem.h" />
     <ClInclude Include="HighlightTextSprite.h" />
-    <ClInclude Include="Item.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuBehavior.h" />
     <ClInclude Include="MoveBehavior.h" />
+    <ClInclude Include="TitleText.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="RedEnemy.h" />

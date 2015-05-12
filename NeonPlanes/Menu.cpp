@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(std::string name, std::vector<Item*> itens) : itens(itens), currentItem(0), GameObject(name)
+Menu::Menu(std::string name, std::vector<HighlightItem*> itens) : itens(itens), currentItem(0), GameObject(name)
 {
 	std::vector<Sprite*> sprites;
 	std::vector<Behavior*> behaviors;
@@ -49,7 +49,7 @@ void Menu::prevItem() {
 	}
 }
 
-void Menu::addItem(Item* item) {
+void Menu::addItem(HighlightItem* item) {
 	for each (auto var in item->getVectorSprites())
 	{
 		((MenuSprite*)this->getSprite("MenuSprite"))->addSprite(var);

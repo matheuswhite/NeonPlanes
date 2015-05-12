@@ -4,6 +4,7 @@
 #include "Background.h"
 #include "Menu.h"
 #include "FPS_HUD.h"
+#include "TitleText.h"
 
 class MainMenuState : public GameState
 {
