@@ -1,6 +1,9 @@
 #pragma once
 
 #include "GameState.h"
+#include "TextItem.h"
+#include "Background.h"
+#include "FPS_HUD.h"
 
 class GameOverState : public GameState
 {
@@ -15,4 +18,7 @@ public:
 	void execute_RIGHT();
 	void execute_UP();
 	void execute_DOWN();
+
+	std::pair<int, float> getDistance_Level();
+	void formatBigValue(float val, int* unit, int* rest, char* mod);
 };

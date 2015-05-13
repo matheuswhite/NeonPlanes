@@ -8,4 +8,5 @@ class TitleText : public GameObject
 public:
 	TitleText(std::string name);
 	virtual ~TitleText();
+
 };
