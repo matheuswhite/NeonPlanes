@@ -27,6 +27,7 @@ public:
 	void execute_DOWN();
 
 	void createGameWorld();
+	void destroyGameWorld();
 private:
 	bool gameWorldCreated;
 };

@@ -1,6 +1,11 @@
 #pragma once
 
 #include "GameState.h"
+#include "Background.h"
+#include "Menu.h"
+#include "FPS_HUD.h"
+#include "TitleText.h"
+#include "TextItem.h"
 
 class PauseState : public GameState
 {

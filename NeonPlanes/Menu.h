@@ -14,6 +14,8 @@ public:
 	void nextItem();
 	void prevItem();
 
+	HighlightItem* getCurrentHighLightItem() const;
+
 	void addItem(HighlightItem* item);
 	void clearAllItem();
 private:

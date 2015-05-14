@@ -32,6 +32,10 @@ void PlayState::createGameWorld() {
 	}
 }
 
+void PlayState::destroyGameWorld() {
+
+}
+
 void PlayState::execute_BTN_SPACE() {
 	Command::shoot(this->getLayer("Interaction")->getGameObject("Player"));
 }

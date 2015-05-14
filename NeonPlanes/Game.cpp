@@ -62,12 +62,12 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(typeid(GameOverState).name());
+	this->gameWorld->switchGameState(utility::PLAY);
 
 #else
 	//Release Mode
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	World::switchGameState(typeid(MainMenuState).name());
+	World::switchGameState(utility::MAIN_MENU);
 
 #endif // !_DEBUG
 

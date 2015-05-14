@@ -64,3 +64,7 @@ void Menu::addItem(HighlightItem* item) {
 void Menu::clearAllItem() {
 	this->itens.clear();
 }
+
+HighlightItem* Menu::getCurrentHighLightItem() const {
+	return this->itens.at(currentItem);
+}

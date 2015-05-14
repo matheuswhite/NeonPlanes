@@ -12,10 +12,10 @@ public:
 	virtual ~World();
 	
 	GameState* getCurrentState();
-	void switchGameState(std::string state);
+	void switchGameState(Uint8 state);
 private:
 	void addGameState(GameState* state);
 
 	GameState* currentState;
-	std::map<std::string, GameState*> map_states;
+	std::map<int, GameState*> map_states;
 };

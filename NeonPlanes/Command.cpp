@@ -61,6 +61,7 @@ void Command::doNothing() {
 
 void Command::resume() {
 #if _DEBUG
+	
 	std::cout << "Resume" << std::endl;
 #else
 
@@ -91,7 +92,7 @@ void Command::moveRight() {
 #endif
 }
 
-void Command::select() {
+void Command::select(Uint8 nextState) {
 #if _DEBUG
 	std::cout << "Select" << std::endl;
 #else
@@ -99,7 +100,7 @@ void Command::select() {
 #endif
 }
 
-void Command::moveMenuUp() {
+void Command::moveMenuUp(std::weak_ptr<GameObject> menu) {
 #if _DEBUG
 	std::cout << "MenuUp" << std::endl;
 #else
@@ -107,7 +108,7 @@ void Command::moveMenuUp() {
 #endif
 }
 
-void Command::moveMenuDown() {
+void Command::moveMenuDown(std::weak_ptr<GameObject> menu) {
 #if _DEBUG
 	std::cout << "MenuDown" << std::endl;
 #else
