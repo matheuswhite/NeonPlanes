@@ -5,6 +5,6 @@
 class WhiteProjectile : public Projectile
 {
 public:
-	WhiteProjectile(std::string name);
+	WhiteProjectile(std::string name, Vector2D pos);
 	virtual ~WhiteProjectile();
 };

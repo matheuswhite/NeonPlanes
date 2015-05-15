@@ -13,5 +13,5 @@ Player::~Player()
 //64 x 45
 
 void Player::shoot() {
-	this->addPending(new WhiteProjectile("whiteProjectile"));
+	this->addPending(new WhiteProjectile("whiteProjectile", ((Rectangle*)this->getComponent("destiny"))->getPosition() ));
 }

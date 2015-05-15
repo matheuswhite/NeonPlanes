@@ -5,6 +5,6 @@
 class YellowProjectile : public Projectile
 {
 public:
-	YellowProjectile(std::string name);
+	YellowProjectile(std::string name, Vector2D pos);
 	virtual ~YellowProjectile();
 };

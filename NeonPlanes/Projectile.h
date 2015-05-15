@@ -7,6 +7,9 @@
 class Projectile : public GameObject
 {
 public:
-	Projectile(std::string name);
+	Projectile(std::string name, Vector2D pos);
 	virtual ~Projectile();
+
+protected:
+	Vector2D pos;
 };
