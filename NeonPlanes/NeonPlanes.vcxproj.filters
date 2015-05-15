@@ -210,6 +210,9 @@
     <ClCompile Include="Notifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HighscoreState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -375,6 +378,9 @@
     </ClInclude>
     <ClInclude Include="Notifier.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighscoreState.h">
+      <Filter>Header Files\GameStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

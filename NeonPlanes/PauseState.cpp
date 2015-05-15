@@ -12,7 +12,7 @@ PauseState::PauseState()
 	int posy = 270;
 
 	itens.push_back(new HighlightItem("Continuar", new Rectangle(Vector2D(posx, posy), Vector2D(280, 50), "destiny"), new Font("Continuar", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::INTER_BLUE, utility::PLAY));
-	itens.push_back(new HighlightItem("MainMenu", new Rectangle(Vector2D(posx - 10, posy + 60), Vector2D(130, 50), "destiny"), new Font("Menu Principal", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::INTER_BLUE, utility::MAIN_MENU));
+	itens.push_back(new HighlightItem("MainMenu", new Rectangle(Vector2D(posx - 20, posy + 60), Vector2D(300, 50), "destiny"), new Font("Menu Principal", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::INTER_BLUE, utility::MAIN_MENU));
 
 	std::cout << "size: " << itens.size() << std::endl;
 

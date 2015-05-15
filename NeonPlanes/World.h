@@ -4,6 +4,7 @@
 #include "PauseState.h"
 #include "PlayState.h"
 #include "GameOverState.h"
+#include "HighscoreState.h"
 #include "Notifier.h"
 
 class World : public NotifierInterface

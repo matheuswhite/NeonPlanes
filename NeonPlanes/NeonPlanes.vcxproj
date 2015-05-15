@@ -87,6 +87,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="HighlightItem.cpp" />
     <ClCompile Include="HighlightTextSprite.cpp" />
+    <ClCompile Include="HighscoreState.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="HighlightItem.h" />
     <ClInclude Include="HighlightTextSprite.h" />
+    <ClInclude Include="HighscoreState.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Menu.h" />

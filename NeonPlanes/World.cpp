@@ -6,6 +6,7 @@ World::World()
 	addGameState(new MainMenuState());
 	addGameState(new PauseState());
 	addGameState(new GameOverState());
+	addGameState(new HighscoreState());
 	Notifier::addReciver(this);
 }
 
@@ -37,6 +38,8 @@ void World::addGameState(GameState* state) {
 		map_states.insert(std::pair< Uint8, GameState* >(utility::PAUSE, state));
 	else if (typeid(*state) == typeid(MainMenuState))
 		map_states.insert(std::pair< Uint8, GameState* >(utility::MAIN_MENU, state));
+	else if (typeid(*state) == typeid(HighscoreState))
+		map_states.insert(std::pair< Uint8, GameState* >(utility::HIGHSCORE, state));
 }
 
 void World::action(int parameter) {
