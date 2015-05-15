@@ -189,9 +189,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\GameObjects\AirPlane</Filter>
     </ClCompile>
-    <ClCompile Include="AirPlane.cpp">
-      <Filter>Source Files\GameObjects\AirPlane</Filter>
-    </ClCompile>
     <ClCompile Include="MenuBehavior.cpp">
       <Filter>Source Files\Components\Behavior</Filter>
     </ClCompile>
@@ -354,9 +351,6 @@
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files\GameObjects\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="AirPlane.h">
-      <Filter>Header Files\GameObjects\AirPlane</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\GameObjects\AirPlane</Filter>

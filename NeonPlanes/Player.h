@@ -1,9 +1,9 @@
 #pragma once
 
-#include "AirPlane.h"
+#include "GameObject.h"
 #include "WhiteProjectile.h"
 
-class Player : public AirPlane
+class Player : public GameObject
 {
 public:
 	Player(std::string name);

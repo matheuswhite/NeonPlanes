@@ -1,8 +1,9 @@
 #pragma once
 
-#include "AirPlane.h"
+#include "GameObject.h"
+#include "StaticSprite.h"
 
-class Enemy : public AirPlane
+class Enemy : public GameObject
 {
 public:
 	Enemy(std::string name);

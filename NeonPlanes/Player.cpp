@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::string name) : AirPlane(name)
+Player::Player(std::string name) : GameObject(name)
 {
 	this->addComponent(new Rectangle(Vector2D(200,300),Vector2D(64,45),"destiny"));
 

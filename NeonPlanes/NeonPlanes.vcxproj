@@ -72,7 +72,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AirPlane.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BlueEnemy.cpp" />
     <ClCompile Include="BlueProjectile.cpp" />
@@ -127,7 +126,6 @@
     <Image Include="pict3159.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AirPlane.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="BlueEnemy.h" />
