@@ -2,6 +2,7 @@
 
 HighlightTextSprite::HighlightTextSprite(Rectangle* destiny, Font* font, std::string name, SDL_Color highlightColor) : highlightColor(highlightColor), DynamicTextSprite(destiny, font, name)
 {
+	this->normalColor = font->getColor();
 }
 
 HighlightTextSprite::~HighlightTextSprite()

@@ -43,7 +43,7 @@ void Menu::nextItem() {
 
 void Menu::prevItem() {
 	auto i = this->currentItem - 1;
-	if (i > 0) {
+	if (i >= 0) {
 		this->itens.at(this->currentItem)->turnOff();
 		this->itens.at(i)->highlight();
 		this->currentItem = i;
