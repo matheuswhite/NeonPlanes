@@ -25,14 +25,14 @@ GameOverState::GameOverState()
 
 	int posx = 70;
 
-	this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background("Background")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(65, 40), Vector2D(300, 80), "GameOver", 74, FONT_PATH + "distortion_of_the_brain_and_mind.ttf", utility::RED, "GameOver")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(120, 240), Vector2D(170, 40), "Pontuação", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Pontuação")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(posx, 300), Vector2D(90, 40), std::to_string(restF) + "." + std::to_string(unitF) + modF + " * ", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Distancia")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(posx + 85, 300), Vector2D(90, 40), std::to_string(restS) + "." + std::to_string(unitS) + " = ", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Nivel")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(posx + 175, 300), Vector2D(90, 40), std::to_string(restT) + "." + std::to_string(unitT) + modT, 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Total")));
-	this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD("FPS_HUD")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(28, 550), Vector2D(370, 23), "<Pressione ENTER ou START para sair>", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Info")));
+	this->getLayer("Background")->addGameObject(new Background("Background"));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(65, 40), Vector2D(300, 80), "GameOver", 74, FONT_PATH + "distortion_of_the_brain_and_mind.ttf", utility::RED, "GameOver"));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(120, 240), Vector2D(170, 40), "Pontuação", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Pontuação"));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx, 300), Vector2D(90, 40), std::to_string(restF) + "." + std::to_string(unitF) + modF + " * ", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Distancia"));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx + 85, 300), Vector2D(90, 40), std::to_string(restS) + "." + std::to_string(unitS) + " = ", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Nivel"));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx + 175, 300), Vector2D(90, 40), std::to_string(restT) + "." + std::to_string(unitT) + modT, 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Total"));
+	this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(28, 550), Vector2D(370, 23), "<Pressione ENTER ou START para sair>", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Info"));
 }
 
 GameOverState::~GameOverState()

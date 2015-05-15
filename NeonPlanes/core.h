@@ -15,7 +15,6 @@
 #include <set>
 #include <typeinfo>
 #include <cmath>
-#include <memory>
 
 #if _DEBUG
 //Debug Mode
@@ -66,24 +65,6 @@ namespace utility {
 	const SDL_Color LIGHT_BLUE = { 0, 255, 255 };
 	const SDL_Color INTER_BLUE = { 0, 0, 205 };
 	const SDL_Color YELLOW = { 255, 255, 0 };
-
-	template <typename T>
-	int checkLargest(T* vector, int size) {
-		int out = 0;
-		for (size_t i = 0; i < size-1; i++) {
-			if (vector[i] <= vector[i + 1]) out = i+1;
-		}
-		return out;
-	}
-
-	template <typename T>
-	int checkLowest(T* vector, int size) {
-		int out = 0;
-		for (size_t i = 0; i < size - 1; i++) {
-			if (vector[i] <= vector[i + 1]) out = i + 1;
-		}
-		return out;
-	}
 }
 
 extern SDL_Window* window;

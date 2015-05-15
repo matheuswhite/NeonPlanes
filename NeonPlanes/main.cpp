@@ -33,19 +33,18 @@ int main(int argc, char **argv) {
 #if _DEBUG
 		if (totalTime >= 1000) {
 			system("cls");
-			auto hud2 = game->getGameWorld()->getCurrentState()->getLayer("Debug")->getGameObject("FPS_HUD").lock();
-			if (hud2) {
-				auto hud = (FPS_HUD*)hud2.get();
-				hud->updateFPS(frames);
-				std::cerr << "Time: " << totalTime << "\nFrames: " << frames << std::endl;
-				totalTime = 0;
-				frames = 0;
-					
-				if (testTimer->isFinish()) {
-					std::cerr << "Timer! " << testTimer->getDuration() << std::endl;
-					testTimer = new SlaveTimer(testTimer->getDuration() + 1000);
-				}
+			auto hud = (FPS_HUD*)game->getGameWorld()->getCurrentState()->getLayer("Debug")->getGameObject("FPS_HUD");
+
+			hud->updateFPS(frames);
+			std::cerr << "Time: " << totalTime << "\nFrames: " << frames << std::endl;
+			totalTime = 0;
+			frames = 0;
+
+			if (testTimer->isFinish()) {
+				std::cerr << "Timer! " << testTimer->getDuration() << std::endl;
+				testTimer = new SlaveTimer(testTimer->getDuration() + 1000);
 			}
+
 			
 		}
 #endif // !_DEBUG

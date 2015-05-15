@@ -10,18 +10,18 @@ Layer::~Layer()
 {
 }
 
-void Layer::addGameObject(std::shared_ptr<GameObject> obj) 
+void Layer::addGameObject(GameObject* obj) 
 {
-	this->map_objects.insert(std::pair<std::string, std::shared_ptr<GameObject> >(obj->getName(), obj));
+	this->map_objects.insert(std::pair<std::string, GameObject*>(obj->getName(), obj));
 	this->objects.push_back(obj);
 }
 
-std::weak_ptr<GameObject> Layer::getGameObject(std::string obj) const 
+GameObject* Layer::getGameObject(std::string obj) const 
 { 
 	return this->map_objects.at(obj); 
 }
 
-std::vector<std::shared_ptr<GameObject> > Layer::getGameObjects() const 
+std::vector<GameObject*> Layer::getGameObjects() const 
 { 
 	return this->objects; 
 }
@@ -31,17 +31,14 @@ std::string Layer::getName() const {
 }
 
 void Layer::addPending() {
-	std::vector< std::vector< std::shared_ptr<GameObject> > > tempVector;
+	std::vector< std::vector<GameObject*> > tempVector;
 
-	for each (std::weak_ptr<GameObject> i in this->objects)
+	for each (auto gameObject in this->objects)
 	{
-		auto gameObject = i.lock();
-		if (gameObject) {
-			if (!gameObject.get()->getVectorPending().empty()) {
-				tempVector.push_back(gameObject.get()->getVectorPending());
+		if (!gameObject->getVectorPending().empty()) {
+			tempVector.push_back(gameObject->getVectorPending());
 
-				gameObject->clearPending();
-			}
+			gameObject->clearPending();
 		}
 	}
 
@@ -51,7 +48,7 @@ void Layer::addPending() {
 	}
 }
 
-void Layer::addVectorGameObject(std::vector<std::shared_ptr<GameObject> > vector) {
+void Layer::addVectorGameObject(std::vector<GameObject*> vector) {
 	for each (auto var in vector)
 	{
 		this->addGameObject(var);

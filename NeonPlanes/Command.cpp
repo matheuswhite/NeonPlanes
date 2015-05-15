@@ -16,12 +16,9 @@ void Command::stop() {
 #endif
 }
 
-void Command::shoot(std::weak_ptr<GameObject> player) {
+void Command::shoot(Player* player) {
 #if _DEBUG
-	auto it = player.lock();
-	if(it) {
-		((Player*)it.get())->shoot();
-	}
+	player->shoot();
 #else
 
 #endif
@@ -102,24 +99,18 @@ void Command::select(Uint8 nextState) {
 #endif
 }
 
-void Command::moveMenuUp(std::weak_ptr<GameObject> menu) {
+void Command::moveMenuUp(Menu* menu) {
 #if _DEBUG
-	auto it = menu.lock();
-	if (it) {
-		((Menu*)it.get())->prevItem();
-	}
+	menu->prevItem();
 	std::cout << "Up" << std::endl;
 #else
 
 #endif
 }
 
-void Command::moveMenuDown(std::weak_ptr<GameObject> menu) {
+void Command::moveMenuDown(Menu* menu) {
 #if _DEBUG
-	auto it = menu.lock();
-	if (it) {
-		((Menu*)it.get())->nextItem();
-	}
+	menu->nextItem();
 	std::cout << "Down" << std::endl;
 #else
 

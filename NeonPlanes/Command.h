@@ -11,7 +11,7 @@ public:
 	Command();
 	virtual ~Command();
 	
-	static void shoot(std::weak_ptr<GameObject> player);
+	static void shoot(Player* player);
 	static void useLightWall();
 	static void pause();
 	static void moveUp();
@@ -22,8 +22,8 @@ public:
 
 	static void select(Uint8 nextState);
 	static void resume();
-	static void moveMenuUp(std::weak_ptr<GameObject> menu);
-	static void moveMenuDown(std::weak_ptr<GameObject> menu);
+	static void moveMenuUp(Menu* menu);
+	static void moveMenuDown(Menu* menu);
 
 	static void doNothing();
 };

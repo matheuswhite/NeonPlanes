@@ -17,8 +17,8 @@ PlayState::~PlayState()
 void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
 		
-		this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background("Background")));
-		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(Player("Player")));
+		this->getLayer("Background")->addGameObject(new Background("Background"));
+		this->getLayer("Interaction")->addGameObject(new Player("Player"));
 		/*
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy("BlueEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedEnemy("RedEnemy")));
@@ -26,7 +26,7 @@ void PlayState::createGameWorld() {
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueProjectile("BlueProjectile")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedProjectile("RedProjectile")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowProjectile("YellowProjectile")));*/
-		this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD("FPS_HUD")));
+		this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
 		
 		this->gameWorldCreated = true;
 	}
@@ -37,7 +37,7 @@ void PlayState::destroyGameWorld() {
 }
 
 void PlayState::execute_BTN_SPACE() {
-	Command::shoot(this->getLayer("Interaction")->getGameObject("Player"));
+	Command::shoot((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 void PlayState::execute_BTN_Z() {
 	Command::useLightWall();

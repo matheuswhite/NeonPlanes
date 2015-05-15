@@ -16,12 +16,12 @@ public:
 	void addComponent(Component* component);
 	void addSprite(Sprite* sprite);
 	void addBehavior(Behavior* behavior);
-	void addPending(std::shared_ptr<GameObject> obj);
+	void addPending(GameObject* obj);
 
 	std::vector<Component*> getVectorComponents() const;
 	std::vector<Sprite*> getVectorSprites() const;
 	std::vector<Behavior*> getVectorBaheviors() const;
-	std::vector<std::shared_ptr<GameObject> > getVectorPending() const;
+	std::vector<GameObject* > getVectorPending() const;
 	
 	std::string getName() const;
 	Component* getComponent(std::string component) const;
@@ -43,5 +43,5 @@ protected:
 	std::map<std::string, Sprite*> map_sprites;
 	std::map<std::string, Behavior*> map_behaviors;
 
-	std::vector< std::shared_ptr<GameObject> > pending;
+	std::vector<GameObject*> pending;
 };

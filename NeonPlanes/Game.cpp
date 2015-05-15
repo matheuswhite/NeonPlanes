@@ -62,7 +62,7 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(utility::PAUSE);
+	this->gameWorld->switchGameState(utility::PLAY);
 
 #else
 	//Release Mode
@@ -91,11 +91,10 @@ void Game::draw() {
 
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers()) 
 	{
-		for each (std::weak_ptr<GameObject> object in layer->getGameObjects()) 
+		for each (auto object in layer->getGameObjects()) 
 		{
-			auto it = object.lock();
-			if (it) {
-				for each (auto sprite in it->getVectorSprites())
+			if (object->isActive()) {
+				for each (auto sprite in object->getVectorSprites())
 				{
 					if (sprite->isActive())
 						sprite->draw();
@@ -116,11 +115,10 @@ void Game::update() {
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers())
 	{
 		layer->addPending();
-		for each (std::weak_ptr<GameObject> object in layer->getGameObjects())
+		for each (auto object in layer->getGameObjects())
 		{
-			auto it = object.lock();
-			if (it) {
-				for each (auto behavior in it->getVectorBaheviors())
+			if (object->isActive()) {
+				for each (auto behavior in object->getVectorBaheviors())
 				{
 					if (behavior->isActive())
 						behavior->run();

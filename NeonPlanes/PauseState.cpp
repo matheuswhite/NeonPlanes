@@ -16,10 +16,10 @@ PauseState::PauseState()
 
 	std::cout << "size: " << itens.size() << std::endl;
 
-	this->getLayer("Background")->addGameObject(std::make_shared<GameObject>(Background("Background")));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(Menu("Paused", itens)));
-	this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(TextItem(Vector2D(65, 40), Vector2D(300, 80), "Pausado", 54, FONT_PATH + "distortion_of_the_brain_and_mind.ttf", utility::GREEN, "Title")));
-	this->getLayer("Debug")->addGameObject(std::make_shared<GameObject>(FPS_HUD("FPS_HUD")));
+	this->getLayer("Background")->addGameObject(new Background("Background"));
+	this->getLayer("Interaction")->addGameObject(new Menu("Paused", itens));
+	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(65, 40), Vector2D(300, 80), "Pausado", 54, FONT_PATH + "distortion_of_the_brain_and_mind.ttf", utility::GREEN, "Title"));
+	this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
 }
 
 PauseState::~PauseState()
@@ -27,11 +27,8 @@ PauseState::~PauseState()
 }
 
 void PauseState::execute_BTN_SPACE() {
-	auto it = this->getLayer("Interaction")->getGameObject("Paused").lock();
-	if (it) {
-		auto state = ((Menu*)it.get())->getCurrentHighLightItem()->getNextState();
-		Command::select(state);
-	}
+	auto state = ((Menu*)this->getLayer("Interaction")->getGameObject("Paused"))->getCurrentHighLightItem()->getNextState();
+	Command::select(state);
 }
 void PauseState::execute_BTN_Z() {
 	Command::doNothing();
@@ -46,8 +43,8 @@ void PauseState::execute_RIGHT() {
 	Command::doNothing();
 }
 void PauseState::execute_UP() {
-	Command::moveMenuUp(this->getLayer("Interaction")->getGameObject("Paused"));
+	Command::moveMenuUp((Menu*)this->getLayer("Interaction")->getGameObject("Paused"));
 }
 void PauseState::execute_DOWN() {
-	Command::moveMenuDown(this->getLayer("Interaction")->getGameObject("Paused"));
+	Command::moveMenuDown((Menu*)this->getLayer("Interaction")->getGameObject("Paused"));
 }
