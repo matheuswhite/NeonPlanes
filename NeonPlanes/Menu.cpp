@@ -1,7 +1,8 @@
 #include "Menu.h"
 
-Menu::Menu(std::string name, std::vector<HighlightItem*> itens) : itens(itens), currentItem(0), GameObject(name)
+Menu::Menu(std::string name, std::vector<HighlightItem*> itens) : itens(itens), GameObject(name)
 {
+	this->currentItem = 0;
 	std::vector<Sprite*> sprites;
 	std::vector<Behavior*> behaviors;
 	
@@ -66,5 +67,6 @@ void Menu::clearAllItem() {
 }
 
 HighlightItem* Menu::getCurrentHighLightItem() const {
-	return this->itens.at(currentItem);
+	std::cout << std::endl;
+	return this->itens.at(this->currentItem);
 }

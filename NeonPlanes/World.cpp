@@ -6,6 +6,7 @@ World::World()
 	addGameState(new MainMenuState());
 	addGameState(new PauseState());
 	addGameState(new GameOverState());
+	Notifier::addReciver(this);
 }
 
 World::~World()
@@ -36,4 +37,8 @@ void World::addGameState(GameState* state) {
 		map_states.insert(std::pair< Uint8, GameState* >(utility::PAUSE, state));
 	else if (typeid(*state) == typeid(MainMenuState))
 		map_states.insert(std::pair< Uint8, GameState* >(utility::MAIN_MENU, state));
+}
+
+void World::action(int parameter) {
+	this->switchGameState(parameter);
 }

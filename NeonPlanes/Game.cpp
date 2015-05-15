@@ -62,7 +62,7 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(utility::PLAY);
+	this->gameWorld->switchGameState(utility::PAUSE);
 
 #else
 	//Release Mode
@@ -156,7 +156,7 @@ bool Game::handlingEvents() {
 			case SDLK_z:
 				this->gameWorld->getCurrentState()->execute_BTN_Z();
 				break;
-			case SDLK_KP_ENTER:
+			case SDLK_RETURN:
 				this->gameWorld->getCurrentState()->execute_BTN_ENTER();
 				break;
 			case SDLK_UP:

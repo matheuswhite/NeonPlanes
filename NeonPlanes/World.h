@@ -4,8 +4,9 @@
 #include "PauseState.h"
 #include "PlayState.h"
 #include "GameOverState.h"
+#include "Notifier.h"
 
-class World
+class World : public NotifierInterface
 {
 public:
 	World();
@@ -13,6 +14,8 @@ public:
 	
 	GameState* getCurrentState();
 	void switchGameState(Uint8 state);
+
+	void action(int parameter);
 private:
 	void addGameState(GameState* state);
 

@@ -2,6 +2,8 @@
 
 #include "core.h"
 #include "Player.h"
+#include "Notifier.h"
+#include "Menu.h"
 
 class Command
 {
