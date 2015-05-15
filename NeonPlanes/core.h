@@ -54,8 +54,7 @@ namespace utility {
 		MAIN_MENU,
 		PAUSE,
 		GAMEOVER,
-		HIGHSCORE,
-		SAIR
+		HIGHSCORE
 	};
 
 	const SDL_Color WHITE = { 255, 255, 255 };
