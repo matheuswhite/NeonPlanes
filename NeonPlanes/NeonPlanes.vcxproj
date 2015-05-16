@@ -74,6 +74,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BlueEnemy.cpp" />
+    <ClCompile Include="BlueLight.cpp" />
     <ClCompile Include="BlueProjectile.cpp" />
     <ClCompile Include="CheckCollision.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -89,12 +90,14 @@
     <ClCompile Include="HighlightTextSprite.cpp" />
     <ClCompile Include="HighscoreState.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuBehavior.cpp" />
     <ClCompile Include="MoveBehavior.cpp" />
     <ClCompile Include="Notifier.cpp" />
+    <ClCompile Include="RedLight.cpp" />
     <ClCompile Include="TextItem.cpp" />
     <ClCompile Include="TitleText.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -113,9 +116,11 @@
     <ClCompile Include="DynamicTextSprite.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VerticalScrollingSprite.cpp" />
+    <ClCompile Include="WhiteLight.cpp" />
     <ClCompile Include="WhiteProjectile.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="YellowEnemy.cpp" />
+    <ClCompile Include="YellowLight.cpp" />
     <ClCompile Include="YellowProjectile.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +135,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="BlueEnemy.h" />
+    <ClInclude Include="BlueLight.h" />
     <ClInclude Include="BlueProjectile.h" />
     <ClInclude Include="CheckCollision.h" />
     <ClInclude Include="Command.h" />
@@ -148,11 +154,13 @@
     <ClInclude Include="HighlightTextSprite.h" />
     <ClInclude Include="HighscoreState.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuBehavior.h" />
     <ClInclude Include="MoveBehavior.h" />
     <ClInclude Include="Notifier.h" />
+    <ClInclude Include="RedLight.h" />
     <ClInclude Include="TextItem.h" />
     <ClInclude Include="TitleText.h" />
     <ClInclude Include="Player.h" />
@@ -172,9 +180,11 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="VerticalScrollingSprite.h" />
+    <ClInclude Include="WhiteLight.h" />
     <ClInclude Include="WhiteProjectile.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="YellowEnemy.h" />
+    <ClInclude Include="YellowLight.h" />
     <ClInclude Include="YellowProjectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

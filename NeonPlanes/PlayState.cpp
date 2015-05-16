@@ -40,7 +40,7 @@ void PlayState::execute_BTN_SPACE() {
 	Command::shoot((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 void PlayState::execute_BTN_Z() {
-	Command::useLightWall();
+	Command::useLightWall((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 void PlayState::execute_BTN_ENTER() {
 	Command::pause();

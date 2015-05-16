@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include "WhiteProjectile.h"
+#include "WhiteLight.h"
 
 class Player : public GameObject
 {
@@ -10,6 +11,7 @@ public:
 	virtual ~Player();
 
 	void shoot();
+	void useLightWall();
 private:
 
 };

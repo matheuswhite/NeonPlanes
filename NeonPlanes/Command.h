@@ -12,7 +12,7 @@ public:
 	virtual ~Command();
 	
 	static void shoot(Player* player);
-	static void useLightWall();
+	static void useLightWall(Player* player);
 	static void pause();
 	static void moveUp();
 	static void moveDown();

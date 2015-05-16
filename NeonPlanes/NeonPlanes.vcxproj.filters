@@ -76,6 +76,12 @@
     <Filter Include="Source Files\GameObjects\AirPlane\Enemies">
       <UniqueIdentifier>{17f2670d-340a-4fc3-9f1b-99f19450b04c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Lights">
+      <UniqueIdentifier>{ecd84e96-d9b6-4a5e-addc-b7978d8af8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Lights">
+      <UniqueIdentifier>{82977ef1-42e3-4ae4-af4d-cf51910328ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -212,6 +218,21 @@
     </ClCompile>
     <ClCompile Include="HighscoreState.cpp">
       <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="RedLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="WhiteLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -381,6 +402,21 @@
     </ClInclude>
     <ClInclude Include="HighscoreState.h">
       <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="RedLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="WhiteLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

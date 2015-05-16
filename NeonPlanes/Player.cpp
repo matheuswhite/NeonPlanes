@@ -15,3 +15,7 @@ Player::~Player()
 void Player::shoot() {
 	this->addPending(new WhiteProjectile("whiteProjectile", ((Rectangle*)this->getComponent("destiny"))->getPosition() ));
 }
+
+void Player::useLightWall() {
+	this->addPending(new WhiteLight("whiteLight", ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+}

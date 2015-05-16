@@ -24,9 +24,9 @@ void Command::shoot(Player* player) {
 #endif
 }
 
-void Command::useLightWall() {
+void Command::useLightWall(Player* player) {
 #if _DEBUG
-	std::cout << "Wall" << std::endl;
+	player->useLightWall();
 #else
 
 #endif
@@ -59,7 +59,6 @@ void Command::doNothing() {
 void Command::resume() {
 #if _DEBUG
 	Notifier::notify(utility::PLAY);
-	std::cout << "Resume" << std::endl;
 #else
 
 #endif
@@ -68,7 +67,6 @@ void Command::resume() {
 void Command::pause() {
 #if _DEBUG
 	Notifier::notify(utility::PAUSE);
-	std::cout << "Pause" << std::endl;
 #else
 
 #endif
@@ -93,7 +91,6 @@ void Command::moveRight() {
 void Command::select(Uint8 nextState) {
 #if _DEBUG
 	Notifier::notify(nextState);
-	std::cout << "Select" << std::endl;
 #else
 
 #endif
@@ -102,7 +99,6 @@ void Command::select(Uint8 nextState) {
 void Command::moveMenuUp(Menu* menu) {
 #if _DEBUG
 	menu->prevItem();
-	std::cout << "Up" << std::endl;
 #else
 
 #endif
@@ -111,7 +107,6 @@ void Command::moveMenuUp(Menu* menu) {
 void Command::moveMenuDown(Menu* menu) {
 #if _DEBUG
 	menu->nextItem();
-	std::cout << "Down" << std::endl;
 #else
 
 #endif
