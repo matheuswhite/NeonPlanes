@@ -12,5 +12,21 @@ YellowEnemy::~YellowEnemy()
 }
 
 void YellowEnemy::shoot() {
+	this->addPending(new YellowProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	if (objectValue >= LLONG_MAX) {
+		this->objectValue = 0;
+	}
+	else {
+		this->objectValue++;
+	}
+}
 
+void YellowEnemy::useLightWall() {
+	this->addPending(new YellowLight("whiteLight" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	if (objectValue >= LLONG_MAX) {
+		this->objectValue = 0;
+	}
+	else {
+		this->objectValue++;
+	}
 }

@@ -17,9 +17,14 @@ public:
 	void switchGameState(Uint8 state);
 
 	void action(int parameter);
+
+	bool isSwitchState() const;
+	void turnOffSwitchState();
 private:
 	void addGameState(GameState* state);
 
 	GameState* currentState;
 	std::map<int, GameState*> map_states;
+
+	bool switchState;
 };

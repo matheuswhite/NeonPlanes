@@ -13,5 +13,5 @@ public:
 	void shoot();
 	void useLightWall();
 private:
-
+	unsigned long long int objectValue;
 };

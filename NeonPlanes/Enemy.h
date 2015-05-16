@@ -10,5 +10,5 @@ public:
 	virtual ~Enemy();
 
 protected:
-
+	unsigned long long int objectValue;
 };

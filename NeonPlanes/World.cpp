@@ -8,6 +8,8 @@ World::World()
 	addGameState(new GameOverState());
 	addGameState(new HighscoreState());
 	Notifier::addReciver(this);
+
+	this->switchState = false;
 }
 
 World::~World()
@@ -27,6 +29,8 @@ void World::switchGameState(Uint8 state) {
 	else if (state == utility::MAIN_MENU) {
 		((PlayState*)currentState)->destroyGameWorld();
 	}
+
+	this->switchState = true;
 }
 
 void World::addGameState(GameState* state) {
@@ -44,4 +48,12 @@ void World::addGameState(GameState* state) {
 
 void World::action(int parameter) {
 	this->switchGameState(parameter);
+}
+
+bool World::isSwitchState() const {
+	return this->switchState;
+}
+
+void World::turnOffSwitchState() {
+	this->switchState = false;
 }

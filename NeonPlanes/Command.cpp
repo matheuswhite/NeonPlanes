@@ -8,8 +8,10 @@ Command::~Command() {
 
 }
 
-void Command::stop() {
+void Command::stop(long int key, Player* player) {
 #if _DEBUG
+
+
 	std::cout << "Stop!" << std::endl;
 #else
 

@@ -79,6 +79,9 @@ bool Game::initialize() {
 	tex->loadImage(renderer, IMAGE_PATH + "Logo.png");
 	Graphics::sinAnimation(M_PI, tex->getTexture());*/
 
+	this->shootState = false;
+	this->lightState = false;
+
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0){}
 
@@ -140,48 +143,72 @@ bool Game::handlingEvents() {
 		case SDL_QUIT:
 			return false;
 		case SDL_KEYDOWN:
-			switch (e.key.keysym.sym) {
-			case SDLK_ESCAPE:
-#if _DEBUG
-				return false;
-#else
-				World::getCurrentState()->execute_BTN_ENTER();
-#endif
-				break;
-			case SDLK_SPACE:
-				this->gameWorld->getCurrentState()->execute_BTN_SPACE();
-				break;
-			case SDLK_z:
-				this->gameWorld->getCurrentState()->execute_BTN_Z();
-				break;
-			case SDLK_RETURN:
-				this->gameWorld->getCurrentState()->execute_BTN_ENTER();
-				break;
-			case SDLK_UP:
-				this->gameWorld->getCurrentState()->execute_UP();
-				break;
-			case SDLK_DOWN:
-				this->gameWorld->getCurrentState()->execute_DOWN();
-				break;
-			case SDLK_LEFT:
-				this->gameWorld->getCurrentState()->execute_LEFT();
-				break;
-			case SDLK_RIGHT:
-				this->gameWorld->getCurrentState()->execute_RIGHT();
-				break;
-			default:
-				break;
+			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+				if (e.key.keysym.sym == SDLK_SPACE) this->shootState = true;
+				if (e.key.keysym.sym == SDLK_z) this->lightState = true;
+				if (e.key.keysym.sym == SDLK_RETURN) this->gameWorld->getCurrentState()->execute_BTN_ENTER();
+				if (e.key.keysym.sym == SDLK_UP) this->gameWorld->getCurrentState()->execute_UP();
+				if (e.key.keysym.sym == SDLK_DOWN) this->gameWorld->getCurrentState()->execute_DOWN();
+				if (e.key.keysym.sym == SDLK_LEFT) this->gameWorld->getCurrentState()->execute_LEFT();
+				if (e.key.keysym.sym == SDLK_RIGHT) this->gameWorld->getCurrentState()->execute_RIGHT();
+			}
+			else {
+				switch (e.key.keysym.sym) {
+				case SDLK_SPACE:
+					this->gameWorld->getCurrentState()->execute_BTN_SPACE();
+					break;
+				case SDLK_z:
+					this->gameWorld->getCurrentState()->execute_BTN_Z();
+					break;
+				case SDLK_RETURN:
+					this->gameWorld->getCurrentState()->execute_BTN_ENTER();
+					break;
+				case SDLK_UP:
+					this->gameWorld->getCurrentState()->execute_UP();
+					break;
+				case SDLK_DOWN:
+					this->gameWorld->getCurrentState()->execute_DOWN();
+					break;
+				case SDLK_LEFT:
+					this->gameWorld->getCurrentState()->execute_LEFT();
+					break;
+				case SDLK_RIGHT:
+					this->gameWorld->getCurrentState()->execute_RIGHT();
+					break;
+				default:
+					break;
+				}
 			}
 			break;
 		case SDL_KEYUP:
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-				Command::stop();
+				if (e.key.keysym.sym == SDLK_SPACE) this->shootState = false;
+				if (e.key.keysym.sym == SDLK_z) this->lightState = false;
+				if (e.key.keysym.sym == SDLK_UP) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_UP);
+				if (e.key.keysym.sym == SDLK_DOWN) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_DOWN);
+				if (e.key.keysym.sym == SDLK_LEFT) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_LEFT);
+				if (e.key.keysym.sym == SDLK_RIGHT) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_RIGHT);
 			}
 			break;
 		default:
 			break;
 		}
 	}
+
+	if (this->getGameWorld()->isSwitchState()) {
+		this->getGameWorld()->turnOffSwitchState();
+	}
+	else {
+		if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+			if (this->shootState) {
+				this->gameWorld->getCurrentState()->execute_BTN_SPACE();
+			}
+			if (this->lightState) {
+				this->gameWorld->getCurrentState()->execute_BTN_Z();
+			}
+		}
+	}
+	
 
 	return true;
 }

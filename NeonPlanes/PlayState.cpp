@@ -57,3 +57,7 @@ void PlayState::execute_UP() {
 void PlayState::execute_DOWN() {
 	Command::moveDown();
 }
+
+void PlayState::stop(long int key) {
+	Command::stop(key, (Player*)this->getLayer("Interaction")->getGameObject("Player"));
+}

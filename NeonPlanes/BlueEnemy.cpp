@@ -12,5 +12,21 @@ BlueEnemy::~BlueEnemy()
 }
 
 void BlueEnemy::shoot() {
+	this->addPending(new BlueProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	if (objectValue >= LLONG_MAX) {
+		this->objectValue = 0;
+	}
+	else {
+		this->objectValue++;
+	}
+}
 
+void BlueEnemy::useLightWall() {
+	this->addPending(new BlueLight("whiteLight" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	if (objectValue >= LLONG_MAX) {
+		this->objectValue = 0;
+	}
+	else {
+		this->objectValue++;
+	}
 }

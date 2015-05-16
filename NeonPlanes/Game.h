@@ -23,4 +23,7 @@ public:
 private:
 	bool init;
 	static World *gameWorld;
+	
+	bool shootState;
+	bool lightState;
 };
