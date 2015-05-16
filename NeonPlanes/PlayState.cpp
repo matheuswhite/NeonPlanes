@@ -46,18 +46,18 @@ void PlayState::execute_BTN_ENTER() {
 	Command::pause();
 }
 void PlayState::execute_LEFT() {
-	Command::moveLeft();
+	Command::moveLeft((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 void PlayState::execute_RIGHT() {
-	Command::moveRight();
+	Command::moveRight((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 void PlayState::execute_UP() {
-	Command::moveUp();
+	Command::moveUp((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 void PlayState::execute_DOWN() {
-	Command::moveDown();
+	Command::moveDown((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 
-void PlayState::stop(long int key) {
-	Command::stop(key, (Player*)this->getLayer("Interaction")->getGameObject("Player"));
+void PlayState::stop() {
+	Command::stop((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }

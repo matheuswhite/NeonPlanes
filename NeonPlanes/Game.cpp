@@ -81,6 +81,10 @@ bool Game::initialize() {
 
 	this->shootState = false;
 	this->lightState = false;
+	this->upState = false;
+	this->downState = false;
+	this->leftState = false;
+	this->rightState = false;
 
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0){}
@@ -147,10 +151,10 @@ bool Game::handlingEvents() {
 				if (e.key.keysym.sym == SDLK_SPACE) this->shootState = true;
 				if (e.key.keysym.sym == SDLK_z) this->lightState = true;
 				if (e.key.keysym.sym == SDLK_RETURN) this->gameWorld->getCurrentState()->execute_BTN_ENTER();
-				if (e.key.keysym.sym == SDLK_UP) this->gameWorld->getCurrentState()->execute_UP();
-				if (e.key.keysym.sym == SDLK_DOWN) this->gameWorld->getCurrentState()->execute_DOWN();
-				if (e.key.keysym.sym == SDLK_LEFT) this->gameWorld->getCurrentState()->execute_LEFT();
-				if (e.key.keysym.sym == SDLK_RIGHT) this->gameWorld->getCurrentState()->execute_RIGHT();
+				if (e.key.keysym.sym == SDLK_UP) this->upState = true;
+				if (e.key.keysym.sym == SDLK_DOWN) this->downState = true;
+				if (e.key.keysym.sym == SDLK_LEFT) this->leftState = true;
+				if (e.key.keysym.sym == SDLK_RIGHT) this->rightState = true;
 			}
 			else {
 				switch (e.key.keysym.sym) {
@@ -184,10 +188,22 @@ bool Game::handlingEvents() {
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
 				if (e.key.keysym.sym == SDLK_SPACE) this->shootState = false;
 				if (e.key.keysym.sym == SDLK_z) this->lightState = false;
-				if (e.key.keysym.sym == SDLK_UP) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_UP);
-				if (e.key.keysym.sym == SDLK_DOWN) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_DOWN);
-				if (e.key.keysym.sym == SDLK_LEFT) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_LEFT);
-				if (e.key.keysym.sym == SDLK_RIGHT) ((PlayState*)this->gameWorld->getCurrentState())->stop(SDLK_RIGHT);
+				if (e.key.keysym.sym == SDLK_UP) {
+					this->upState = false;
+					((PlayState*)this->gameWorld->getCurrentState())->stop();
+				}
+				if (e.key.keysym.sym == SDLK_DOWN) {
+					this->downState = false;
+					((PlayState*)this->gameWorld->getCurrentState())->stop();
+				}
+				if (e.key.keysym.sym == SDLK_LEFT) {
+					this->leftState = false;
+					((PlayState*)this->gameWorld->getCurrentState())->stop();
+				}
+				if (e.key.keysym.sym == SDLK_RIGHT) {
+					this->rightState = false;
+					((PlayState*)this->gameWorld->getCurrentState())->stop();
+				}
 			}
 			break;
 		default:
@@ -205,6 +221,18 @@ bool Game::handlingEvents() {
 			}
 			if (this->lightState) {
 				this->gameWorld->getCurrentState()->execute_BTN_Z();
+			}
+			if (this->upState) {
+				this->gameWorld->getCurrentState()->execute_UP();
+			}
+			if (this->downState) {
+				this->gameWorld->getCurrentState()->execute_DOWN();
+			}
+			if (this->leftState) {
+				this->gameWorld->getCurrentState()->execute_LEFT();
+			}
+			if (this->rightState) {
+				this->gameWorld->getCurrentState()->execute_RIGHT();
 			}
 		}
 	}

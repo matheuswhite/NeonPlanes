@@ -26,4 +26,8 @@ private:
 	
 	bool shootState;
 	bool lightState;
+	bool upState;
+	bool downState;
+	bool leftState;
+	bool rightState;
 };

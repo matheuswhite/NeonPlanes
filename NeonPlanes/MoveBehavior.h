@@ -10,6 +10,7 @@ public:
 	virtual ~MoveBehavior();
 
 	void changeVelocity(Vector2D velocity);
+	Vector2D getVelocity() const;
 
 	void run();
 private:

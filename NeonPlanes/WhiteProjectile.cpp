@@ -5,7 +5,7 @@ WhiteProjectile::WhiteProjectile(std::string name, Vector2D pos) : Projectile(na
 	this->addComponent(new Rectangle(this->pos, Vector2D(54, 37), "destiny"));
 
 	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("destiny"), "WhiteProjectile.png", "StaticSprite"));
-	this->addBehavior(new MoveBehavior("moveUPBehavior", Vector2D(0, -15), (Rectangle*)this->getComponent("destiny")));
+	this->addBehavior(new MoveBehavior("moveUPBehavior", Vector2D(0, -8), (Rectangle*)this->getComponent("destiny")));
 }
 
 WhiteProjectile::~WhiteProjectile()

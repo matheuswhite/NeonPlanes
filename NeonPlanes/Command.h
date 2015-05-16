@@ -14,11 +14,11 @@ public:
 	static void shoot(Player* player);
 	static void useLightWall(Player* player);
 	static void pause();
-	static void moveUp();
-	static void moveDown();
-	static void moveLeft();
-	static void moveRight();
-	static void stop(long int key, Player* player);
+	static void moveUp(Player* player);
+	static void moveDown(Player* player);
+	static void moveLeft(Player* player);
+	static void moveRight(Player* player);
+	static void stop(Player* player);
 
 	static void select(Uint8 nextState);
 	static void resume();

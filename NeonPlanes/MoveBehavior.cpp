@@ -15,3 +15,7 @@ void MoveBehavior::changeVelocity(Vector2D velocity) {
 void MoveBehavior::run() {
 	this->destiny->changePosition(this->destiny->getPosition() + velocity);
 }
+
+Vector2D MoveBehavior::getVelocity() const {
+	return this->velocity;
+}

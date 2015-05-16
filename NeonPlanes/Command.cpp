@@ -8,11 +8,9 @@ Command::~Command() {
 
 }
 
-void Command::stop(long int key, Player* player) {
+void Command::stop(Player* player) {
 #if _DEBUG
-
-
-	std::cout << "Stop!" << std::endl;
+	player->move(Vector2D(0, 0));
 #else
 
 #endif
@@ -34,16 +32,18 @@ void Command::useLightWall(Player* player) {
 #endif
 }
 
-void Command::moveUp() {
+void Command::moveUp(Player* player) {
 #if _DEBUG
+	player->move(Vector2D(0, -player->getVelocityValue()));
 	std::cout << "Up" << std::endl;
 #else
 
 #endif
 }
 
-void Command::moveDown() {
+void Command::moveDown(Player* player) {
 #if _DEBUG
+	player->move(Vector2D(0, player->getVelocityValue()));
 	std::cout << "Down" << std::endl;
 #else
 
@@ -74,16 +74,18 @@ void Command::pause() {
 #endif
 }
 
-void Command::moveLeft() {
+void Command::moveLeft(Player* player) {
 #if _DEBUG
+	player->move(Vector2D(-player->getVelocityValue(), 0));
 	std::cout << "Left" << std::endl;
 #else
 
 #endif
 }
 
-void Command::moveRight() {
+void Command::moveRight(Player* player) {
 #if _DEBUG
+	player->move(Vector2D(player->getVelocityValue(), 0));
 	std::cout << "Right" << std::endl;
 #else
 
