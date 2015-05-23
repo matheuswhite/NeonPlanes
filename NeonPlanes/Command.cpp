@@ -8,7 +8,21 @@ Command::~Command() {
 
 }
 
-void Command::stop(Player* player) {
+void Command::stop(Player* player, bool vertical) {
+#if _DEBUG
+	auto vel = player->getCurrentVelocity();
+	if (vertical) {
+		player->move(Vector2D(vel.x, 0));
+	}
+	else {
+		player->move(Vector2D(0, vel.y));
+	}
+#else
+
+#endif
+}
+
+void Command::totalStop(Player* player) {
 #if _DEBUG
 	player->move(Vector2D(0, 0));
 #else
@@ -34,8 +48,7 @@ void Command::useLightWall(Player* player) {
 
 void Command::moveUp(Player* player) {
 #if _DEBUG
-	player->move(Vector2D(0, -player->getVelocityValue()));
-	std::cout << "Up" << std::endl;
+	player->move(Vector2D(player->getCurrentVelocity().x, -player->getVelocityValue()));
 #else
 
 #endif
@@ -43,8 +56,7 @@ void Command::moveUp(Player* player) {
 
 void Command::moveDown(Player* player) {
 #if _DEBUG
-	player->move(Vector2D(0, player->getVelocityValue()));
-	std::cout << "Down" << std::endl;
+	player->move(Vector2D(player->getCurrentVelocity().x, player->getVelocityValue()));
 #else
 
 #endif
@@ -76,8 +88,7 @@ void Command::pause() {
 
 void Command::moveLeft(Player* player) {
 #if _DEBUG
-	player->move(Vector2D(-player->getVelocityValue(), 0));
-	std::cout << "Left" << std::endl;
+	player->move(Vector2D(-player->getVelocityValue(), player->getCurrentVelocity().y));
 #else
 
 #endif
@@ -85,8 +96,7 @@ void Command::moveLeft(Player* player) {
 
 void Command::moveRight(Player* player) {
 #if _DEBUG
-	player->move(Vector2D(player->getVelocityValue(), 0));
-	std::cout << "Right" << std::endl;
+	player->move(Vector2D(player->getVelocityValue(), player->getCurrentVelocity().y));
 #else
 
 #endif
@@ -103,6 +113,7 @@ void Command::select(Uint8 nextState) {
 void Command::moveMenuUp(Menu* menu) {
 #if _DEBUG
 	menu->prevItem();
+	std::cout << "menu up" << std::endl;
 #else
 
 #endif
@@ -111,6 +122,7 @@ void Command::moveMenuUp(Menu* menu) {
 void Command::moveMenuDown(Menu* menu) {
 #if _DEBUG
 	menu->nextItem();
+	std::cout << "menu down" << std::endl;
 #else
 
 #endif

@@ -25,7 +25,8 @@ public:
 	void execute_RIGHT();
 	void execute_UP();
 	void execute_DOWN();
-	void stop();
+	void stop(bool direction);
+	void totalStop();
 
 	void createGameWorld();
 	void destroyGameWorld();

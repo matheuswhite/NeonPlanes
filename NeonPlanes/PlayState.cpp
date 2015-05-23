@@ -58,6 +58,10 @@ void PlayState::execute_DOWN() {
 	Command::moveDown((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }
 
-void PlayState::stop() {
-	Command::stop((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+void PlayState::stop(bool direction) {
+	Command::stop((Player*)this->getLayer("Interaction")->getGameObject("Player"), direction);
+}
+
+void PlayState::totalStop() {
+	Command::totalStop((Player*)this->getLayer("Interaction")->getGameObject("Player"));
 }

@@ -52,7 +52,7 @@ std::vector<std::pair<std::string, std::string> > HighscoreState::getHighscore()
 }
 
 void HighscoreState::execute_BTN_SPACE() {
-	Command::select(utility::MAIN_MENU);
+	Command::doNothing();
 }
 void HighscoreState::execute_BTN_Z() {
 	Command::doNothing();

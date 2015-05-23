@@ -23,8 +23,9 @@ public:
 private:
 	bool init;
 	static World *gameWorld;
+	SDL_Joystick* joystick;
+	const int deadZone = 10000;
 	
-	bool shootState;
 	bool lightState;
 	bool upState;
 	bool downState;

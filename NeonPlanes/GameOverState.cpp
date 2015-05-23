@@ -40,7 +40,7 @@ GameOverState::~GameOverState()
 }
 
 void GameOverState::execute_BTN_SPACE() {
-	Command::select(utility::MAIN_MENU);
+	Command::doNothing();
 }
 void GameOverState::execute_BTN_Z() {
 	Command::doNothing();

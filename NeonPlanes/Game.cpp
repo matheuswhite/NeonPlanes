@@ -10,33 +10,39 @@ Game::Game(std::string name, int windows_x, int windows_y, int flag)
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		std::cerr << "Error in initialize SDL" << std::endl;
+		this->init = false;
+	}
+
+	if (SDL_Init(SDL_INIT_JOYSTICK) < 0)
+	{
+		std::cerr << "Error in initialize SDL" << std::endl;
 		this->init = false;
 	}
 
 	if (IMG_Init(IMG_INIT_PNG) == 0)
 	{
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		std::cerr << "Error in initialize SDL_IMAGE" << std::endl;
 		this->init = false;
 	}
 
 	if (TTF_Init() < 0)
 	{
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		std::cerr << "Error in initialize SDL_TTF" << std::endl;
 		this->init = false;
 	}
 
 	window = SDL_CreateWindow(name.c_str(), windows_x, windows_y, SCREEN_WIDTH, SCREEN_HEIGHT, flag);
 	if (window == nullptr)
 	{
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		std::cerr << "Error in initialize window" << std::endl;
 		this->init = false;
 	}
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	if (renderer == nullptr)
 	{
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		std::cerr << "Error in initialize renderer" << std::endl;
 		this->init = false;
 	}
 }
@@ -55,14 +61,14 @@ bool Game::initialize() {
 	this->gameWorld = new World();
 
 	if (this->gameWorld == nullptr) {
-		std::cerr << "Error in Game constructor. Line: " << __LINE__ << std::endl;
+		std::cerr << "Error in initialize game world" << std::endl;
 		return false;
 	}
 
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(utility::MAIN_MENU);
+	this->gameWorld->switchGameState(utility::GAMEOVER);
 
 #else
 	//Release Mode
@@ -79,7 +85,6 @@ bool Game::initialize() {
 	tex->loadImage(renderer, IMAGE_PATH + "Logo.png");
 	Graphics::sinAnimation(M_PI, tex->getTexture());*/
 
-	this->shootState = false;
 	this->lightState = false;
 	this->upState = false;
 	this->downState = false;
@@ -142,13 +147,17 @@ void Game::update() {
 bool Game::handlingEvents() {
 	SDL_Event e;
 
+	if (SDL_NumJoysticks() == 1) {
+		SDL_JoystickEventState(SDL_ENABLE);
+		this->joystick = SDL_JoystickOpen(0);
+	}
+
 	while (SDL_PollEvent(&e) != 0) {
 		switch (e.type) {
 		case SDL_QUIT:
 			return false;
 		case SDL_KEYDOWN:
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-				if (e.key.keysym.sym == SDLK_SPACE) this->shootState = true;
 				if (e.key.keysym.sym == SDLK_z) this->lightState = true;
 				if (e.key.keysym.sym == SDLK_RETURN) this->gameWorld->getCurrentState()->execute_BTN_ENTER();
 				if (e.key.keysym.sym == SDLK_UP) this->upState = true;
@@ -186,26 +195,119 @@ bool Game::handlingEvents() {
 			break;
 		case SDL_KEYUP:
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-				if (e.key.keysym.sym == SDLK_SPACE) this->shootState = false;
+				if (e.key.keysym.sym == SDLK_SPACE) this->gameWorld->getCurrentState()->execute_BTN_SPACE();
 				if (e.key.keysym.sym == SDLK_z) this->lightState = false;
 				if (e.key.keysym.sym == SDLK_UP) {
 					this->upState = false;
-					((PlayState*)this->gameWorld->getCurrentState())->stop();
+					((PlayState*)this->gameWorld->getCurrentState())->stop(true);
 				}
 				if (e.key.keysym.sym == SDLK_DOWN) {
 					this->downState = false;
-					((PlayState*)this->gameWorld->getCurrentState())->stop();
+					((PlayState*)this->gameWorld->getCurrentState())->stop(true);
 				}
 				if (e.key.keysym.sym == SDLK_LEFT) {
 					this->leftState = false;
-					((PlayState*)this->gameWorld->getCurrentState())->stop();
+					((PlayState*)this->gameWorld->getCurrentState())->stop(false);
 				}
 				if (e.key.keysym.sym == SDLK_RIGHT) {
 					this->rightState = false;
-					((PlayState*)this->gameWorld->getCurrentState())->stop();
+					((PlayState*)this->gameWorld->getCurrentState())->stop(false);
 				}
 			}
 			break;
+		case SDL_JOYBUTTONDOWN:
+			if (e.jbutton.button == 4) {
+				//start
+				this->gameWorld->getCurrentState()->execute_BTN_ENTER();
+			}
+			break;
+		case SDL_JOYBUTTONUP:
+			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+				if (e.jbutton.button == 10) {
+					//btn A
+					this->gameWorld->getCurrentState()->execute_BTN_SPACE();
+				}
+			}
+			break;
+		case SDL_JOYAXISMOTION:
+
+			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState))
+			{
+				if (e.jaxis.axis == 0) {
+					if (e.jaxis.value < -this->deadZone) {
+						this->leftState = true;
+					}
+					else if (e.jaxis.value > this->deadZone) {
+						this->rightState = true;
+					}
+					if ((e.jaxis.value > -this->deadZone) && (e.jaxis.value < this->deadZone)) {
+						this->leftState = false;
+						this->rightState = false;
+						((PlayState*)this->gameWorld->getCurrentState())->stop(false);
+					}
+				}
+				if (e.jaxis.axis == 1) {
+					if (e.jaxis.value < -this->deadZone) {
+						this->upState = true;
+					}
+					else if (e.jaxis.value > this->deadZone) {
+						this->downState = true;
+					}
+					if ((e.jaxis.value > -this->deadZone) && (e.jaxis.value < this->deadZone)) {
+						this->upState = false;
+						this->downState = false;
+						((PlayState*)this->gameWorld->getCurrentState())->stop(true);
+					}
+				}
+				if (e.jaxis.axis == 5) {
+					//btn RT
+					if (e.jaxis.value > this->deadZone) {
+						this->lightState = true;
+					}
+					if (e.jaxis.value < this->deadZone) {
+						this->lightState = false;
+					}
+				}
+
+				//STOP
+				/*
+				if (e.jaxis.axis == 0) {
+					if ((e.jaxis.value > -this->deadZone) && (e.jaxis.value < this->deadZone)) {
+						this->leftState = false;
+						this->rightState = false;
+						((PlayState*)this->gameWorld->getCurrentState())->stop(false);
+					}
+				}
+				if (e.jaxis.axis == 1) {
+					if ((e.jaxis.value > -this->deadZone) && (e.jaxis.value < this->deadZone)) {
+						this->upState = false;
+						this->downState = false;
+						((PlayState*)this->gameWorld->getCurrentState())->stop(true);
+					}
+				}
+				*/
+			}
+
+			else 
+			{
+				if (e.jaxis.axis == 0) {
+					if (e.jaxis.value < -this->deadZone) {
+						this->gameWorld->getCurrentState()->execute_LEFT();
+					}
+					else if (e.jaxis.value > this->deadZone) {
+						this->gameWorld->getCurrentState()->execute_RIGHT();
+					}
+				}
+				if (e.jaxis.axis == 1) {
+					if (e.jaxis.value < -this->deadZone) {
+						this->gameWorld->getCurrentState()->execute_UP();
+					}
+					else if (e.jaxis.value > this->deadZone) {
+						this->gameWorld->getCurrentState()->execute_DOWN();
+					}
+				}
+			}
+		break;
 		default:
 			break;
 		}
@@ -216,9 +318,6 @@ bool Game::handlingEvents() {
 	}
 	else {
 		if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-			if (this->shootState) {
-				this->gameWorld->getCurrentState()->execute_BTN_SPACE();
-			}
 			if (this->lightState) {
 				this->gameWorld->getCurrentState()->execute_BTN_Z();
 			}
@@ -245,6 +344,9 @@ void Game::clear() {
 	delete this->gameWorld;
 	this->gameWorld = nullptr;
 	
+	SDL_JoystickClose(this->joystick);
+	this->joystick = nullptr;
+
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	window = nullptr;

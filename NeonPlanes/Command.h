@@ -18,7 +18,8 @@ public:
 	static void moveDown(Player* player);
 	static void moveLeft(Player* player);
 	static void moveRight(Player* player);
-	static void stop(Player* player);
+	static void stop(Player* player, bool vertical);
+	static void totalStop(Player* player);
 
 	static void select(Uint8 nextState);
 	static void resume();

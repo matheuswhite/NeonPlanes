@@ -25,8 +25,7 @@ MainMenuState::~MainMenuState()
 }
 
 void MainMenuState::execute_BTN_SPACE() {
-	auto state = ((Menu*)this->getLayer("Interaction")->getGameObject("MainMenu"))->getCurrentHighLightItem()->getNextState();
-	Command::select(state);
+	Command::doNothing;
 }
 void MainMenuState::execute_BTN_Z() {
 	Command::doNothing();
