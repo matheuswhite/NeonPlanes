@@ -64,6 +64,24 @@ namespace utility {
 	const SDL_Color LIGHT_BLUE = { 0, 255, 255 };
 	const SDL_Color INTER_BLUE = { 0, 0, 205 };
 	const SDL_Color YELLOW = { 255, 255, 0 };
+
+	template <class U>
+	void remove(std::vector<U>* vector, U object) {
+		auto it = std::find(vector->begin(), vector->end(), object);
+		if (it != vector->end()) vector->erase(it);
+	}
+
+	template <class U>
+	void remove(std::vector<U>* vector, int index) {
+		try {
+			vector->erase(index);
+		}
+		catch (const std::out_of_range& e) {
+			std::cerr << "Out of Range error: " << e.what() << std::endl;
+
+			getchar();
+		}
+	}
 }
 
 extern SDL_Window* window;

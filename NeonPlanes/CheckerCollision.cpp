@@ -20,7 +20,9 @@ void CheckerCollision::checkCollisions() {
 	{
 		for each (auto object in objects)
 		{
-			this->collisionChekingAlgorithm(airplane, object);
+			if (airplane->isActive() && object->isActive()) {
+				this->collisionChekingAlgorithm(airplane, object);
+			}
 		}
 	}
 }
@@ -36,37 +38,57 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 			//player
 			if (typeid(*airplane) == typeid(Player)) {
 				if (typeid(*object) == typeid(Bounds)) {
-
+					airplane->collided = true;
 				}
 				else if (typeid(*object) == typeid(RedEnemy) ||
-					typeid(*object) == typeid(BlueEnemy) ||
-					typeid(*object) == typeid(YellowEnemy)) {
-
+					     typeid(*object) == typeid(BlueEnemy) ||
+					     typeid(*object) == typeid(YellowEnemy)) {
+					airplane->active = false;
+					object->active = false;
+					
+					utility::remove<Airplane*>(&this->airplanes, airplane);
+					utility::remove<Airplane*>(&this->airplanes, (Airplane*)object);
 				}
 				else if (typeid(*object) == typeid(RedProjectile) ||
-					typeid(*object) == typeid(BlueProjectile) ||
-					typeid(*object) == typeid(YellowProjectile)) {
+					     typeid(*object) == typeid(BlueProjectile) ||
+					     typeid(*object) == typeid(YellowProjectile)) {
+					airplane->active = false;
+					object->active = false;
 
+					utility::remove<Airplane*>(&this->airplanes, airplane);
 				}
 				else if (typeid(*object) == typeid(RedLight) ||
-					typeid(*object) == typeid(BlueLight) ||
-					typeid(*object) == typeid(YellowLight)) {
+					     typeid(*object) == typeid(BlueLight) ||
+					     typeid(*object) == typeid(YellowLight)) {
+					airplane->active = false;
 
+					utility::remove<Airplane*>(&this->airplanes, airplane);
 				}
 			}
 			//enemies
 			else {
 				if (typeid(*object) == typeid(Bounds)) {
-
+					airplane->collided = true;
+					airplane->collided_IAFlag = false;
 				}
 				else if (typeid(*object) == typeid(Player)) {
+					airplane->active = false;
+					object->active = false;
 
+					utility::remove<Airplane*>(&this->airplanes, airplane);
+					utility::remove<Airplane*>(&this->airplanes, (Airplane*)object);
 				}
 				else if (typeid(*object) == typeid(WhiteProjectile)) {
+					airplane->active = false;
+					object->active = false;
 
+					utility::remove<Airplane*>(&this->airplanes, airplane);
 				}
 				else if (typeid(*object) == typeid(WhiteLight)) {
+					airplane->active = false;
+					object->active = false;
 
+					utility::remove<Airplane*>(&this->airplanes, airplane);
 				}
 			}
 		}
