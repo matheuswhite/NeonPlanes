@@ -2,13 +2,14 @@
 
 #include "GameObject.h"
 #include "StaticSprite.h"
+#include "Airplane.h"
 
-class Enemy : public GameObject
+class Enemy : public Airplane
 {
 public:
-	Enemy(std::string name);
-	virtual ~Enemy();
+	Enemy(std::string name) : Airplane(name) {}
+	virtual ~Enemy() {}
 
-protected:
-	unsigned long long int objectValue;
+	virtual void shoot() = 0;
+	virtual void useLightWall() = 0;
 };

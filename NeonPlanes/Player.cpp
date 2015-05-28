@@ -1,8 +1,7 @@
 #include "Player.h"
 
-Player::Player(std::string name) : GameObject(name)
+Player::Player(std::string name) : Airplane(name)
 {
-	objectValue = 0;
 	this->velocity = 3;
 	this->addComponent(new Rectangle(Vector2D(200,300),Vector2D(64,45),"destiny"));
 
@@ -40,8 +39,4 @@ void Player::move(Vector2D vel) {
 
 Vector2D Player::getCurrentVelocity() {
 	return ((MoveBehavior*)this->getBehavior("moveBehavior"))->getVelocity();
-}
-
-float Player::getVelocityValue() const {
-	return this->velocity;
 }

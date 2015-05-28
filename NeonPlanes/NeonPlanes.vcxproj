@@ -76,10 +76,10 @@
     <ClCompile Include="BlueEnemy.cpp" />
     <ClCompile Include="BlueLight.cpp" />
     <ClCompile Include="BlueProjectile.cpp" />
-    <ClCompile Include="CheckCollision.cpp" />
+    <ClCompile Include="Bounds.cpp" />
+    <ClCompile Include="CheckerCollision.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DataStore.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPS_HUD.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -132,12 +132,14 @@
     <Image Include="pict3159.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Airplane.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="BlueEnemy.h" />
     <ClInclude Include="BlueLight.h" />
     <ClInclude Include="BlueProjectile.h" />
-    <ClInclude Include="CheckCollision.h" />
+    <ClInclude Include="Bounds.h" />
+    <ClInclude Include="CheckerCollision.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="core.h" />

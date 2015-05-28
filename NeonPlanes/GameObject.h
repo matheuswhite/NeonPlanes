@@ -32,6 +32,8 @@ public:
 
 	bool operator==(GameObject* second) const;
 protected:
+	friend class CheckerCollision;
+
 	bool active;
 	std::string name;
 

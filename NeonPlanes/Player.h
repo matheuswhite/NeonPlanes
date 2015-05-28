@@ -1,11 +1,11 @@
 #pragma once
 
-#include "GameObject.h"
+#include "Airplane.h"
 #include "WhiteProjectile.h"
 #include "WhiteLight.h"
 #include "MoveBehavior.h"
 
-class Player : public GameObject
+class Player : public Airplane
 {
 public:
 	Player(std::string name);
@@ -15,9 +15,4 @@ public:
 	void useLightWall();
 	void move(Vector2D vel);
 	Vector2D getCurrentVelocity();
-
-	float getVelocityValue() const;
-private:
-	unsigned long long int objectValue;
-	float velocity;
 };

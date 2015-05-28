@@ -120,9 +120,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="CheckCollision.cpp">
-      <Filter>Source Files\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="GameOverState.cpp">
       <Filter>Source Files\GameStates</Filter>
     </ClCompile>
@@ -158,9 +155,6 @@
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>Source Files\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="BlueEnemy.cpp">
       <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
@@ -234,6 +228,12 @@
     <ClCompile Include="YellowLight.cpp">
       <Filter>Source Files\GameObjects\Lights</Filter>
     </ClCompile>
+    <ClCompile Include="CheckerCollision.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Bounds.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -297,9 +297,6 @@
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckCollision.h">
-      <Filter>Header Files\Tools</Filter>
     </ClInclude>
     <ClInclude Include="GameOverState.h">
       <Filter>Header Files\GameStates</Filter>
@@ -417,6 +414,15 @@
     </ClInclude>
     <ClInclude Include="YellowLight.h">
       <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckerCollision.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Airplane.h">
+      <Filter>Header Files\GameObjects\AirPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="Bounds.h">
+      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
