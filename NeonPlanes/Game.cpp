@@ -121,8 +121,14 @@ void Game::draw() {
 //improvisado
 void Game::update() {
 
+	//IA
 
+	//level
 
+	//collision
+	if (CheckerCollision::containsAirplanes() && CheckerCollision::containsObjects()) {
+		CheckerCollision::checkCollisions();
+	}
 	
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers())
 	{
@@ -143,7 +149,6 @@ void Game::update() {
 
 }
 
-//improvisado
 bool Game::handlingEvents() {
 	SDL_Event e;
 

@@ -3,14 +3,19 @@
 #include "GameState.h"
 #include "FPS_HUD.h"
 #include "Background.h"
+
 #include "Player.h"
 #include "BlueEnemy.h"
 #include "RedEnemy.h"
 #include "YellowEnemy.h"
+
 #include "BlueProjectile.h"
 #include "RedProjectile.h"
 #include "YellowProjectile.h"
 #include "WhiteProjectile.h"
+
+#include "Bounds.h"
+#include "CheckerCollision.h"
 
 class PlayState : public GameState
 {

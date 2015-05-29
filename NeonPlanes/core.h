@@ -33,6 +33,8 @@ const std::string FONT_PATH = "Fonts\\";
 #define GAME_FPS 1000/60
 #define SCREEN_WIDTH 420
 #define SCREEN_HEIGHT 590
+#define TOP_BOUND 85
+#define BOTTOM_BOUND (SCREEN_HEIGHT - 61)
 #define GAME_OBJECT_PAIR std::pair<std::string, Component*>
 #define GAME_OBJECT_SPRITE_PAIR std::pair<std::string, Sprite*>
 #define GAME_OBJECT_BEHAVIOR_PAIR std::pair<std::string, Behavior*>

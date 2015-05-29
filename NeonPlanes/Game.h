@@ -3,6 +3,7 @@
 #include "World.h"
 #include "Behavior.h"
 #include "Sprite.h"
+#include "CheckerCollision.h"
 
 class Game
 {
@@ -21,11 +22,11 @@ public:
 	static SDL_Renderer* getRenderer();
 	static World *getGameWorld();
 private:
-	bool init;
 	static World *gameWorld;
 	SDL_Joystick* joystick;
 	const int deadZone = 10000;
 	
+	bool init;
 	bool lightState;
 	bool upState;
 	bool downState;

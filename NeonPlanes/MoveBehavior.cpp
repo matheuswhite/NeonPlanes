@@ -1,6 +1,6 @@
 #include "MoveBehavior.h"
 
-MoveBehavior::MoveBehavior(std::string name, Vector2D velocity, Rectangle* destiny) : velocity(velocity), destiny(destiny), Behavior(name)
+MoveBehavior::MoveBehavior(std::string name, Vector2D velocity, Rectangle* destiny, bool* collided) : velocity(velocity), destiny(destiny), collided(collided), Behavior(name)
 {
 }
 
@@ -13,7 +13,17 @@ void MoveBehavior::changeVelocity(Vector2D velocity) {
 }
 
 void MoveBehavior::run() {
-	this->destiny->changePosition(this->destiny->getPosition() + velocity);
+	if (this->collided != nullptr) {
+		if (!(*this->collided)) {
+			this->destiny->changePosition(this->destiny->getPosition() + velocity);
+		}
+		else {
+			*this->collided = false;
+		}
+	}
+	else {
+		this->destiny->changePosition(this->destiny->getPosition() + velocity);
+	}
 }
 
 Vector2D MoveBehavior::getVelocity() const {

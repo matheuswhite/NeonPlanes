@@ -1,27 +1,40 @@
 #include "CheckerCollision.h"
 
-CheckerCollision::CheckerCollision(std::vector<GameObject*>* objects) : objects(objects) {
+std::vector<GameObject*>* CheckerCollision::_objects = nullptr;
+std::vector<Airplane*> CheckerCollision::_airplanes;
 
+CheckerCollision::CheckerCollision() {
 }
 
 CheckerCollision::~CheckerCollision() {
-	this->objects->clear();
-	this->airplanes.clear();
+	this->_airplanes.clear();
+}
+
+bool CheckerCollision::containsObjects() {
+	return ( (_objects != nullptr) && !(_objects->empty()) );
+}
+
+bool CheckerCollision::containsAirplanes() {
+	return !(_airplanes.empty());
 }
 
 void CheckerCollision::addAirplanes(Airplane* airplane) {
-	this->airplanes.push_back(airplane);
+	_airplanes.push_back(airplane);
+}
+
+void CheckerCollision::addObjects(std::vector<GameObject*>* objects) {
+	_objects = objects;
 }
 
 void CheckerCollision::checkCollisions() {
-	auto objects = *this->objects;
+	auto objects = *_objects;
 
-	for each (auto airplane in this->airplanes)
+	for each (auto airplane in _airplanes)
 	{
 		for each (auto object in objects)
 		{
 			if (airplane->isActive() && object->isActive()) {
-				this->collisionChekingAlgorithm(airplane, object);
+				collisionChekingAlgorithm(airplane, object);
 			}
 		}
 	}
@@ -29,7 +42,7 @@ void CheckerCollision::checkCollisions() {
 
 void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject* object) {
 	
-	if (airplane->hasComponent("destiny") && object->hasBehavior("destiny")) {
+	if (airplane->hasComponent("destiny") && object->hasComponent("destiny")) {
 		
 		auto airplaneRect = (Rectangle*)airplane->getComponent("destiny");
 		auto objectRect = (Rectangle*)object->getComponent("destiny");
@@ -46,8 +59,8 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 					airplane->active = false;
 					object->active = false;
 					
-					utility::remove<Airplane*>(&this->airplanes, airplane);
-					utility::remove<Airplane*>(&this->airplanes, (Airplane*)object);
+					utility::remove<Airplane*>(&_airplanes, airplane);
+					utility::remove<Airplane*>(&_airplanes, (Airplane*)object);
 				}
 				else if (typeid(*object) == typeid(RedProjectile) ||
 					     typeid(*object) == typeid(BlueProjectile) ||
@@ -55,14 +68,14 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 					airplane->active = false;
 					object->active = false;
 
-					utility::remove<Airplane*>(&this->airplanes, airplane);
+					utility::remove<Airplane*>(&_airplanes, airplane);
 				}
 				else if (typeid(*object) == typeid(RedLight) ||
 					     typeid(*object) == typeid(BlueLight) ||
 					     typeid(*object) == typeid(YellowLight)) {
 					airplane->active = false;
 
-					utility::remove<Airplane*>(&this->airplanes, airplane);
+					utility::remove<Airplane*>(&_airplanes, airplane);
 				}
 			}
 			//enemies
@@ -75,20 +88,20 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 					airplane->active = false;
 					object->active = false;
 
-					utility::remove<Airplane*>(&this->airplanes, airplane);
-					utility::remove<Airplane*>(&this->airplanes, (Airplane*)object);
+					utility::remove<Airplane*>(&_airplanes, airplane);
+					utility::remove<Airplane*>(&_airplanes, (Airplane*)object);
 				}
 				else if (typeid(*object) == typeid(WhiteProjectile)) {
 					airplane->active = false;
 					object->active = false;
 
-					utility::remove<Airplane*>(&this->airplanes, airplane);
+					utility::remove<Airplane*>(&_airplanes, airplane);
 				}
 				else if (typeid(*object) == typeid(WhiteLight)) {
 					airplane->active = false;
 					object->active = false;
 
-					utility::remove<Airplane*>(&this->airplanes, airplane);
+					utility::remove<Airplane*>(&_airplanes, airplane);
 				}
 			}
 		}

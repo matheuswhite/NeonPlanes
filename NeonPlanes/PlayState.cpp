@@ -19,7 +19,12 @@ void PlayState::createGameWorld() {
 		
 		this->getLayer("Background")->addGameObject(new Background("Background"));
 		this->getLayer("Interaction")->addGameObject(new Player("Player"));
+		this->getLayer("Interaction")->addGameObject(new Bounds("LeftBound", new Rectangle(Vector2D(0, 0), Vector2D(5, SCREEN_HEIGHT), "destiny")));
+		this->getLayer("Interaction")->addGameObject(new Bounds("RightBound", new Rectangle(Vector2D(SCREEN_WIDTH - 2, 0), Vector2D(2, SCREEN_HEIGHT), "destiny")));
+		this->getLayer("Interaction")->addGameObject(new Bounds("TopBound", new Rectangle(Vector2D(0, TOP_BOUND - 2), Vector2D(SCREEN_WIDTH, 2), "destiny")));
+		this->getLayer("Interaction")->addGameObject(new Bounds("BottomBound", new Rectangle(Vector2D(0, BOTTOM_BOUND), Vector2D(SCREEN_WIDTH, 2), "destiny")));
 		/*
+		new Rectangle(Vector2D(0,610), Vector2D(420,590), "source")
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy("BlueEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedEnemy("RedEnemy")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowEnemy("YellowEnemy")));
@@ -28,6 +33,10 @@ void PlayState::createGameWorld() {
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowProjectile("YellowProjectile")));*/
 		this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
 		
+		CheckerCollision::addObjects(&this->getLayer("Interaction")->getGameObjects());
+
+		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("Player"));
+
 		this->gameWorldCreated = true;
 	}
 }
