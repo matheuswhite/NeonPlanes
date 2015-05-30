@@ -22,8 +22,8 @@ void CheckerCollision::addAirplanes(Airplane* airplane) {
 	_airplanes.push_back(airplane);
 }
 
-void CheckerCollision::addObjects(std::vector<GameObject*>* objects) {
-	_objects = objects;
+void CheckerCollision::addObjects(std::vector<GameObject*> objects) {
+	_objects = new std::vector<GameObject*>(objects);
 }
 
 void CheckerCollision::checkCollisions() {

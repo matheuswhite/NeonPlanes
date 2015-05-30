@@ -33,7 +33,7 @@ void PlayState::createGameWorld() {
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowProjectile("YellowProjectile")));*/
 		this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
 		
-		CheckerCollision::addObjects(&this->getLayer("Interaction")->getGameObjects());
+		CheckerCollision::addObjects(this->getLayer("Interaction")->getGameObjects());
 
 		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("Player"));
 
