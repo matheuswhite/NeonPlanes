@@ -14,6 +14,7 @@ public:
 
 	void run();
 private:
+	Vector2D prev_position;
 	Vector2D velocity;
 	Rectangle* destiny;
 	bool* collided;
