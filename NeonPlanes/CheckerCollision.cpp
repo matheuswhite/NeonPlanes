@@ -50,10 +50,7 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 		if (airplaneRect->intersects(objectRect) || objectRect->intersects(airplaneRect)) {
 			//player
 			if (typeid(*airplane) == typeid(Player)) {
-				if (typeid(*object) == typeid(Bounds)) {
-					airplane->collided = true;
-				}
-				else if (typeid(*object) == typeid(RedEnemy) ||
+				if (typeid(*object) == typeid(RedEnemy) ||
 					     typeid(*object) == typeid(BlueEnemy) ||
 					     typeid(*object) == typeid(YellowEnemy)) {
 					airplane->active = false;
@@ -80,11 +77,7 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 			}
 			//enemies
 			else {
-				if (typeid(*object) == typeid(Bounds)) {
-					airplane->collided = true;
-					airplane->collided_IAFlag = false;
-				}
-				else if (typeid(*object) == typeid(Player)) {
+				if (typeid(*object) == typeid(Player)) {
 					airplane->active = false;
 					object->active = false;
 

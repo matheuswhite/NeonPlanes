@@ -234,6 +234,9 @@
     <ClCompile Include="CheckerCollision.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="AirplaneMoveBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -423,6 +426,9 @@
     </ClInclude>
     <ClInclude Include="CheckerCollision.h">
       <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="AirplaneMoveBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

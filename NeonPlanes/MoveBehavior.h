@@ -6,7 +6,7 @@
 class MoveBehavior : public Behavior
 {
 public:
-	MoveBehavior(std::string name, Vector2D velocity, Rectangle* destiny, bool* collided);
+	MoveBehavior(std::string name, Vector2D velocity, Rectangle* destiny);
 	virtual ~MoveBehavior();
 
 	void changeVelocity(Vector2D velocity);
@@ -14,8 +14,7 @@ public:
 
 	void run();
 private:
-	Vector2D prev_position;
 	Vector2D velocity;
 	Rectangle* destiny;
-	bool* collided;
+	bool collided;
 };
