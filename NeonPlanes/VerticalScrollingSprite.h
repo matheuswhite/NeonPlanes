@@ -8,7 +8,7 @@ public:
 	VerticalScrollingSprite(Rectangle* source, Rectangle* destiny, std::string pathImage, std::string name, float velocity);
 	virtual ~VerticalScrollingSprite();
 
-	void draw();
+	void draw() override;
 
 	Vector2D getVelocity() const;
 	void changeVelocity(float velocity);

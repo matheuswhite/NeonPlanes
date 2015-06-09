@@ -243,6 +243,24 @@
     <ClCompile Include="PlayerMoveBehavior.cpp">
       <Filter>Source Files\Components\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="PatrolBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="DashBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="GoDownBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="LightWallBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnOffBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -438,6 +456,24 @@
     </ClInclude>
     <ClInclude Include="Base_IA.h">
       <Filter>Header Files\GameObjects\IA</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="DashBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="GoDownBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="LightWallBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnOffBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

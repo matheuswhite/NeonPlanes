@@ -8,7 +8,7 @@ public:
 	MenuBehavior(std::string name, std::vector<Behavior*> behaviors);
 	virtual ~MenuBehavior();
 
-	void run();
+	void run() override;
 
 	void addBehavior(Behavior* behavior);
 private:

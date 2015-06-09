@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "Rectangle.h"
 
 class Behavior : public Component
 {

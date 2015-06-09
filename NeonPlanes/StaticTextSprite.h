@@ -8,7 +8,7 @@ public:
 	StaticTextSprite(Rectangle* destiny, Font* font, std::string name);
 	virtual ~StaticTextSprite();
 
-	void draw();
+	void draw() override;
 
 	Font* getFont() const;
 private:

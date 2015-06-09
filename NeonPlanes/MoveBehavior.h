@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Behavior.h"
-#include "Rectangle.h"
 
 class MoveBehavior : public Behavior
 {
@@ -12,7 +11,7 @@ public:
 	void changeVelocity(Vector2D velocity);
 	Vector2D getVelocity() const;
 
-	void run();
+	void run() override;
 private:
 	Vector2D velocity;
 	Rectangle* destiny;

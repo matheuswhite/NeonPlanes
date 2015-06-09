@@ -8,7 +8,7 @@ public:
 	DynamicTextSprite(Rectangle* destiny, Font* font, std::string name);
 	virtual ~DynamicTextSprite();
 
-	void draw();
+	void draw() override;
 
 	Font* getFont() const;
 	void updateValue(std::string value);

@@ -8,7 +8,7 @@ public:
 	MenuSprite(Rectangle* destiny, std::string pathFile, std::string name, std::vector<Sprite*> sprites);
 	virtual ~MenuSprite();
 
-	void draw();
+	void draw() override;
 
 	void addSprite(Sprite* sprite);
 private:

@@ -8,5 +8,5 @@ public:
 	StaticSprite(Rectangle* destiny, std::string pathImage, std::string name);
 	virtual ~StaticSprite();
 
-	void draw();
+	void draw() override;
 };
