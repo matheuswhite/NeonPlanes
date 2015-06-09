@@ -35,6 +35,7 @@ public:
 	void update(Uint32 elapsedTime) { this->duration += elapsedTime; }
 	void pause() { this->paused = true; }
 	void resume() { this->paused = false; }
+	void loop() { this->duration = 0; this->paused = false; }
 
 protected:
 	Uint32 duration;

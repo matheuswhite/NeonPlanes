@@ -5,6 +5,7 @@ PlayState::PlayState()
 	this->gameWorldCreated = false;
 
 	this->addLayer(new Layer("Background"));
+	this->addLayer(new Layer("EnemyIA"));
 	this->addLayer(new Layer("Interaction"));
 	this->addLayer(new Layer("HUD"));
 	this->addLayer(new Layer("Debug"));

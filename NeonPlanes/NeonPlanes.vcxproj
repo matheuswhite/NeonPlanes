@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="Airplane.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Base_IA.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="BlueEnemy.h" />
     <ClInclude Include="BlueLight.h" />

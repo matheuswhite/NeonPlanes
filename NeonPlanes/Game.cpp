@@ -122,6 +122,13 @@ void Game::draw() {
 void Game::update() {
 
 	//IA
+	if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+		for each (auto ia in this->gameWorld->getCurrentState()->getLayer("EnemyIA")->getGameObjects() )
+		{
+			auto ia2 = (Base_IA*)ia;
+			ia2->manageBehaviors();
+		}
+	}
 
 	//level
 

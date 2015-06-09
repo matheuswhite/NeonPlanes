@@ -82,6 +82,12 @@
     <Filter Include="Source Files\GameObjects\Lights">
       <UniqueIdentifier>{82977ef1-42e3-4ae4-af4d-cf51910328ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\IA">
+      <UniqueIdentifier>{6ef9ce97-9232-401d-8e92-a3eb9c561e58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\IA">
+      <UniqueIdentifier>{05a50d6f-9c60-4e5b-9cbc-d70c7a35c83d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -429,6 +435,9 @@
     </ClInclude>
     <ClInclude Include="PlayerMoveBehavior.h">
       <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="Base_IA.h">
+      <Filter>Header Files\GameObjects\IA</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

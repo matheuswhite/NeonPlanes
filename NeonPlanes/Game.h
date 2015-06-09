@@ -4,6 +4,7 @@
 #include "Behavior.h"
 #include "Sprite.h"
 #include "CheckerCollision.h"
+#include "Base_IA.h"
 
 class Game
 {
