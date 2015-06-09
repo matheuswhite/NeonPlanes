@@ -18,11 +18,11 @@ public:
 	std::string getName() const {
 		return this->name;
 	}
-protected:
-	void turnOff() { 
+
+	void turnOff() {
 		this->active = false;
 	}
-	
+protected:
 	bool active;
 	std::string name;
 };
