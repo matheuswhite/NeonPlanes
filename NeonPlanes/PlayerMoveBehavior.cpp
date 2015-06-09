@@ -1,27 +1,23 @@
-#include "AirplaneMoveBehavior.h"
+#include "PlayerMoveBehavior.h"
 
-AirplaneMoveBehavior::AirplaneMoveBehavior(std::string name, Vector2D velocity, Rectangle* destiny, Vector2D airplaneSize) : airplaneSize(airplaneSize), collided(false), velocity(velocity), destiny(destiny), Behavior(name)
+PlayerMoveBehavior::PlayerMoveBehavior(std::string name, Vector2D velocity, Rectangle* destiny, Vector2D airplaneSize) : airplaneSize(airplaneSize), velocity(velocity), destiny(destiny), Behavior(name)
 {
 	this->next_position = this->destiny->getPosition() + this->velocity;
 }
 
-AirplaneMoveBehavior::~AirplaneMoveBehavior()
+PlayerMoveBehavior::~PlayerMoveBehavior()
 {
 }
 
-void AirplaneMoveBehavior::changeVelocity(Vector2D velocity) {
+void PlayerMoveBehavior::changeVelocity(Vector2D velocity) {
 	this->velocity = velocity;
 }
 
-Vector2D AirplaneMoveBehavior::getVelocity() const {
+Vector2D PlayerMoveBehavior::getVelocity() const {
 	return this->velocity;
 }
 
-void AirplaneMoveBehavior::run() {
-	/*this->destiny->changePosition(Vector2D(this->destiny->getPosition().x, this->destiny->getPosition().y + velocity.y));
-			this->next_position = Vector2D(this->next_position.x, this->destiny->getPosition().y + this->velocity.y);
-			this->collided = true;*/
-	
+void PlayerMoveBehavior::run() {
 	bool internCollided_x;
 	bool internCollided_y;
 
@@ -46,18 +42,15 @@ void AirplaneMoveBehavior::run() {
 	{
 		this->destiny->changePosition(Vector2D(this->destiny->getPosition().x, this->destiny->getPosition().y + velocity.y));
 		this->next_position = Vector2D(this->next_position.x, this->destiny->getPosition().y + this->velocity.y);
-		this->collided = true;
 	}
 	else if (!internCollided_x && internCollided_y) 
 	{
 		this->destiny->changePosition(Vector2D(this->destiny->getPosition().x + velocity.x, this->destiny->getPosition().y));
 		this->next_position = Vector2D(this->destiny->getPosition().x + this->velocity.x, this->destiny->getPosition().y);
-		this->collided = true;
 	}
 	else if (!internCollided_x && !internCollided_y) 
 	{
 		this->destiny->changePosition(this->destiny->getPosition() + velocity);
 		this->next_position = this->destiny->getPosition() + this->velocity;
-		this->collided = false;
 	}
 }

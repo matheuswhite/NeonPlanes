@@ -234,7 +234,7 @@
     <ClCompile Include="CheckerCollision.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="AirplaneMoveBehavior.cpp">
+    <ClCompile Include="PlayerMoveBehavior.cpp">
       <Filter>Source Files\Components\Behavior</Filter>
     </ClCompile>
   </ItemGroup>
@@ -427,7 +427,7 @@
     <ClInclude Include="CheckerCollision.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="AirplaneMoveBehavior.h">
+    <ClInclude Include="PlayerMoveBehavior.h">
       <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
   </ItemGroup>

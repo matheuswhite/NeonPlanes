@@ -5,7 +5,6 @@ RedEnemy::RedEnemy(std::string name) : Enemy(name)
 	this->addComponent(new Rectangle(Vector2D(195, 200), Vector2D(54, 55), "destiny"));
 
 	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("destiny"), "RedEnemy.png", "StaticSprite"));
-	this->addBehavior(new AirplaneMoveBehavior("moveBehavior", Vector2D(0, 0), (Rectangle*)this->getComponent("destiny"), Vector2D(54, 55)));
 }
 
 RedEnemy::~RedEnemy()

@@ -97,7 +97,7 @@
     <ClCompile Include="MenuBehavior.cpp" />
     <ClCompile Include="MoveBehavior.cpp" />
     <ClCompile Include="Notifier.cpp" />
-    <ClCompile Include="AirplaneMoveBehavior.cpp" />
+    <ClCompile Include="PlayerMoveBehavior.cpp" />
     <ClCompile Include="RedLight.cpp" />
     <ClCompile Include="TextItem.cpp" />
     <ClCompile Include="TitleText.cpp" />
@@ -163,7 +163,7 @@
     <ClInclude Include="MenuBehavior.h" />
     <ClInclude Include="MoveBehavior.h" />
     <ClInclude Include="Notifier.h" />
-    <ClInclude Include="AirplaneMoveBehavior.h" />
+    <ClInclude Include="PlayerMoveBehavior.h" />
     <ClInclude Include="RedLight.h" />
     <ClInclude Include="TextItem.h" />
     <ClInclude Include="TitleText.h" />

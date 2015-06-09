@@ -3,7 +3,7 @@
 #include "Airplane.h"
 #include "WhiteProjectile.h"
 #include "WhiteLight.h"
-#include "MoveBehavior.h"
+#include "PlayerMoveBehavior.h"
 
 class Player : public Airplane
 {
