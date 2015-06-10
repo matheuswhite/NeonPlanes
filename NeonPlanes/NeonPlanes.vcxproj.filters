@@ -261,6 +261,9 @@
     <ClCompile Include="TurnOffBehavior.cpp">
       <Filter>Source Files\Components\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="InitialEnemyBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -473,6 +476,9 @@
       <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
     <ClInclude Include="TurnOffBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="InitialEnemyBehavior.h">
       <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
   </ItemGroup>

@@ -91,6 +91,7 @@
     <ClCompile Include="HighlightItem.cpp" />
     <ClCompile Include="HighlightTextSprite.cpp" />
     <ClCompile Include="HighscoreState.cpp" />
+    <ClCompile Include="InitialEnemyBehavior.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightWallBehavior.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="HighlightItem.h" />
     <ClInclude Include="HighlightTextSprite.h" />
     <ClInclude Include="HighscoreState.h" />
+    <ClInclude Include="InitialEnemyBehavior.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightWallBehavior.h" />

@@ -5,8 +5,8 @@
 class Component
 {
 public:
-	Component(std::string name) : name(name) {
-		this->active = true;
+	Component(std::string name, bool active = true) : name(name) {
+		this->active = active;
 	}
 
 	virtual ~Component() { this->name.clear(); }
@@ -19,8 +19,8 @@ public:
 		return this->name;
 	}
 
-	void turnOff() {
-		this->active = false;
+	void setActive(bool val) {
+		this->active = val;
 	}
 protected:
 	bool active;
