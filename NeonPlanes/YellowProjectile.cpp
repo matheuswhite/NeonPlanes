@@ -6,6 +6,7 @@ YellowProjectile::YellowProjectile(std::string name, Vector2D pos) : Projectile(
 
 	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("destiny"), "YellowProjectile.png", "StaticSprite"));
 	this->addBehavior(new MoveBehavior("moveUPBehavior", Vector2D(0, -8), (Rectangle*)this->getComponent("destiny")));
+	this->addBehavior(new TurnOffBehavior((Rectangle*)this->getComponent("destiny"), ((Rectangle*)this->getComponent("destiny"))->getSize().y, &this->active, "TurnOffBehavior"));
 }
 
 YellowProjectile::~YellowProjectile()
