@@ -4,7 +4,9 @@ HighscoreState::HighscoreState()
 {
 	this->addLayer(new Layer("Background"));
 	this->addLayer(new Layer("Interaction"));
+#if _DEBUG
 	this->addLayer(new Layer("Debug"));
+#endif
 
 	auto vector_pair = this->getHighscore();
 
@@ -31,7 +33,9 @@ HighscoreState::HighscoreState()
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx, posy + 200), Vector2D(90, 40), vector_pair.at(4).first, 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Nome5"));
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx2, posy + 200), Vector2D(90, 40), vector_pair.at(4).second, 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Valor5"));
 	
+#if _DEBUG
 	this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
+#endif
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(28, 550), Vector2D(370, 23), "<Pressione ENTER ou START para sair>", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Info"));
 }
 

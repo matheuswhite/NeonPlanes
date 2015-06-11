@@ -8,7 +8,9 @@ PlayState::PlayState()
 	this->addLayer(new Layer("EnemyIA"));
 	this->addLayer(new Layer("Interaction"));
 	this->addLayer(new Layer("HUD"));
+#if _DEBUG
 	this->addLayer(new Layer("Debug"));
+#endif
 }
 
 PlayState::~PlayState()
@@ -28,8 +30,9 @@ void PlayState::createGameWorld() {
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueProjectile("BlueProjectile")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(RedProjectile("RedProjectile")));
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(YellowProjectile("YellowProjectile")));*/
+#if _DEBUG
 		this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
-		
+#endif
 		CheckerCollision::addObjects(this->getLayer("Interaction")->getGameObjects());
 
 		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("Player"));

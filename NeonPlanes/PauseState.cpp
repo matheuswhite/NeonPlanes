@@ -4,8 +4,9 @@ PauseState::PauseState()
 {
 	this->addLayer(new Layer("Background"));
 	this->addLayer(new Layer("Interaction"));
+#if _DEBUG
 	this->addLayer(new Layer("Debug"));
-
+#endif
 	std::vector<HighlightItem*> itens;
 
 	int posx = 75;
@@ -19,7 +20,9 @@ PauseState::PauseState()
 	this->getLayer("Background")->addGameObject(new Background("Background"));
 	this->getLayer("Interaction")->addGameObject(new Menu("Paused", itens));
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(65, 40), Vector2D(300, 80), "Pausado", 54, FONT_PATH + "distortion_of_the_brain_and_mind.ttf", utility::GREEN, "Title"));
+#if _DEBUG
 	this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
+#endif
 }
 
 PauseState::~PauseState()

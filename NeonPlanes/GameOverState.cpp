@@ -4,7 +4,9 @@ GameOverState::GameOverState()
 {
 	this->addLayer(new Layer("Background"));
 	this->addLayer(new Layer("Interaction"));
+#if _DEBUG
 	this->addLayer(new Layer("Debug"));
+#endif
 
 	auto pair = this->getDistance_Level();
 	
@@ -31,7 +33,9 @@ GameOverState::GameOverState()
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx, 300), Vector2D(90, 40), std::to_string(restF) + "." + std::to_string(unitF) + modF + " * ", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Distancia"));
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx + 85, 300), Vector2D(90, 40), std::to_string(restS) + "." + std::to_string(unitS) + " = ", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Nivel"));
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(posx + 175, 300), Vector2D(90, 40), std::to_string(restT) + "." + std::to_string(unitT) + modT, 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Total"));
+#if _DEBUG
 	this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
+#endif
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(28, 550), Vector2D(370, 23), "<Pressione ENTER ou START para sair>", 54, FONT_PATH + "Aero.ttf", utility::WHITE, "Info"));
 }
 

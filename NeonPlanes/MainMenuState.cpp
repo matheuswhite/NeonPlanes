@@ -4,7 +4,9 @@ MainMenuState::MainMenuState()
 {
 	this->addLayer(new Layer("Background"));
 	this->addLayer(new Layer("Interaction"));
+#if _DEBUG
 	this->addLayer(new Layer("Debug"));
+#endif
 
 	std::vector<HighlightItem*> itens;
 
@@ -17,7 +19,9 @@ MainMenuState::MainMenuState()
 	this->getLayer("Background")->addGameObject(new Background("Background"));
 	this->getLayer("Interaction")->addGameObject(new Menu("MainMenu", itens));
 	this->getLayer("Interaction")->addGameObject(new TitleText("NeonPlanes"));
+#if _DEBUG
 	this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
+#endif
 }
 
 MainMenuState::~MainMenuState()
