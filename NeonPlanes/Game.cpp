@@ -123,10 +123,10 @@ void Game::update() {
 
 	//IA
 	if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-		for each (auto ia in this->gameWorld->getCurrentState()->getLayer("EnemyIA")->getGameObjects() )
+		for each (auto ai in this->gameWorld->getCurrentState()->getLayer("EnemyAI")->getGameObjects() )
 		{
-			auto ia2 = (Base_IA*)ia;
-			ia2->manageBehaviors();
+			auto ai2 = (Base_AI*)ai;
+			ai2->manageBehaviors();
 		}
 	}
 

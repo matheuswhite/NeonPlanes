@@ -3,14 +3,14 @@
 #include "GameObject.h"
 #include "Timers.h"
 
-class Base_IA : public GameObject
+class Base_AI : public GameObject
 {
 public:
-	Base_IA(GameObject* enemy, std::string name) : GameObject(name), enemy(enemy)
+	Base_AI(GameObject* enemy, std::string name) : GameObject(name), enemy(enemy)
 	{ 
 		this->enemyBehaviors = enemy->getVectorBaheviors();
 	}
-	virtual ~Base_IA() {}
+	virtual ~Base_AI() {}
 
 	virtual void manageBehaviors() = 0;
 protected:
