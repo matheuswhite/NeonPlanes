@@ -60,16 +60,15 @@ int main(int argc, char **argv) {
 		elapsedTime = SDL_GetTicks();
 		if (elapsedTime - startTime < GAME_FPS) {
 			SDL_Delay(GAME_FPS - (elapsedTime - startTime));
-
-#if _DEBUG
 			MasterTimer::updateSlaves(GAME_FPS);
+#if _DEBUG
 			totalTime += GAME_FPS;
 #endif // !_DEBUG
 			startTime = GAME_FPS + startTime;
 		}
 		else { 
-#if _DEBUG
 			MasterTimer::updateSlaves(elapsedTime - startTime);
+#if _DEBUG
 			totalTime += elapsedTime - startTime;
 #endif // !_DEBUG
 			startTime = elapsedTime;
