@@ -3,6 +3,12 @@
 #include "GameObject.h"
 #include "StaticSprite.h"
 #include "Airplane.h"
+#include "DashBehavior.h"
+#include "GoDownBehavior.h"
+#include "InitialEnemyBehavior.h"
+#include "LightWallBehavior.h"
+#include "PatrolBehavior.h"
+#include "ShootBehavior.h"
 
 class Enemy : public Airplane
 {

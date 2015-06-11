@@ -8,12 +8,17 @@ InitialEnemyBehavior::~InitialEnemyBehavior()
 {
 }
 
+void InitialEnemyBehavior::setFlagInitialize(bool* flag) {
+	this->flagInitialize = flag;
+}
+
 void InitialEnemyBehavior::run() {
 	auto pos = this->destiny->getPosition();
 
 	if ((pos.x >= 5 && pos.x <= 8) || (pos.x >= SCREEN_WIDTH - 8 && pos.x <= SCREEN_WIDTH - 5)) {
 		this->active = false;
 		this->initialBehavior->setActive(true);
+		*this->flagInitialize = true;
 	}
 	else {
 		this->destiny->changePosition(Vector2D(pos.x + velocity_x, pos.y));
