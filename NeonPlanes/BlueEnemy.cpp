@@ -1,8 +1,8 @@
 #include "BlueEnemy.h"
 
-BlueEnemy::BlueEnemy(std::string name) : Enemy(name)
+BlueEnemy::BlueEnemy(std::string name, Rectangle* destiny) : Enemy(name, destiny)
 {
-	this->addComponent(new Rectangle(Vector2D(280, 200), Vector2D(54, 55), "destiny"));
+	//this->addComponent(new Rectangle(Vector2D(280, 200), Vector2D(54, 55), "destiny"));
 
 	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("destiny"), "BlueEnemy.png", "StaticSprite"));
 }

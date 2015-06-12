@@ -13,7 +13,7 @@
 class Enemy : public Airplane
 {
 public:
-	Enemy(std::string name) : Airplane(name) {}
+	Enemy(std::string name, Rectangle* destiny) : Airplane(name) { this->addComponent(destiny); }
 	virtual ~Enemy() {}
 
 	virtual void shoot() = 0;

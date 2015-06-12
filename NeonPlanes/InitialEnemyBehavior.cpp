@@ -1,6 +1,6 @@
 #include "InitialEnemyBehavior.h"
 
-InitialEnemyBehavior::InitialEnemyBehavior(Behavior* initialBehavior, float velocity_x, Rectangle* destiny, float airplaneSize_x, std::string name) : initialBehavior(initialBehavior), velocity_x(velocity_x), destiny(destiny), airplaneSize_x(airplaneSize_x), Behavior(name)
+InitialEnemyBehavior::InitialEnemyBehavior(Behavior* initialBehavior, float velocity_x, Rectangle* destiny, float airplaneSize_x, std::string name) : flagInitialize(nullptr), initialBehavior(initialBehavior), velocity_x(velocity_x), destiny(destiny), airplaneSize_x(airplaneSize_x), Behavior(name)
 {
 }
 
@@ -18,7 +18,10 @@ void InitialEnemyBehavior::run() {
 	if ((pos.x >= 5 && pos.x <= 8) || (pos.x >= SCREEN_WIDTH - 8 && pos.x <= SCREEN_WIDTH - 5)) {
 		this->active = false;
 		this->initialBehavior->setActive(true);
-		*this->flagInitialize = true;
+
+		if (this->flagInitialize != nullptr) {
+			*this->flagInitialize = true;
+		}
 	}
 	else {
 		this->destiny->changePosition(Vector2D(pos.x + velocity_x, pos.y));

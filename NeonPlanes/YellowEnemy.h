@@ -7,7 +7,7 @@
 class YellowEnemy : public Enemy
 {
 public:
-	YellowEnemy(std::string name);
+	YellowEnemy(std::string name, Rectangle* destiny);
 	virtual ~YellowEnemy();
 	
 	void shoot();

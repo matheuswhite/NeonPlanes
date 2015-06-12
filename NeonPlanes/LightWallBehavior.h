@@ -2,16 +2,15 @@
 
 #include "Behavior.h"
 
-class GameObject;
+class Enemy;
 
 class LightWallBehavior : public Behavior
 {
 public:
-	LightWallBehavior(std::string name, std::function<void(const GameObject&)> lightWallFunction, GameObject* enemy);
+	LightWallBehavior(std::string name, std::function<void(void)> lightWallFunction);
 	virtual ~LightWallBehavior();
 
 	void run() override;
 private:
-	GameObject* enemy;
-	std::function<void(const GameObject&)> lightWallFunction;
+	std::function<void(void)> lightWallFunction;
 };

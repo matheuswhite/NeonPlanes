@@ -1,10 +1,20 @@
 #include "YellowEnemy.h"
 
-YellowEnemy::YellowEnemy(std::string name) : Enemy(name)
+YellowEnemy::YellowEnemy(std::string name, Rectangle* destiny) : Enemy(name, destiny)
 {
-	this->addComponent(new Rectangle(Vector2D(100, 200), Vector2D(54, 55), "destiny"));
+	auto patrol = new PatrolBehavior("PatrolBehavior", 4, (Rectangle*)this->getComponent("destiny"), ((Rectangle*)this->getComponent("destiny"))->getSize().x);
 
+	//SPRITES
 	this->addSprite(new StaticSprite((Rectangle*)this->getComponent("destiny"), "YellowEnemy.png", "StaticSprite"));
+	
+	//BEHAVIORS
+	this->addBehavior(new InitialEnemyBehavior(patrol, 1.5, (Rectangle*)this->getComponent("destiny"), ((Rectangle*)this->getComponent("destiny"))->getSize().x, "InitialEnemyBehavior"));
+	
+	this->addBehavior(patrol);
+	this->getBehavior("PatrolBehavior")->setActive(false);
+
+	this->addBehavior(new ShootBehavior("ShootBehavior", std::bind(&YellowEnemy::shoot, this)));
+	this->getBehavior("ShootBehavior")->setActive(false);
 }
 
 YellowEnemy::~YellowEnemy()

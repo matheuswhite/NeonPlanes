@@ -22,6 +22,7 @@ void PlayState::createGameWorld() {
 		
 		this->getLayer("Background")->addGameObject(new Background("Background"));
 		this->getLayer("Interaction")->addGameObject(new Player("Player"));
+		this->getLayer("Interaction")->addGameObject(new YellowEnemy("YellowEnemy", new Rectangle(Vector2D(-65, 380), Vector2D(54, 55), "destiny")));
 		/*
 		new Rectangle(Vector2D(0,610), Vector2D(420,590), "source")
 		this->getLayer("Interaction")->addGameObject(std::make_shared<GameObject>(BlueEnemy("BlueEnemy")));
