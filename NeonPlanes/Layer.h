@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "CheckerCollision.h"
 
 class Layer
 {

@@ -45,6 +45,7 @@ void Layer::addPending() {
 	for each (auto var in tempVector)
 	{
 		this->addVectorGameObject(var);
+		CheckerCollision::addObjects(var);
 	}
 }
 

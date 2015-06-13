@@ -37,6 +37,7 @@ void PlayState::createGameWorld() {
 		CheckerCollision::addObjects(this->getLayer("Interaction")->getGameObjects());
 
 		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("Player"));
+		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("YellowEnemy"));
 
 		this->gameWorldCreated = true;
 	}

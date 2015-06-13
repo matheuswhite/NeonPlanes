@@ -33,8 +33,8 @@ public:
 	static bool containsAirplanes();
 
 private:
-	static void collisionChekingAlgorithm(Airplane* airplane, GameObject* object);
+	static void collisionChekingAlgorithm(Airplane* airplane, GameObject* object, std::vector<GameObject*>* removed_GameObjects, std::vector<Airplane*>* removed_Airplanes);
 
-	static std::vector<GameObject*>* _objects;
+	static std::vector<GameObject*> _objects;
 	static std::vector<Airplane*> _airplanes;
 };

@@ -132,11 +132,13 @@ void Game::update() {
 
 	//level
 
+
 	//collision
 	if (CheckerCollision::containsAirplanes() && CheckerCollision::containsObjects()) {
 		CheckerCollision::checkCollisions();
 	}
 	
+	//update behaviors
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers())
 	{
 		layer->addPending();
@@ -151,8 +153,6 @@ void Game::update() {
 			}
 		}
 	}
-
-
 
 }
 
@@ -280,24 +280,6 @@ bool Game::handlingEvents() {
 						this->lightState = false;
 					}
 				}
-
-				//STOP
-				/*
-				if (e.jaxis.axis == 0) {
-					if ((e.jaxis.value > -this->deadZone) && (e.jaxis.value < this->deadZone)) {
-						this->leftState = false;
-						this->rightState = false;
-						((PlayState*)this->gameWorld->getCurrentState())->stop(false);
-					}
-				}
-				if (e.jaxis.axis == 1) {
-					if ((e.jaxis.value > -this->deadZone) && (e.jaxis.value < this->deadZone)) {
-						this->upState = false;
-						this->downState = false;
-						((PlayState*)this->gameWorld->getCurrentState())->stop(true);
-					}
-				}
-				*/
 			}
 
 			else 
