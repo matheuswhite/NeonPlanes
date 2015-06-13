@@ -22,12 +22,14 @@ YellowEnemy::~YellowEnemy()
 }
 
 void YellowEnemy::shoot() {
-	this->addPending(new YellowProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
-	if (objectValue >= LLONG_MAX) {
-		this->objectValue = 0;
-	}
-	else {
-		this->objectValue++;
+	if (this->testShoot()) {
+		this->addPending(new YellowProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+		if (objectValue >= LLONG_MAX) {
+			this->objectValue = 0;
+		}
+		else {
+			this->objectValue++;
+		}
 	}
 }
 
