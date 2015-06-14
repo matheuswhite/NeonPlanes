@@ -13,9 +13,6 @@ RedEnemy::RedEnemy(std::string name, Rectangle* destiny, float base_velocity) : 
 	this->addBehavior(patrol);
 	this->getBehavior("PatrolBehavior")->setActive(false);
 
-	this->addBehavior(new ShootBehavior("ShootBehavior", std::bind(&RedEnemy::shoot, this)));
-	this->getBehavior("ShootBehavior")->setActive(false);
-
 	this->addBehavior(new LightWallBehavior("LightWallBehavior", std::bind(&RedEnemy::useLightWall, this)));
 	this->getBehavior("LightWallBehavior")->setActive(false);
 
@@ -23,7 +20,7 @@ RedEnemy::RedEnemy(std::string name, Rectangle* destiny, float base_velocity) : 
 	this->getBehavior("DashBehavior")->setActive(false);
 
 	this->addBehavior(new GoDownBehavior("GoDownBehavior", base_velocity * 1.5, (Rectangle*)this->getComponent("destiny"), ((Rectangle*)this->getComponent("destiny"))->getSize().y));
-	this->getBehavior("GoDownBehavior")->setActive(false);
+	//this->getBehavior("GoDownBehavior")->setActive(false);
 }
 
 RedEnemy::~RedEnemy()
