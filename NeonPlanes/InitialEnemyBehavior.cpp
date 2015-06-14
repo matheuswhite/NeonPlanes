@@ -15,7 +15,7 @@ void InitialEnemyBehavior::setFlagInitialize(bool* flag) {
 void InitialEnemyBehavior::run() {
 	auto pos = this->destiny->getPosition();
 
-	if ((pos.x >= 5 && pos.x <= 8) || (pos.x >= SCREEN_WIDTH - 8 && pos.x <= SCREEN_WIDTH - 5)) {
+	if ((pos.x >= 5 && pos.x <= 8) || (pos.x >= SCREEN_WIDTH - 8 - airplaneSize_x && pos.x <= SCREEN_WIDTH - 5 - airplaneSize_x)) {
 		this->active = false;
 		this->initialBehavior->setActive(true);
 
