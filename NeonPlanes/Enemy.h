@@ -13,17 +13,8 @@
 class Enemy : public Airplane
 {
 public:
-	Enemy(std::string name, Rectangle* destiny) : shoot251_Value(0), Airplane(name) {
+	Enemy(std::string name, Rectangle* destiny, float base_velocity) : shoot251_Flag(true), shoot251_Value(0), base_velocity(base_velocity), Airplane(name) {
 		this->addComponent(destiny);
-
-		shoot251_Flag[0] = true;
-		shoot251_Flag[1] = false;
-		shoot251_Flag[2] = false;
-
-		for (size_t i = 0; i < 3; i++)
-		{
-			randMaxValue[i] = rand() % 10 + 1;
-		}
 	}
 	virtual ~Enemy() {}
 
@@ -31,69 +22,40 @@ public:
 	virtual void useLightWall() = 0;
 	
 	bool testShoot() {
-		if (shoot251_Flag[0] && !shoot251_Flag[1] && !shoot251_Flag[2]) {
-			if (shoot251_Value >= randMaxValue[0]) {
+		if (shoot251_Flag) {
+			if (shoot251_Value >= interval_value) {
+				shoot251_Flag = !shoot251_Flag;
 				shoot251_Value = 0;
-				shoot251_Flag[0] = false;
-				shoot251_Flag[1] = true;
-
-				return false;
-			}
-			else {
-				shoot251_Value++;
 
 				return true;
-			}
-		}
-		else if (!shoot251_Flag[0] && shoot251_Flag[1] && !shoot251_Flag[2]) {
-			if (shoot251_Value >= randMaxValue[1]) {
-				shoot251_Value = 0;
-				shoot251_Flag[1] = false;
-				shoot251_Flag[2] = true;
-
-				return false;
 			}
 			else {
 				shoot251_Value++;
 				
-				return true;
+				return false;
 			}
 		}
-		else if (!shoot251_Flag[0] && !shoot251_Flag[1] && shoot251_Flag[2]) {
-			if (shoot251_Value >= randMaxValue[2]) {
+		else {
+			if (shoot251_Value >= interval_value * 15) {
+				shoot251_Flag = !shoot251_Flag;
 				shoot251_Value = 0;
-				shoot251_Flag[2] = false;
-				shoot251_Flag[0] = true;
 
-				for (size_t i = 0; i < 3; i++)
-				{
-					randMaxValue[i] = rand() % 10 + 1;
-				}
-
-				return false;
+				return true;
 			}
 			else {
 				shoot251_Value++;
 
-				return true;
+				return false;
 			}
-		}
-		else {
-			shoot251_Flag[0] = true;
-			shoot251_Flag[1] = false;
-			shoot251_Flag[2] = false;
-
-			for (size_t i = 0; i < 3; i++)
-			{
-				randMaxValue[i] = rand() % 10 + 1;
-			}
-
-			return false;
 		}
 	}
 
+	void setBase_Velocity(float base_velocity) { this->base_velocity = base_velocity; }
 private:
-	bool shoot251_Flag[3];
+	bool shoot251_Flag;
 	int shoot251_Value;
-	int randMaxValue[3];
+	const int interval_value = 3;
+
+protected:
+	float base_velocity;
 };
