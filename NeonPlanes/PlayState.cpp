@@ -22,8 +22,8 @@ void PlayState::createGameWorld() {
 		
 		this->getLayer("Background")->addGameObject(new Background("Background"));
 		this->getLayer("Interaction")->addGameObject(new Player("Player"));
-		this->getLayer("Interaction")->addGameObject(new YellowEnemy("YellowEnemy", new Rectangle(Vector2D(-65, 380), Vector2D(54, 55), "destiny"), 4));
-		this->getLayer("Interaction")->addGameObject(new RedEnemy("RedEnemy", new Rectangle(Vector2D(SCREEN_WIDTH + 11, 380), Vector2D(54, 55), "destiny"), -4));
+		this->getLayer("Interaction")->addGameObject(new YellowEnemy("YellowEnemy", new Rectangle(Vector2D(-65, BOTTOM_ZONE), Vector2D(54, 55), "destiny"), 4));
+		this->getLayer("Interaction")->addGameObject(new RedEnemy("RedEnemy", new Rectangle(Vector2D(SCREEN_WIDTH + 11, TOP_ZONE), Vector2D(54, 55), "destiny"), -4));
 		//this->getLayer("Interaction")->addGameObject(new BlueEnemy("BlueEnemy", new Rectangle(Vector2D(-65, 380), Vector2D(54, 55), "destiny"), 4));
 		/*
 		new Rectangle(Vector2D(0,610), Vector2D(420,590), "source")
