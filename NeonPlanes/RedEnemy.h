@@ -7,7 +7,7 @@
 class RedEnemy : public Enemy
 {
 public:
-	RedEnemy(std::string name, Rectangle* destiny);
+	RedEnemy(std::string name, Rectangle* destiny, float base_velocity);
 	virtual ~RedEnemy();
 
 	void shoot();
