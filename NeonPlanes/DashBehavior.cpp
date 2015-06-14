@@ -10,10 +10,10 @@ DashBehavior::~DashBehavior()
 
 void DashBehavior::run() {
 	auto pos = this->destiny->getPosition().y;
-	if (pos <= (TOP_BOUND + (airplaneSize_y * 2) + 10)) {
+	if (pos <= TOP_ZONE) {
 		this->active = false;
 	}
 	else {
-		this->destiny->changePosition(Vector2D(this->destiny->getPosition().x, this->destiny->getPosition().y + abs(this->velocityDash_y)));
+		this->destiny->changePosition(Vector2D(this->destiny->getPosition().x, this->destiny->getPosition().y - abs(this->velocityDash_y)));
 	}
 }

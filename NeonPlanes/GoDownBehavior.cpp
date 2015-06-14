@@ -10,10 +10,10 @@ GoDownBehavior::~GoDownBehavior()
 
 void GoDownBehavior::run() {
 	auto pos = this->destiny->getPosition().y;
-	if (pos >= (BOTTOM_BOUND - (airplaneSize_y * 2) - 10)) {
+	if (pos >= BOTTOM_ZONE) {
 		this->active = false;
 	}
 	else {
-		this->destiny->changePosition(Vector2D(this->destiny->getPosition().x, this->destiny->getPosition().y - abs(this->velocityGoDown_y)));
+		this->destiny->changePosition(Vector2D(this->destiny->getPosition().x, this->destiny->getPosition().y + abs(this->velocityGoDown_y)));
 	}
 }
