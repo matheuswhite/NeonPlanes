@@ -24,12 +24,13 @@ private:
 class SlaveTimer
 {
 public:
-	SlaveTimer(const Uint32 finalTime) : finalTime(finalTime) { MasterTimer::registerSlaveTimer(this); this->duration = 0; this->paused = false; }
+	SlaveTimer(const Uint32 finalTime, std::string name) : finalTime(finalTime), name(name) { MasterTimer::registerSlaveTimer(this); this->duration = 0; this->paused = false; }
 
 	virtual ~SlaveTimer() { MasterTimer::removeSlaveTimer(this); }
 
 	Uint32 getDuration() const { return this->duration; }
 	bool isPaused() const { return this->paused; }
+	std::string getName() const { return this->name; }
 
 	bool isFinish() const { return duration >= finalTime; }
 	void update(Uint32 elapsedTime) { this->duration += elapsedTime; }
@@ -41,4 +42,5 @@ protected:
 	Uint32 duration;
 	const Uint32 finalTime;
 	bool paused;
+	std::string name;
 };

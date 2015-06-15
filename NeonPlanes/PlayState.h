@@ -9,10 +9,7 @@
 #include "RedEnemy.h"
 #include "YellowEnemy.h"
 
-#include "BlueProjectile.h"
-#include "RedProjectile.h"
-#include "YellowProjectile.h"
-#include "WhiteProjectile.h"
+#include "YellowEnemy_AI.h"
 
 #include "Bounds.h"
 #include "CheckerCollision.h"

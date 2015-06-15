@@ -80,11 +80,6 @@ bool Game::initialize() {
 	SDL_RenderClear(renderer);
 	SDL_RenderPresent(renderer);
 
-	/*
-	auto tex = new Texture();
-	tex->loadImage(renderer, IMAGE_PATH + "Logo.png");
-	Graphics::sinAnimation(M_PI, tex->getTexture());*/
-
 	this->lightState = false;
 	this->upState = false;
 	this->downState = false;

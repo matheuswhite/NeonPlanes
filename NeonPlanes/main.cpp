@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
 	}
 
 #if _DEBUG
-	SlaveTimer* testTimer = new SlaveTimer(6000);
+	SlaveTimer* testTimer = new SlaveTimer(6000, "testMain");
 #endif // !_DEBUG
 
 	while (running) {
@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 
 			if (testTimer->isFinish()) {
 				std::cerr << "Timer! " << testTimer->getDuration() << std::endl;
-				testTimer = new SlaveTimer(testTimer->getDuration() + 1000);
+				testTimer = new SlaveTimer(testTimer->getDuration() + 1000, "testMain");
 			}
 
 			

@@ -2,25 +2,46 @@
 
 #include "GameObject.h"
 #include "Timers.h"
+#include "InitialEnemyBehavior.h"
 
 class Base_AI : public GameObject
 {
 public:
 	Base_AI(GameObject* enemy, std::string name) : GameObject(name), enemy(enemy)
 	{ 
-		this->enemyBehaviors = enemy->getVectorBaheviors();
 		auto initBehavior = enemy->getBehavior("InitialEnemyBehavior");
 		((InitialEnemyBehavior*)initBehavior)->setFlagInitialize(&this->flagInitialize);
-
-		this->createTimers();
 	}
 	virtual ~Base_AI() {}
 
+	bool getFlagInitialize() const { return this->flagInitialize; }
+
 	virtual void createTimers() = 0;
 	virtual void manageBehaviors() = 0;
+
 protected:
+	bool hasTimer(std::string name) {
+		if (this->timers.find(name) != this->timers.end()) {
+			return true;
+		}
+		return false;
+	}
+
+	SlaveTimer* getTimer(std::string name)
+	{
+		if (this->hasTimer(name)) {
+			return this->timers.at(name);
+		}
+	}
+
+	void addTimer(SlaveTimer* timer)
+	{
+		if (!this->hasTimer(name)) {
+			this->timers.insert(std::pair<std::string, SlaveTimer*>(timer->getName(), timer));
+		}
+	}
+
 	bool flagInitialize;
 	GameObject* enemy;
-	std::vector<Behavior*> enemyBehaviors;
-	std::vector<SlaveTimer*> timers;
+	std::map<std::string, SlaveTimer*> timers;
 };

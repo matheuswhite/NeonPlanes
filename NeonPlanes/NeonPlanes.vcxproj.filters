@@ -264,6 +264,9 @@
     <ClCompile Include="InitialEnemyBehavior.cpp">
       <Filter>Source Files\Components\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="YellowEnemy_AI.cpp">
+      <Filter>Source Files\GameObjects\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -479,6 +482,9 @@
       <Filter>Header Files\Components\Behavior</Filter>
     </ClInclude>
     <ClInclude Include="Base_AI.h">
+      <Filter>Header Files\GameObjects\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowEnemy_AI.h">
       <Filter>Header Files\GameObjects\AI</Filter>
     </ClInclude>
   </ItemGroup>

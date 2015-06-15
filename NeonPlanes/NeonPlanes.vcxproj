@@ -128,6 +128,7 @@
     <ClCompile Include="WhiteProjectile.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="YellowEnemy.cpp" />
+    <ClCompile Include="YellowEnemy_AI.cpp" />
     <ClCompile Include="YellowLight.cpp" />
     <ClCompile Include="YellowProjectile.cpp" />
   </ItemGroup>
@@ -203,6 +204,7 @@
     <ClInclude Include="WhiteProjectile.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="YellowEnemy.h" />
+    <ClInclude Include="YellowEnemy_AI.h" />
     <ClInclude Include="YellowLight.h" />
     <ClInclude Include="YellowProjectile.h" />
   </ItemGroup>
