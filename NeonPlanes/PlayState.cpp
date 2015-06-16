@@ -22,10 +22,12 @@ void PlayState::createGameWorld() {
 		
 		this->getLayer("Background")->addGameObject(new Background("Background"));
 		this->getLayer("Interaction")->addGameObject(new Player("Player"));
+		
 		this->getLayer("Interaction")->addGameObject(new YellowEnemy("YellowEnemy", new Rectangle(Vector2D(-65, BOTTOM_ZONE), Vector2D(54, 55), "destiny"), 4));
 		this->getLayer("EnemyAI")->addGameObject(new YellowEnemy_AI(this->getLayer("Interaction")->getGameObject("YellowEnemy"), "YellowEnemy_AI"));
 		
-		//this->getLayer("Interaction")->addGameObject(new RedEnemy("RedEnemy", new Rectangle(Vector2D(SCREEN_WIDTH + 11, TOP_ZONE), Vector2D(54, 55), "destiny"), -4));
+		this->getLayer("Interaction")->addGameObject(new RedEnemy("RedEnemy", new Rectangle(Vector2D(SCREEN_WIDTH + 11, TOP_ZONE), Vector2D(54, 55), "destiny"), -4));
+		this->getLayer("EnemyAI")->addGameObject(new RedEnemy_AI(this->getLayer("Interaction")->getGameObject("RedEnemy"), "RedEnemy_AI"));
 		//this->getLayer("Interaction")->addGameObject(new BlueEnemy("BlueEnemy", new Rectangle(Vector2D(-65, 380), Vector2D(54, 55), "destiny"), 4));
 #if _DEBUG
 		this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
@@ -34,7 +36,7 @@ void PlayState::createGameWorld() {
 
 		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("Player"));
 		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("YellowEnemy"));
-		//CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("RedEnemy"));
+		CheckerCollision::addAirplanes((Airplane*)this->getLayer("Interaction")->getGameObject("RedEnemy"));
 
 		this->gameWorldCreated = true;
 	}

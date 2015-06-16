@@ -10,6 +10,7 @@
 #include "YellowEnemy.h"
 
 #include "YellowEnemy_AI.h"
+#include "RedEnemy_AI.h"
 
 #include "Bounds.h"
 #include "CheckerCollision.h"
