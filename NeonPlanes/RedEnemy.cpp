@@ -20,7 +20,7 @@ RedEnemy::RedEnemy(std::string name, Rectangle* destiny, float base_velocity) : 
 	this->getBehavior("DashBehavior")->setActive(false);
 
 	this->addBehavior(new GoDownBehavior("GoDownBehavior", base_velocity * 1.5, (Rectangle*)this->getComponent("destiny"), ((Rectangle*)this->getComponent("destiny"))->getSize().y));
-	//this->getBehavior("GoDownBehavior")->setActive(false);
+	this->getBehavior("GoDownBehavior")->setActive(false);
 }
 
 RedEnemy::~RedEnemy()

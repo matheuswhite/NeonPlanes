@@ -83,6 +83,7 @@
     <ClCompile Include="DataStore.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPS_HUD.cpp" />
+    <ClCompile Include="FSM.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverState.cpp" />
@@ -103,8 +104,10 @@
     <ClCompile Include="Notifier.cpp" />
     <ClCompile Include="PatrolBehavior.cpp" />
     <ClCompile Include="PlayerMoveBehavior.cpp" />
+    <ClCompile Include="RedEnemy_AI.cpp" />
     <ClCompile Include="RedLight.cpp" />
     <ClCompile Include="ShootBehavior.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="TextItem.cpp" />
     <ClCompile Include="TitleText.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -158,6 +161,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FPS_HUD.h" />
+    <ClInclude Include="FSM.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverState.h" />
@@ -178,8 +182,10 @@
     <ClInclude Include="Notifier.h" />
     <ClInclude Include="PatrolBehavior.h" />
     <ClInclude Include="PlayerMoveBehavior.h" />
+    <ClInclude Include="RedEnemy_AI.h" />
     <ClInclude Include="RedLight.h" />
     <ClInclude Include="ShootBehavior.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="TextItem.h" />
     <ClInclude Include="TitleText.h" />
     <ClInclude Include="Player.h" />

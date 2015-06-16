@@ -14,8 +14,6 @@ public:
 	}
 	virtual ~Base_AI() {}
 
-	bool getFlagInitialize() const { return this->flagInitialize; }
-
 	virtual void createTimers() = 0;
 	virtual void manageBehaviors() = 0;
 
@@ -32,6 +30,8 @@ protected:
 		if (this->hasTimer(name)) {
 			return this->timers.at(name);
 		}
+
+		return nullptr;
 	}
 
 	void addTimer(SlaveTimer* timer)

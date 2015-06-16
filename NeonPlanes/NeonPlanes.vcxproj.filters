@@ -88,6 +88,12 @@
     <Filter Include="Header Files\GameObjects\AI">
       <UniqueIdentifier>{6ef9ce97-9232-401d-8e92-a3eb9c561e58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FSM">
+      <UniqueIdentifier>{3135ee32-fb63-40be-b007-782da03beff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FSM">
+      <UniqueIdentifier>{c7f8e76b-52c5-4586-91f5-aaaf9efdc848}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -266,6 +272,15 @@
     </ClCompile>
     <ClCompile Include="YellowEnemy_AI.cpp">
       <Filter>Source Files\GameObjects\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM.cpp">
+      <Filter>Source Files\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="RedEnemy_AI.cpp">
+      <Filter>Source Files\GameObjects\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\FSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -486,6 +501,15 @@
     </ClInclude>
     <ClInclude Include="YellowEnemy_AI.h">
       <Filter>Header Files\GameObjects\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM.h">
+      <Filter>Header Files\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="RedEnemy_AI.h">
+      <Filter>Header Files\GameObjects\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\FSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
