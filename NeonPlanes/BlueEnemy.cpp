@@ -32,7 +32,7 @@ BlueEnemy::~BlueEnemy()
 
 void BlueEnemy::shoot() {
 	if (this->testShoot()) {
-		this->addPending(new BlueProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+		this->addPending(new BlueProjectile("BlueProjectile" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 		if (objectValue >= LLONG_MAX) {
 			this->objectValue = 0;
 		}
@@ -43,7 +43,7 @@ void BlueEnemy::shoot() {
 }
 
 void BlueEnemy::useLightWall() {
-	this->addPending(new BlueLight("whiteLight" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	this->addPending(new BlueLight("BlueLight" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 	if (objectValue >= LLONG_MAX) {
 		this->objectValue = 0;
 	}

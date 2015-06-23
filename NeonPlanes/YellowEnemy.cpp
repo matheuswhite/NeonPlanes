@@ -23,7 +23,7 @@ YellowEnemy::~YellowEnemy()
 
 void YellowEnemy::shoot() {
 	if (this->testShoot()) {
-		this->addPending(new YellowProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+		this->addPending(new YellowProjectile("YellowProjectile" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 		if (objectValue >= LLONG_MAX) {
 			this->objectValue = 0;
 		}
@@ -34,7 +34,7 @@ void YellowEnemy::shoot() {
 }
 
 void YellowEnemy::useLightWall() {
-	this->addPending(new YellowLight("whiteLight" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	this->addPending(new YellowLight("YellowLight" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 	if (objectValue >= LLONG_MAX) {
 		this->objectValue = 0;
 	}

@@ -33,6 +33,7 @@ public:
 	bool operator==(GameObject* second) const;
 protected:
 	friend class CheckerCollision;
+	friend class PlayState;
 
 	bool active;
 	std::string name;

@@ -56,6 +56,7 @@ int main(int argc, char **argv) {
 		
 		game->update();
 		game->draw();
+		game->manageObjects();
 
 		elapsedTime = SDL_GetTicks();
 		if (elapsedTime - startTime < GAME_FPS) {

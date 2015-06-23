@@ -14,7 +14,7 @@ Player::~Player()
 }
 
 void Player::shoot() {
-	this->addPending(new WhiteProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	this->addPending(new WhiteProjectile("whiteProjectile" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 	if (objectValue >= LLONG_MAX) {
 		this->objectValue = 0;
 	}
@@ -24,7 +24,7 @@ void Player::shoot() {
 }
 
 void Player::useLightWall() {
-	this->addPending(new WhiteLight("whiteLight" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	this->addPending(new WhiteLight("whiteLight" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 	if (objectValue >= LLONG_MAX) {
 		this->objectValue = 0;
 	}

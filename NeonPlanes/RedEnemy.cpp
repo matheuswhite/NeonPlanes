@@ -29,7 +29,7 @@ RedEnemy::~RedEnemy()
 
 void RedEnemy::shoot() {
 	if (this->testShoot()) {
-		this->addPending(new RedProjectile("whiteProjectile" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+		this->addPending(new RedProjectile("RedProjectile" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 		if (objectValue >= LLONG_MAX) {
 			this->objectValue = 0;
 		}
@@ -40,7 +40,7 @@ void RedEnemy::shoot() {
 }
 
 void RedEnemy::useLightWall() {
-	this->addPending(new RedLight("whiteLight" + objectValue, ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+	this->addPending(new RedLight("RedLight" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
 	if (objectValue >= LLONG_MAX) {
 		this->objectValue = 0;
 	}

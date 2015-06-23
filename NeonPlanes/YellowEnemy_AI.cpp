@@ -18,31 +18,37 @@ void YellowEnemy_AI::createTimers() {
 }
 
 void YellowEnemy_AI::manageBehaviors() {
-	if (this->flagInitialize) 
-	{
-		this->getTimer("ShootDisabled")->loop();
-		this->flagInitialize = false;
+	if (!this->enemy->isActive()) {
+		this->enemy = nullptr;
+		this->active = false;
 	}
+	else {
+		if (this->flagInitialize)
+		{
+			this->getTimer("ShootDisabled")->loop();
+			this->flagInitialize = false;
+		}
 
-	if (this->getTimer("ShootDisabled")->isFinish()) 
-	{
-		this->getTimer("ShootDisabled")->loop();
-		this->getTimer("ShootActive")->loop();
+		if (this->getTimer("ShootDisabled")->isFinish())
+		{
+			this->getTimer("ShootDisabled")->loop();
+			this->getTimer("ShootActive")->loop();
 
-		this->getTimer("ShootDisabled")->pause();
+			this->getTimer("ShootDisabled")->pause();
 
-		this->enemy->getBehavior("ShootBehavior")->setActive(true);
-		std::cout << "ACTIVED!" << std::endl;
-	}
+			this->enemy->getBehavior("ShootBehavior")->setActive(true);
+			std::cout << "ACTIVED!" << std::endl;
+		}
 
-	if (this->getTimer("ShootActive")->isFinish()) 
-	{
-		this->getTimer("ShootDisabled")->loop();
-		this->getTimer("ShootActive")->loop();
+		if (this->getTimer("ShootActive")->isFinish())
+		{
+			this->getTimer("ShootDisabled")->loop();
+			this->getTimer("ShootActive")->loop();
 
-		this->getTimer("ShootActive")->pause();
+			this->getTimer("ShootActive")->pause();
 
-		this->enemy->getBehavior("ShootBehavior")->setActive(false);
-		std::cout << "DISABLED!" << std::endl;
+			this->enemy->getBehavior("ShootBehavior")->setActive(false);
+			std::cout << "DISABLED!" << std::endl;
+		}
 	}
 }

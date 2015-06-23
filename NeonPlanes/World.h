@@ -27,4 +27,5 @@ private:
 	std::map<int, GameState*> map_states;
 
 	bool switchState;
+	bool clearGameWorld;
 };

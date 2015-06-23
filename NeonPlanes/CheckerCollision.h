@@ -31,7 +31,7 @@ public:
 	
 	static bool containsObjects();
 	static bool containsAirplanes();
-
+	static void clearObjects();
 private:
 	static void collisionChekingAlgorithm(Airplane* airplane, GameObject* object, std::vector<GameObject*>* removed_GameObjects, std::vector<Airplane*>* removed_Airplanes);
 

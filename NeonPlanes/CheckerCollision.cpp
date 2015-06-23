@@ -22,6 +22,11 @@ void CheckerCollision::addAirplanes(Airplane* airplane) {
 	_airplanes.push_back(airplane);
 }
 
+void CheckerCollision::clearObjects() {
+	_airplanes.clear();
+	_objects.clear();
+}
+
 void CheckerCollision::addObjects(std::vector<GameObject*> objects) {
 	_objects.insert(_objects.end(), objects.begin(), objects.end());
 }
@@ -29,7 +34,7 @@ void CheckerCollision::addObjects(std::vector<GameObject*> objects) {
 void CheckerCollision::checkCollisions() {
 	std::vector<GameObject*> removed_GameObjects;
 	std::vector<Airplane*> removed_Airplanes;
-	
+
 	for each (auto airplane in _airplanes)
 	{
 		for each (auto object in _objects)

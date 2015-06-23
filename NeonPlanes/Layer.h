@@ -12,10 +12,10 @@ public:
 	void addGameObject(GameObject* obj);
 	void addVectorGameObject(std::vector<GameObject*> vector);
 	GameObject* getGameObject(std::string obj) const;
-	std::vector<GameObject*> getGameObjects() const;
+	std::vector<GameObject*> getGameObjects();
 	std::string getName() const;
 	void addPending();
-	
+	void removeMultiple(std::vector<GameObject*> objects);
 private:
 	std::string name;
 	std::vector<GameObject*> objects;

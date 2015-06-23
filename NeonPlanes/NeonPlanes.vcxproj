@@ -76,7 +76,6 @@
     <ClCompile Include="BlueEnemy.cpp" />
     <ClCompile Include="BlueLight.cpp" />
     <ClCompile Include="BlueProjectile.cpp" />
-    <ClCompile Include="Bounds.cpp" />
     <ClCompile Include="CheckerCollision.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DashBehavior.cpp" />
@@ -151,7 +150,6 @@
     <ClInclude Include="BlueEnemy.h" />
     <ClInclude Include="BlueLight.h" />
     <ClInclude Include="BlueProjectile.h" />
-    <ClInclude Include="Bounds.h" />
     <ClInclude Include="CheckerCollision.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />

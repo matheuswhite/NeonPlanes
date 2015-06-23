@@ -113,7 +113,6 @@ void Game::draw() {
 	SDL_RenderPresent(renderer);
 }
 
-//improvisado
 void Game::update() {
 
 	//IA
@@ -149,6 +148,45 @@ void Game::update() {
 		}
 	}
 
+}
+
+void Game::manageObjects() {
+	std::vector<GameObject*> inactivesObjects;
+	std::vector<GameObject*> Remove_Interaction;
+	std::vector<GameObject*> Remove_EnemyAI;
+
+	ObjectManager::deleteInactivesObjects();
+
+	if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+		auto layer_Interaction = this->gameWorld->getCurrentState()->getLayer("Interaction");
+		auto layer_EnemyAI = this->gameWorld->getCurrentState()->getLayer("EnemyAI");
+
+		for each (auto object in layer_EnemyAI->getGameObjects())
+		{
+			if (!object->isActive()) {
+				inactivesObjects.push_back(object);
+				Remove_EnemyAI.push_back(object);
+			}
+		}
+
+		layer_EnemyAI->removeMultiple(Remove_EnemyAI);
+		Remove_EnemyAI.clear();
+
+		for each (auto object2 in layer_Interaction->getGameObjects())
+		{
+			if (!object2->isActive()) {
+				inactivesObjects.push_back(object2);
+				Remove_Interaction.push_back(object2);
+			}
+		}
+
+		layer_Interaction->removeMultiple(Remove_Interaction);
+		Remove_Interaction.clear();
+
+		ObjectManager::addInactiveObjects(inactivesObjects);
+
+		inactivesObjects.clear();
+	}
 }
 
 bool Game::handlingEvents() {

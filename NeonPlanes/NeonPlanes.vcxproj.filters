@@ -240,9 +240,6 @@
     <ClCompile Include="YellowLight.cpp">
       <Filter>Source Files\GameObjects\Lights</Filter>
     </ClCompile>
-    <ClCompile Include="Bounds.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="CheckerCollision.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
@@ -465,9 +462,6 @@
     </ClInclude>
     <ClInclude Include="Airplane.h">
       <Filter>Header Files\GameObjects\AirPlane</Filter>
-    </ClInclude>
-    <ClInclude Include="Bounds.h">
-      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="CheckerCollision.h">
       <Filter>Header Files\Tools</Filter>

@@ -16,6 +16,7 @@ public:
 	void draw();
 	void update();
 	bool handlingEvents();
+	void manageObjects();
 	void clear();
 
 	bool isInitialize() const;

@@ -43,35 +43,80 @@ void PlayState::createGameWorld() {
 }
 
 void PlayState::destroyGameWorld() {
+	ObjectManager::addInactiveObjects(this->getLayer("Interaction")->getGameObjects());
+	ObjectManager::addInactiveObjects(this->getLayer("EnemyAI")->getGameObjects());
 
+	this->getLayer("EnemyAI")->removeMultiple(this->getLayer("EnemyAI")->getGameObjects());
+	this->getLayer("Interaction")->removeMultiple(this->getLayer("Interaction")->getGameObjects());
+
+	CheckerCollision::clearObjects();
+
+	//clear level class
+
+	ObjectManager::deleteInactivesObjects();
+
+	this->gameWorldCreated = false;
 }
 
 void PlayState::execute_BTN_SPACE() {
-	Command::shoot((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::shoot((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }
+
 void PlayState::execute_BTN_Z() {
-	Command::useLightWall((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::useLightWall((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }
 void PlayState::execute_BTN_ENTER() {
 	Command::pause();
 }
 void PlayState::execute_LEFT() {
-	Command::moveLeft((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::moveLeft((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }
 void PlayState::execute_RIGHT() {
-	Command::moveRight((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::moveRight((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }
 void PlayState::execute_UP() {
-	Command::moveUp((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::moveUp((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }
 void PlayState::execute_DOWN() {
-	Command::moveDown((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::moveDown((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }
 
 void PlayState::stop(bool direction) {
-	Command::stop((Player*)this->getLayer("Interaction")->getGameObject("Player"), direction);
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::stop((Player*)this->getLayer("Interaction")->getGameObject("Player"), direction);
+		}
+	}
 }
 
 void PlayState::totalStop() {
-	Command::totalStop((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+	if ((Player*)this->getLayer("Interaction")->getGameObject("Player") != nullptr) {
+		if ((Player*)this->getLayer("Interaction")->getGameObject("Player")->isActive()) {
+			Command::totalStop((Player*)this->getLayer("Interaction")->getGameObject("Player"));
+		}
+	}
 }

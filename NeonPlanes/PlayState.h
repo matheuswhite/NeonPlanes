@@ -12,8 +12,8 @@
 #include "YellowEnemy_AI.h"
 #include "RedEnemy_AI.h"
 
-#include "Bounds.h"
 #include "CheckerCollision.h"
+#include "ObjectManager.h"
 
 class PlayState : public GameState
 {

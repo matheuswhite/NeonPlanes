@@ -107,51 +107,57 @@ void RedEnemy_AI::createTimers() {
 }
 
 void RedEnemy_AI::manageBehaviors() {
-	auto front = this->fita__.front();
-
-	if (this->flagInitialize) {
-		this->getTimer("MinPatrol")->loop();
-		this->flagInitialize = false;
+	if (!this->enemy->isActive()) {
+		this->enemy = nullptr;
+		this->active = false;
 	}
+	else {
+		auto front = this->fita__.front();
 
-	switch (this->fsm->getCurentState()->getID())
-	{
-	case States::MIN_PATROL:
-		if (this->getTimer("MinPatrol")->isFinish()) {
-			this->fita__.pop();
-			this->fita__.push(front);
-			this->fsm->switchState(front, *this);
+		if (this->flagInitialize) {
+			this->getTimer("MinPatrol")->loop();
+			this->flagInitialize = false;
 		}
-		break;
-	case States::LIGHT_WALL:
-		if (this->getTimer("LightWall")->isFinish()) {
-			this->fita__.pop();
-			this->fita__.push(front);
-			this->fsm->switchState(front, *this);
+
+		switch (this->fsm->getCurentState()->getID())
+		{
+		case States::MIN_PATROL:
+			if (this->getTimer("MinPatrol")->isFinish()) {
+				this->fita__.pop();
+				this->fita__.push(front);
+				this->fsm->switchState(front, *this);
+			}
+			break;
+		case States::LIGHT_WALL:
+			if (this->getTimer("LightWall")->isFinish()) {
+				this->fita__.pop();
+				this->fita__.push(front);
+				this->fsm->switchState(front, *this);
+			}
+			break;
+		case States::GO_DOWN:
+			if (!this->enemy->getBehavior("GoDownBehavior")->isActive()) {
+				this->fita__.pop();
+				this->fita__.push(front);
+				this->fsm->switchState(front, *this);
+			}
+			break;
+		case States::DASH_AND_LIGHT_WALL:
+			if (!this->enemy->getBehavior("DashBehavior")->isActive()) {
+				this->fita__.pop();
+				this->fita__.push(front);
+				this->fsm->switchState(front, *this);
+			}
+			break;
+		case States::MAX_PATROL:
+			if (this->getTimer("MaxPatrol")->isFinish()) {
+				this->fita__.pop();
+				this->fita__.push(front);
+				this->fsm->switchState(front, *this);
+			}
+			break;
+		default:
+			break;
 		}
-		break;
-	case States::GO_DOWN:
-		if (!this->enemy->getBehavior("GoDownBehavior")->isActive()) {
-			this->fita__.pop();
-			this->fita__.push(front);
-			this->fsm->switchState(front, *this);
-		}
-		break;
-	case States::DASH_AND_LIGHT_WALL:
-		if (!this->enemy->getBehavior("DashBehavior")->isActive()) {
-			this->fita__.pop();
-			this->fita__.push(front);
-			this->fsm->switchState(front, *this);
-		}
-		break;
-	case States::MAX_PATROL:
-		if (this->getTimer("MaxPatrol")->isFinish()) {
-			this->fita__.pop();
-			this->fita__.push(front);
-			this->fsm->switchState(front, *this);
-		}
-		break;
-	default:
-		break;
 	}
 }
