@@ -42,6 +42,14 @@ void CheckerCollision::checkCollisions() {
 			if (airplane->isActive() && object->isActive()) {
 				collisionChekingAlgorithm(airplane, object, &removed_GameObjects, &removed_Airplanes);
 			}
+			else {
+				if (!airplane->isActive()) {
+					removed_Airplanes.push_back(airplane);
+				}
+				if (!object->isActive()) {
+					removed_GameObjects.push_back(object);
+				}
+			}
 		}
 	}
 
@@ -127,7 +135,6 @@ void CheckerCollision::collisionChekingAlgorithm(Airplane* airplane, GameObject*
 				}
 				else if (typeid(*object) == typeid(WhiteLight)) {
 					airplane->active = false;
-					object->active = false;
 
 					std::cout << "collided light" << std::endl;
 					
