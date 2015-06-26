@@ -4,16 +4,9 @@
 #include "FPS_HUD.h"
 #include "Background.h"
 
-#include "Player.h"
-#include "BlueEnemy.h"
-#include "RedEnemy.h"
-#include "YellowEnemy.h"
-
-#include "YellowEnemy_AI.h"
-#include "RedEnemy_AI.h"
-
 #include "CheckerCollision.h"
 #include "ObjectManager.h"
+#include "LevelManager.h"
 
 class PlayState : public GameState
 {
@@ -33,6 +26,8 @@ public:
 
 	void createGameWorld();
 	void destroyGameWorld();
+	void runLevelLogic();
 private:
 	bool gameWorldCreated;
+	LevelManager* level;
 };

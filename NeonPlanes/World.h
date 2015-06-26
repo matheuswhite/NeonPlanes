@@ -14,6 +14,7 @@ public:
 	virtual ~World();
 	
 	GameState* getCurrentState();
+	std::map<int, GameState*> getMapStates() const;
 	void switchGameState(Uint8 state);
 
 	void action(int parameter);

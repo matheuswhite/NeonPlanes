@@ -21,6 +21,10 @@ GameState* World::getCurrentState() {
 	return currentState;
 }
 
+std::map<int, GameState*> World::getMapStates() const {
+	return this->map_states;
+}
+
 void World::switchGameState(Uint8 state) {
 	auto prevState = currentState;
 	currentState = map_states.at(state);
@@ -29,8 +33,10 @@ void World::switchGameState(Uint8 state) {
 		((PlayState*)currentState)->createGameWorld();
 		this->clearGameWorld = false;
 	}
-	else if ( state == utility::MAIN_MENU && typeid(*prevState) == typeid(PauseState)) {
-		((PlayState*)this->map_states.at(utility::PLAY))->destroyGameWorld();
+	if (prevState != nullptr) {
+		if (state == utility::MAIN_MENU && (typeid(*prevState) == typeid(PauseState) || typeid(*prevState) == typeid(GameOverState))) {
+			((PlayState*)this->map_states.at(utility::PLAY))->destroyGameWorld();
+		}
 	}
 
 	this->switchState = true;

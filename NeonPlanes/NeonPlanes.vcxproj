@@ -93,6 +93,7 @@
     <ClCompile Include="HighscoreState.cpp" />
     <ClCompile Include="InitialEnemyBehavior.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightWallBehavior.cpp" />
     <ClCompile Include="main.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="HighscoreState.h" />
     <ClInclude Include="InitialEnemyBehavior.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightWallBehavior.h" />
     <ClInclude Include="MainMenuState.h" />

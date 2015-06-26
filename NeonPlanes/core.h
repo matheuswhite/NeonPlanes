@@ -41,6 +41,7 @@ const std::string FONT_PATH = "Fonts\\";
 #define GAME_OBJECT_PAIR std::pair<std::string, Component*>
 #define GAME_OBJECT_SPRITE_PAIR std::pair<std::string, Sprite*>
 #define GAME_OBJECT_BEHAVIOR_PAIR std::pair<std::string, Behavior*>
+#define DEFAULT -1
 
 namespace utility {
 	enum streamMode {
@@ -60,6 +61,18 @@ namespace utility {
 		PAUSE,
 		GAMEOVER,
 		HIGHSCORE
+	};
+
+	enum enemies {
+		YELLOW_ENEMY,
+		RED_ENEMY,
+		BLUE_ENEMY
+	};
+
+	enum side
+	{
+		LEFT,
+		RIGHT
 	};
 
 	const SDL_Color WHITE = { 255, 255, 255 };

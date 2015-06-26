@@ -31,6 +31,10 @@ void CheckerCollision::addObjects(std::vector<GameObject*> objects) {
 	_objects.insert(_objects.end(), objects.begin(), objects.end());
 }
 
+void CheckerCollision::addObject(GameObject* object) {
+	_objects.push_back(object);
+}
+
 void CheckerCollision::checkCollisions() {
 	std::vector<GameObject*> removed_GameObjects;
 	std::vector<Airplane*> removed_Airplanes;

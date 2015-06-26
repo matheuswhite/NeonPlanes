@@ -68,7 +68,7 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(utility::GAMEOVER);
+	this->gameWorld->switchGameState(utility::MAIN_MENU);
 
 #else
 	//Release Mode
@@ -115,22 +115,24 @@ void Game::draw() {
 
 void Game::update() {
 
-	//IA
 	if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+		
+		//IA
 		for each (auto ai in this->gameWorld->getCurrentState()->getLayer("EnemyAI")->getGameObjects() )
 		{
 			auto ai2 = (Base_AI*)ai;
 			ai2->manageBehaviors();
 		}
+
+		//collision
+		if (CheckerCollision::containsAirplanes() && CheckerCollision::containsObjects()) {
+			CheckerCollision::checkCollisions();
+		}
+
+		//level
+		((PlayState*)this->gameWorld->getCurrentState())->runLevelLogic();
 	}
 
-	//level
-
-
-	//collision
-	if (CheckerCollision::containsAirplanes() && CheckerCollision::containsObjects()) {
-		CheckerCollision::checkCollisions();
-	}
 	
 	//update behaviors
 	for each (auto layer in this->gameWorld->getCurrentState()->getVectorLayers())
@@ -211,6 +213,13 @@ bool Game::handlingEvents() {
 				if (e.key.keysym.sym == SDLK_RIGHT) this->rightState = true;
 			}
 			else {
+				this->lightState = false;
+				this->upState = false;
+				this->downState = false;
+				this->leftState = false;
+				this->rightState = false;
+				((PlayState*)this->gameWorld->getMapStates().at(utility::PLAY))->stop(true);
+
 				switch (e.key.keysym.sym) {
 				case SDLK_SPACE:
 					this->gameWorld->getCurrentState()->execute_BTN_SPACE();

@@ -27,6 +27,7 @@ public:
 
 	static void addAirplanes(Airplane* airplane);
 	static void addObjects(std::vector<GameObject*> objects);
+	static void addObject(GameObject* object);
 	static void checkCollisions();
 	
 	static bool containsObjects();
