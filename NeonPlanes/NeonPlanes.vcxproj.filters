@@ -94,6 +94,12 @@
     <Filter Include="Source Files\FSM">
       <UniqueIdentifier>{c7f8e76b-52c5-4586-91f5-aaaf9efdc848}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\HUD">
+      <UniqueIdentifier>{3bec8618-2781-4bf9-89c5-838476513398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\HUD">
+      <UniqueIdentifier>{125843fd-2b19-4ff4-a3a2-17e5f810bc3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp">
@@ -137,9 +143,6 @@
     </ClCompile>
     <ClCompile Include="Layer.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FPS_HUD.cpp">
-      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
@@ -282,6 +285,18 @@
     <ClCompile Include="LevelManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicTextItem.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="FPS_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Distance_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="ColoredBackgroundSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -354,9 +369,6 @@
     </ClInclude>
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FPS_HUD.h">
-      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
@@ -510,6 +522,18 @@
     </ClInclude>
     <ClInclude Include="LevelManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicTextItem.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="FPS_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Distance_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="ColoredBackgroundSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,8 @@
 
 #include "Layer.h"
 
+#include "Distance_HUD.h"
+
 #include "Player.h"
 #include "BlueEnemy.h"
 #include "RedEnemy.h"
@@ -48,9 +50,9 @@ private:
 	unsigned long long int currentNameIndexBlue;
 
 	//elements of HUD
+	Distance_HUD* distance_HUD;
 
 	Player* player;
-	SlaveTimer* distanceTimer;
 	std::map<std::string, Base_AI*> enemies_AI;
 	std::map<std::string, Layer*>* mapLayers;
 };

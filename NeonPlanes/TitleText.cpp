@@ -39,8 +39,8 @@ TitleText::TitleText(std::string name) : GameObject(name)
 	this->addComponent(new Rectangle(Vector2D(posx + (factorx * 4), posy + (factory * 4)), Vector2D(250, 90), "destinyTop5"));
 	this->addComponent(new Rectangle(Vector2D(posx + 50 + (factorx * 4), posy + 80 + (factory * 4)), Vector2D(250, 90), "destinyBottom5"));
 
-	this->addSprite(new StaticTextSprite((Rectangle*)this->getComponent("destinyTop5"), new Font("Neon", FONT_PATH + "FFFFORWA.TTF", 28, utility::INTER_BLUE), "StaticTextSpriteTop5"));
-	this->addSprite(new StaticTextSprite((Rectangle*)this->getComponent("destinyBottom5"), new Font("Planes", FONT_PATH + "FFFFORWA.TTF", 28, utility::INTER_BLUE), "StaticTextSpriteBottom5"));
+	this->addSprite(new StaticTextSprite((Rectangle*)this->getComponent("destinyTop5"), new Font("Neon", FONT_PATH + "FFFFORWA.TTF", 28, utility::BLUE), "StaticTextSpriteTop5"));
+	this->addSprite(new StaticTextSprite((Rectangle*)this->getComponent("destinyBottom5"), new Font("Planes", FONT_PATH + "FFFFORWA.TTF", 28, utility::BLUE), "StaticTextSpriteBottom5"));
 }
 
 TitleText::~TitleText()

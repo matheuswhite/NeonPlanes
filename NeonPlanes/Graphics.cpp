@@ -40,30 +40,7 @@ void Graphics::setBlendMode(SDL_BlendMode mode, SDL_Texture* texture) {
 	SDL_SetTextureBlendMode(texture, mode);
 }
 
-//fazer
-void Graphics::renderRotated(SDL_Rect* source, SDL_Rect* destiny, SDL_Texture* texture, double angle) {
-
+void Graphics::createColorRect(SDL_Rect* destiny, SDL_Color color) {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+	SDL_RenderFillRect(renderer, destiny);
 }
-
-/*
-//Texture
-
-
-/*
-if (object->lastPosition != position) {
-object->frame = 0;
-}
-
-object->row = position;
-
-
-Vector2D center(object->Width/2 * object->getFrame(), object->Height/2 * object->getRow());
-Vector2D half(object->Width/2, object->Height/2);
-Rectangle rect(&center, &half);
-
-object->frame++;
-
-object->source = &rect;
-
-this->renderGameObject(object, renderer);
-*/

@@ -13,8 +13,8 @@ MainMenuState::MainMenuState()
 	int posx = 75;
 	int posy = 340;
 
-	itens.push_back(new HighlightItem("Novo Jogo", new Rectangle(Vector2D(posx, posy), Vector2D(280, 50), "destiny"), new Font("Novo Jogo", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::INTER_BLUE, utility::PLAY));
-	itens.push_back(new HighlightItem("Highscore", new Rectangle(Vector2D(posx-10, posy + 60), Vector2D(280, 50), "destiny"), new Font("Highscore", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::INTER_BLUE, utility::HIGHSCORE));
+	itens.push_back(new HighlightItem("Novo Jogo", new Rectangle(Vector2D(posx, posy), Vector2D(280, 50), "destiny"), new Font("Novo Jogo", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::BLUE, utility::PLAY));
+	itens.push_back(new HighlightItem("Highscore", new Rectangle(Vector2D(posx-10, posy + 60), Vector2D(280, 50), "destiny"), new Font("Highscore", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::BLUE, utility::HIGHSCORE));
 
 	this->getLayer("Background")->addGameObject(new Background("Background"));
 	this->getLayer("Interaction")->addGameObject(new Menu("MainMenu", itens));

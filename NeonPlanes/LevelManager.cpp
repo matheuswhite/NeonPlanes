@@ -11,9 +11,8 @@ LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers
 	this->delayEnemyDeploy = 0;
 
 	//create elements of HUD
-
-	this->distanceTimer = new SlaveTimer(1000, "distanceTimer");
-	this->distanceTimer->pause();
+	this->distance_HUD = new Distance_HUD("Distance_HUD", 1000, 100);
+	this->mapLayers->at("HUD")->addGameObject(this->distance_HUD);
 
 	this->currentNameIndexYellow = 0;
 	this->currentNameIndexRed = 0;
@@ -27,20 +26,19 @@ LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers
 LevelManager::~LevelManager()
 {
 	this->clearObjects();
-
-	//clear elements of HUD
 }
 
 void LevelManager::clearObjects() {
 	this->mapLayers = nullptr;
 	this->enemies_AI.clear();
 
-	delete this->distanceTimer;
-	this->distanceTimer = nullptr;
-
 	this->player = nullptr;
 
-	//reset elements of HUD
+	//clear elements of HUD
+	if (this->distance_HUD != nullptr) {
+		this->distance_HUD->clear();
+		this->distance_HUD = nullptr;
+	}
 }
 
 void LevelManager::levelLogic() {
@@ -62,13 +60,13 @@ void LevelManager::levelLogic() {
 		}
 	}
 
-	if (this->delayEnemyDeploy >= 15) {
+	/*if (this->delayEnemyDeploy >= 15) {
 		this->createEnemy();
 		this->delayEnemyDeploy = 0;
 	}
 	else {
 		this->delayEnemyDeploy++;
-	}
+	}*/
 
 	if (this->enemiesDestoyed >= this->maxEnemies_perLevel) {
 		if (this->currentLevel != this->MAX_LEVEL) {
@@ -126,7 +124,6 @@ void LevelManager::createYellowEnemy(char side) {
 	}
 
 	this->mapLayers->at("Interaction")->addGameObject(new YellowEnemy(nameEnemy, new Rectangle(Vector2D(pos_x, BOTTOM_ZONE), Vector2D(54, 55), "destiny"), signal * 4));
-	//consertar a AI
 	this->mapLayers->at("EnemyAI")->addGameObject(new YellowEnemy_AI(this->mapLayers->at("Interaction")->getGameObject(nameEnemy), nameAI));
 
 	auto yellowAI = (Base_AI*)this->mapLayers->at("EnemyAI")->getGameObject(nameAI);
@@ -163,7 +160,6 @@ void LevelManager::createRedEnemy(char side) {
 	}
 
 	this->mapLayers->at("Interaction")->addGameObject(new RedEnemy(nameEnemy, new Rectangle(Vector2D(pos_x, TOP_ZONE), Vector2D(54, 55), "destiny"), signal * 4));
-	//consertar a AI
 	this->mapLayers->at("EnemyAI")->addGameObject(new RedEnemy_AI(this->mapLayers->at("Interaction")->getGameObject(nameEnemy), nameAI));
 
 	auto redAI = (Base_AI*)this->mapLayers->at("EnemyAI")->getGameObject(nameAI);
@@ -202,12 +198,10 @@ void LevelManager::createBlueEnemy(char side) {
 
 	if (randNum2 == utility::enemies::YELLOW_ENEMY) {
 		this->mapLayers->at("Interaction")->addGameObject(new BlueEnemy(nameEnemy, new Rectangle(Vector2D(pos_x, BOTTOM_ZONE), Vector2D(54, 55), "destiny"), signal * 4));
-		//consertar a AI
 		this->mapLayers->at("EnemyAI")->addGameObject(new YellowEnemy_AI(this->mapLayers->at("Interaction")->getGameObject(nameEnemy), nameAI));
 	}
 	else if (randNum2 == utility::enemies::RED_ENEMY) {
 		this->mapLayers->at("Interaction")->addGameObject(new BlueEnemy(nameEnemy, new Rectangle(Vector2D(pos_x, TOP_ZONE), Vector2D(54, 55), "destiny"), signal * 4));
-		//consertar a AI
 		this->mapLayers->at("EnemyAI")->addGameObject(new RedEnemy_AI(this->mapLayers->at("Interaction")->getGameObject(nameEnemy), nameAI));
 	}
 
@@ -234,7 +228,7 @@ void LevelManager::increaseLevel() {
 }
 
 void LevelManager::updateDistance() {
-
+	this->distance_HUD->updateDistance();
 }
 
 void LevelManager::createPlayer() {
