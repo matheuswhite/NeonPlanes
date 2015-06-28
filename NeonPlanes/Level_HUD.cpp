@@ -35,7 +35,13 @@ int Level_HUD::getMaxLevel() const {
 
 void Level_HUD::increaseLevel() {
 	if (this->level == this->MAX_LEVEL) {
+		this->level++;
 
+		this->sprites.clear();
+
+		auto pos_x = SCREEN_WIDTH / 2 - 50;
+		this->addSprite(new ColoredBackgroundSprite(new Rectangle(Vector2D(0, BOTTOM_BOUND), Vector2D(SCREEN_WIDTH, SCREEN_HEIGHT - BOTTOM_BOUND), "destiny"), "ColoredBackgroundSprite", utility::DARK_MAGENTA));
+		this->addSprite(new StaticTextSprite(new Rectangle(Vector2D(pos_x, BOTTOM_BOUND + 15), Vector2D(100, 30), "destiny"), new Font("MAX", FONT_PATH + "Aero.ttf", 62, utility::GOLD), "StaticTextSprite"));
 	}
 	else if (this->level < this->MAX_LEVEL) {
 		this->level++;

@@ -74,7 +74,7 @@ void LevelManager::levelLogic() {
 		this->delayEnemyDeploy++;
 	}
 
-	if (this->enemiesDestoyed >= this->maxEnemies_perLevel) {
+	if (this->enemiesDestoyed >= this->maxEnemies_perLevel && this->level_HUD->getLevel() <= this->level_HUD->getMaxLevel()) {
 		this->increaseLevel();
 		this->enemiesDestoyed = 0;
 		this->maxEnemies_perLevel++;

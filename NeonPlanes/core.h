@@ -82,10 +82,11 @@ namespace utility {
 	const SDL_Color LIGHT_BLUE = { 0, 255, 255 };
 	const SDL_Color BLACK = { 0, 0, 0 };
 	const SDL_Color YELLOW = { 255, 255, 0 };
-	const SDL_Color BRIGHT_GRAY = { 168, 168, 168 };
-	const SDL_Color DIM_GRAY = { 105, 105, 105 };
-	const SDL_Color GRAY = { 128, 128, 128 };
+	const SDL_Color DARK_MAGENTA = { 139, 0, 139 };
 	const SDL_Color INTER_GRAY = { 25, 25, 25 };
+	const SDL_Color LEMON = { 253, 233, 16 };
+	const SDL_Color AMBER = { 255, 191, 0 };
+	const SDL_Color GOLD = { 255, 215, 0 };
 
 	template <class U>
 	void remove(std::vector<U>* vector, U object) {
