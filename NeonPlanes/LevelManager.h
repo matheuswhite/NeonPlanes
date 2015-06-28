@@ -3,6 +3,7 @@
 #include "Layer.h"
 
 #include "Distance_HUD.h"
+#include "Level_HUD.h"
 
 #include "Player.h"
 #include "BlueEnemy.h"
@@ -35,9 +36,6 @@ private:
 	void increaseLevel();
 	void updateDistance();
 	void saveScores();
-
-	int currentLevel;
-	const int MAX_LEVEL = 999;
 	
 	int enemiesDestoyed;
 	int maxEnemies_perLevel;
@@ -51,6 +49,7 @@ private:
 
 	//elements of HUD
 	Distance_HUD* distance_HUD;
+	Level_HUD* level_HUD;
 
 	Player* player;
 	std::map<std::string, Base_AI*> enemies_AI;

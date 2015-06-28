@@ -12,6 +12,7 @@ public:
 
 	Font* getFont() const;
 	void updateValue(std::string value);
+	void setColor(SDL_Color color);
 protected:
 	Font* font;
 };

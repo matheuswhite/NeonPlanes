@@ -2,8 +2,6 @@
 
 LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers(mapLayers)
 {
-	this->currentLevel = 1;
-
 	this->enemiesDestoyed = 0;
 	this->maxEnemies_perLevel = 2;
 	this->enemies_InGame = 0;
@@ -13,6 +11,9 @@ LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers
 	//create elements of HUD
 	this->distance_HUD = new Distance_HUD("Distance_HUD", 1000, 100);
 	this->mapLayers->at("HUD")->addGameObject(this->distance_HUD);
+
+	this->level_HUD = new Level_HUD("Level_HUD");
+	this->mapLayers->at("HUD")->addGameObject(this->level_HUD);
 
 	this->currentNameIndexYellow = 0;
 	this->currentNameIndexRed = 0;
@@ -39,6 +40,11 @@ void LevelManager::clearObjects() {
 		this->distance_HUD->clear();
 		this->distance_HUD = nullptr;
 	}
+
+	if (this->level_HUD != nullptr) {
+		this->level_HUD->clear();
+		this->level_HUD = nullptr;
+	}
 }
 
 void LevelManager::levelLogic() {
@@ -60,22 +66,19 @@ void LevelManager::levelLogic() {
 		}
 	}
 
-	/*if (this->delayEnemyDeploy >= 15) {
+	if (this->delayEnemyDeploy >= 15) {
 		this->createEnemy();
 		this->delayEnemyDeploy = 0;
 	}
 	else {
 		this->delayEnemyDeploy++;
-	}*/
+	}
 
 	if (this->enemiesDestoyed >= this->maxEnemies_perLevel) {
-		if (this->currentLevel != this->MAX_LEVEL) {
-			this->currentLevel++;
-			this->increaseLevel();
-			this->enemiesDestoyed = 0;
-			this->maxEnemies_perLevel++;
-			this->enemies_InGame = 0;
-		}
+		this->increaseLevel();
+		this->enemiesDestoyed = 0;
+		this->maxEnemies_perLevel++;
+		this->enemies_InGame = 0;
 	}
 
 	this->updateDistance();
@@ -224,7 +227,7 @@ bool LevelManager::enemyCanCreated() {
 }
 
 void LevelManager::increaseLevel() {
-
+	this->level_HUD->increaseLevel();
 }
 
 void LevelManager::updateDistance() {

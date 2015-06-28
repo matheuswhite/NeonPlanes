@@ -18,3 +18,12 @@ void StaticTextSprite::draw() {
 Font* StaticTextSprite::getFont() const {
 	return this->font;
 }
+
+
+void StaticTextSprite::setColor(SDL_Color color) {
+	this->font->setColor(color);
+
+	delete this->texture;
+	this->texture = new Texture();
+	this->texture->loadTTF(renderer, this->font);
+}

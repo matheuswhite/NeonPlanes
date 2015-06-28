@@ -26,3 +26,11 @@ void DynamicTextSprite::updateValue(std::string value) {
 	this->texture = new Texture();
 	this->texture->loadTTF(renderer, this->font);
 }
+
+void DynamicTextSprite::setColor(SDL_Color color) {
+	this->font->setColor(color);
+
+	delete this->texture;
+	this->texture = new Texture();
+	this->texture->loadTTF(renderer, this->font);
+}

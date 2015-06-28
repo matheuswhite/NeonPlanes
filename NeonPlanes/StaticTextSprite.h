@@ -11,6 +11,7 @@ public:
 	void draw() override;
 
 	Font* getFont() const;
+	void setColor(SDL_Color color);
 private:
 	Font* font;
 };

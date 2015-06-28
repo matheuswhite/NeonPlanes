@@ -297,6 +297,9 @@
     <ClCompile Include="ColoredBackgroundSprite.cpp">
       <Filter>Source Files\Components\Sprites</Filter>
     </ClCompile>
+    <ClCompile Include="Level_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -534,6 +537,9 @@
     </ClInclude>
     <ClInclude Include="ColoredBackgroundSprite.h">
       <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
