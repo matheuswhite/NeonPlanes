@@ -14,7 +14,6 @@ public:
 
 	void updateDistance();
 	std::string formatOutput();
-	void clear();
 	std::string addZeros();
 private:
 	SlaveTimer* timer;

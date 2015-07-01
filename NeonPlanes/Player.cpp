@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::string name) : Airplane(name)
+Player::Player(std::string name, Light_HUD* light_HUD) : light_HUD(light_HUD), Airplane(name)
 {
 	this->velocity = 4;
 	this->addComponent(new Rectangle(Vector2D(180,270),Vector2D(64,45),"destiny"));
@@ -24,12 +24,14 @@ void Player::shoot() {
 }
 
 void Player::useLightWall() {
-	this->addPending(new WhiteLight("whiteLight" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
-	if (objectValue >= LLONG_MAX) {
-		this->objectValue = 0;
-	}
-	else {
-		this->objectValue++;
+	if (this->light_HUD->isLightLevelPositive()) {
+		this->addPending(new WhiteLight("whiteLight" + std::to_string(objectValue), ((Rectangle*)this->getComponent("destiny"))->getPosition()));
+		if (objectValue >= LLONG_MAX) {
+			this->objectValue = 0;
+		}
+		else {
+			this->objectValue++;
+		}
 	}
 }
 

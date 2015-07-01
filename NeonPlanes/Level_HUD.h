@@ -14,7 +14,6 @@ public:
 	int getLevel() const;
 	int getMaxLevel() const;
 	void increaseLevel();
-	void clear();
 	std::string formatOutput();
 	void setLevelColor();
 

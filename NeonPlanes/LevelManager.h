@@ -4,6 +4,7 @@
 
 #include "Distance_HUD.h"
 #include "Level_HUD.h"
+#include "Light_HUD.h"
 
 #include "Player.h"
 #include "BlueEnemy.h"
@@ -50,6 +51,7 @@ private:
 	//elements of HUD
 	Distance_HUD* distance_HUD;
 	Level_HUD* level_HUD;
+	Light_HUD* light_HUD;
 
 	Player* player;
 	std::map<std::string, Base_AI*> enemies_AI;

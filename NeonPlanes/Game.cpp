@@ -130,6 +130,10 @@ void Game::update() {
 		}
 
 		//level
+		if (((Light_HUD*)this->gameWorld->getCurrentState()->getLayer("HUD")->getGameObject("Light_HUD"))->getIsDecrease() == nullptr)
+		{
+			((Light_HUD*)this->gameWorld->getCurrentState()->getLayer("HUD")->getGameObject("Light_HUD"))->setDecrease(&this->lightState);
+		}
 		((PlayState*)this->gameWorld->getCurrentState())->runLevelLogic();
 	}
 
@@ -157,9 +161,9 @@ void Game::manageObjects() {
 	std::vector<GameObject*> Remove_Interaction;
 	std::vector<GameObject*> Remove_EnemyAI;
 
-	ObjectManager::deleteInactivesObjects();
-
 	if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+		ObjectManager::deleteInactivesObjects();
+		
 		auto layer_Interaction = this->gameWorld->getCurrentState()->getLayer("Interaction");
 		auto layer_EnemyAI = this->gameWorld->getCurrentState()->getLayer("EnemyAI");
 
@@ -205,7 +209,9 @@ bool Game::handlingEvents() {
 			return false;
 		case SDL_KEYDOWN:
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-				if (e.key.keysym.sym == SDLK_z) this->lightState = true;
+				if (e.key.keysym.sym == SDLK_z) {
+					this->lightState = true;
+				}
 				if (e.key.keysym.sym == SDLK_RETURN) this->gameWorld->getCurrentState()->execute_BTN_ENTER();
 				if (e.key.keysym.sym == SDLK_UP) this->upState = true;
 				if (e.key.keysym.sym == SDLK_DOWN) this->downState = true;

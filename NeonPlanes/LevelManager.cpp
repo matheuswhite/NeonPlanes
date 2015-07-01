@@ -8,12 +8,14 @@ LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers
 	this->increaseAI_values = true;
 	this->delayEnemyDeploy = 0;
 
-	//create elements of HUD
 	this->distance_HUD = new Distance_HUD("Distance_HUD", 1000, 100);
 	this->mapLayers->at("HUD")->addGameObject(this->distance_HUD);
-
+	
 	this->level_HUD = new Level_HUD("Level_HUD");
 	this->mapLayers->at("HUD")->addGameObject(this->level_HUD);
+
+	this->light_HUD = new Light_HUD("Light_HUD");
+	this->mapLayers->at("HUD")->addGameObject(this->light_HUD);
 
 	this->currentNameIndexYellow = 0;
 	this->currentNameIndexRed = 0;
@@ -26,30 +28,28 @@ LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers
 
 LevelManager::~LevelManager()
 {
-	this->clearObjects();
 }
 
 void LevelManager::clearObjects() {
+	std::vector<GameObject*> removedHUD;
+	removedHUD.push_back(this->distance_HUD);
+	removedHUD.push_back(this->level_HUD);
+	removedHUD.push_back(this->light_HUD);
+
+	this->mapLayers->at("HUD")->removeMultiple(removedHUD);
+
+	this->distance_HUD = nullptr;
+	this->level_HUD = nullptr;
+	this->light_HUD = nullptr;
+	
 	this->mapLayers = nullptr;
 	this->enemies_AI.clear();
 
 	this->player = nullptr;
-
-	//clear elements of HUD
-	if (this->distance_HUD != nullptr) {
-		this->distance_HUD->clear();
-		this->distance_HUD = nullptr;
-	}
-
-	if (this->level_HUD != nullptr) {
-		this->level_HUD->clear();
-		this->level_HUD = nullptr;
-	}
 }
 
 void LevelManager::levelLogic() {
 	if (!this->player->isActive()) {
-		this->clearObjects();
 		Notifier::notify(utility::states::GAMEOVER);
 		return;
 	}
@@ -76,11 +76,19 @@ void LevelManager::levelLogic() {
 
 	if (this->enemiesDestoyed >= this->maxEnemies_perLevel && this->level_HUD->getLevel() <= this->level_HUD->getMaxLevel()) {
 		this->increaseLevel();
+		this->light_HUD->fillLightLevel();
 		this->enemiesDestoyed = 0;
 		this->maxEnemies_perLevel++;
 		this->enemies_InGame = 0;
 	}
 
+	if (this->light_HUD->getIsDecrease() != nullptr) {
+		this->light_HUD->updateLightLevel();
+	}
+	else {
+		std::cout << std::endl;
+	}
+	
 	this->updateDistance();
 }
 
@@ -235,7 +243,7 @@ void LevelManager::updateDistance() {
 }
 
 void LevelManager::createPlayer() {
-	this->player = new Player("Player");
+	this->player = new Player("Player", (Light_HUD*)this->mapLayers->at("HUD")->getGameObject("Light_HUD"));
 	this->mapLayers->at("Interaction")->addGameObject(this->player);
 
 	CheckerCollision::addAirplanes((Airplane*)this->mapLayers->at("Interaction")->getGameObject("Player"));

@@ -300,6 +300,9 @@
     <ClCompile Include="Level_HUD.cpp">
       <Filter>Source Files\GameObjects\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="Light_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
@@ -539,6 +542,9 @@
       <Filter>Header Files\Components\Sprites</Filter>
     </ClInclude>
     <ClInclude Include="Level_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Light_HUD.h">
       <Filter>Header Files\GameObjects\HUD</Filter>
     </ClInclude>
   </ItemGroup>

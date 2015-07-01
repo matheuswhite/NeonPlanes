@@ -11,6 +11,8 @@ PlayState::PlayState()
 #if _DEBUG
 	this->addLayer(new Layer("Debug"));
 #endif
+
+	this->createGameWorld();
 }
 
 PlayState::~PlayState()
@@ -21,11 +23,12 @@ void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
 		
 		this->getLayer("Background")->addGameObject(new Background("Background"));
-		this->level = new LevelManager(&this->map_layers);
 		
 #if _DEBUG
 		this->getLayer("Debug")->addGameObject(new FPS_HUD("FPS_HUD"));
 #endif
+
+		this->level = new LevelManager(&this->map_layers);
 
 		this->gameWorldCreated = true;
 	}

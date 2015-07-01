@@ -21,10 +21,6 @@ Distance_HUD::~Distance_HUD()
 	this->timer = nullptr;
 }
 
-void Distance_HUD::clear() {
-	this->active = false;
-}
-
 void Distance_HUD::updateDistance() {
 	if (this->timer->isFinish()) {
 		this->totalDistance += this->distance_step;

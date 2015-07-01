@@ -84,7 +84,3 @@ std::string Level_HUD::formatOutput() {
 
 	return output;
 }
-
-void Level_HUD::clear() {
-	this->active = false;
-}

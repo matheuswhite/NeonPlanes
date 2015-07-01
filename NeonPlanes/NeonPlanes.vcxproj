@@ -100,6 +100,7 @@
     <ClCompile Include="Level_HUD.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightWallBehavior.cpp" />
+    <ClCompile Include="Light_HUD.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Level_HUD.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightWallBehavior.h" />
+    <ClInclude Include="Light_HUD.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuBehavior.h" />
