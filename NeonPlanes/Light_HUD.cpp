@@ -60,7 +60,7 @@ void Light_HUD::decreaseLightLevel() {
 		}
 
 		if (this->decreaseTimer->isFinish()) {
-			this->lightLevel--;
+			this->lightLevel -= 3;
 			this->decreaseTimer->loop();
 		}
 	}

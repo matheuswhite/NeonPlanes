@@ -32,6 +32,10 @@ void Distance_HUD::updateDistance() {
 	}
 }
 
+unsigned long long int Distance_HUD::getTotalDistance() const {
+	return this->totalDistance;
+}
+
 std::string Distance_HUD::formatOutput() {
 	if (this->totalDistance < 1000) {
 		//normal

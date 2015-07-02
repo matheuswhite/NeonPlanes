@@ -15,6 +15,7 @@ public:
 	void updateDistance();
 	std::string formatOutput();
 	std::string addZeros();
+	unsigned long long int getTotalDistance() const;
 private:
 	SlaveTimer* timer;
 	unsigned long long int totalDistance;

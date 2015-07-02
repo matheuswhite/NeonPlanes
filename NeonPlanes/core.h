@@ -45,9 +45,8 @@ const std::string FONT_PATH = "Fonts\\";
 
 namespace utility {
 	enum streamMode {
-		NORMAL,
-		BINARY,
-		FORCED
+		READ,
+		WRITE
 	};
 
 	enum textureMode {

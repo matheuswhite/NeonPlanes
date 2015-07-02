@@ -50,6 +50,7 @@ void LevelManager::clearObjects() {
 
 void LevelManager::levelLogic() {
 	if (!this->player->isActive()) {
+		//gravar high score
 		Notifier::notify(utility::states::GAMEOVER);
 		return;
 	}
@@ -84,9 +85,6 @@ void LevelManager::levelLogic() {
 
 	if (this->light_HUD->getIsDecrease() != nullptr) {
 		this->light_HUD->updateLightLevel();
-	}
-	else {
-		std::cout << std::endl;
 	}
 	
 	this->updateDistance();
