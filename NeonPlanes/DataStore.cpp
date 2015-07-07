@@ -1,40 +1,23 @@
 #include "DataStore.h"
 
+std::fstream DataStore::_stream;
+
 DataStore::DataStore() {
-	this->mode = DEFAULT;
 }
 
 DataStore::~DataStore() {
-	this->closeFile();
-	this->mode = DEFAULT;
 }
 
 bool DataStore::hasFile(const std::string& filePath) {
-	this->stream.open(filePath.c_str(), std::ios::in);
-	if (this->stream.is_open()) {
-		this->stream.close();
+	_stream.open(filePath.c_str(), std::ios::in);
+	if (_stream.is_open()) {
+		_stream.close();
 		return true;
 	}
 	return false;
 }
 
-void DataStore::loadFile(const std::string& filePath, const Uint8& mode) {
-	if (!this->hasFile(filePath)) {
-		std::cerr << "Error - Cannot read [" << filePath << "]" << std::endl;
-	}
-	else {
-		if (mode == utility::streamMode::READ) {
-			this->stream.open(filePath.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
-			this->mode = mode;
-		}
-		else if (mode == utility::streamMode::WRITE) {
-			this->stream.open(filePath.c_str(), std::ios::out | std::ios::binary);
-			this->mode = mode;
-		}
-	}
-}
-
-std::string DataStore::formatOutput(ScoreData* data, bool last) {
+std::string DataStore::formatOutput(ScoreData* data) {
 	std::string str;
 	str.clear();
 	/*
@@ -45,8 +28,8 @@ std::string DataStore::formatOutput(ScoreData* data, bool last) {
 		double param = data->totalDistance / 1000000000000;
 		double unit;
 		double decimal = modf(param, &unit);
-
-		data->decimalValue = decimal * 1000000000000;
+		
+		data->decimalValue = decimal * 10;
 		data->unitValue = unit;
 		data->modifier = 'T';
 	}
@@ -55,7 +38,7 @@ std::string DataStore::formatOutput(ScoreData* data, bool last) {
 		double unit;
 		double decimal = modf(param, &unit);
 
-		data->decimalValue = decimal * 1000000000;
+		data->decimalValue = decimal * 10;
 		data->unitValue = unit;
 		data->modifier = 'G';
 	}
@@ -64,7 +47,7 @@ std::string DataStore::formatOutput(ScoreData* data, bool last) {
 		double unit;
 		double decimal = modf(param, &unit);
 
-		data->decimalValue = decimal * 1000000;
+		data->decimalValue = decimal * 10;
 		data->unitValue = unit;
 		data->modifier = 'M';
 	}
@@ -73,7 +56,7 @@ std::string DataStore::formatOutput(ScoreData* data, bool last) {
 		double unit;
 		double decimal = modf(param, &unit);
 
-		data->decimalValue = decimal * 1000;
+		data->decimalValue = decimal * 10;
 		data->unitValue = unit;
 		data->modifier = 'K';
 	}
@@ -85,11 +68,11 @@ std::string DataStore::formatOutput(ScoreData* data, bool last) {
 
 	str += data->name;
 	str += "$";
-	str += data->unitValue;
+	str += std::to_string(data->unitValue);
 	str += ".";
-	str += data->decimalValue;
+	str += std::to_string(data->decimalValue);
 	str += data->modifier;
-	if (!last) str += "#";
+	str += "#";
 
 	return str;
 }
@@ -97,80 +80,100 @@ std::string DataStore::formatOutput(ScoreData* data, bool last) {
 ScoreData* DataStore::formatInput(std::string data) {
 	std::string str;
 	ScoreData* score = new ScoreData();
-	bool name = true;
+	unsigned long long int multi = 1;
+	bool noName = false;
 
 	for (size_t i = 0; i < data.size(); i++)
 	{
 		char c = data[i];
-		if (name) {
-			if (c == '$') {
-				score->name += str;
-				name = false;
-			}
-			else str += c;
+		if (c == '$') {
+			score->name += str;
+			noName = true;
+			str.clear();
+		}
+		else if (c == '.') {
+			score->unitValue = std::atoi(str.c_str());
+			str.clear();
+		}
+		else if (noName && (c == 'T' ||
+							c == 'G' ||
+							c == 'M' ||
+							c == 'K' ||
+							c == ' ')) {
+			score->decimalValue = std::atoi(str.c_str());
+			score->modifier = c;
+			str.clear();
 		}
 		else {
-			if (c == '.') score->unitValue = std::atoi(str.c_str());
-			else if (c == 'T' ||
-				c == 'G' ||
-				c == 'M' ||
-				c == 'K' ||
-				c == ' ') {
-				score->decimalValue = std::atoi(str.c_str());
-				score->modifier = c;
-			}
-			else str += c;
+			str += c;
 		}
 	}
 
 	str.clear();
 
+	switch (score->modifier)
+	{
+	case 'T': multi = 1000000000000;
+		break;
+	case 'G': multi = 1000000000;
+		break;
+	case 'M': multi = 1000000;
+		break;
+	case 'K': multi = 1000;
+		break;
+	default:
+		break;
+	}
+
+	score->totalDistance = (score->unitValue + (score->decimalValue / 10)) * multi;
+
 	return score;
 }
 
 std::vector<ScoreData*> DataStore::ReadFile(const std::string& filePath) {
-	if (this->hasFile(filePath) && this->mode == utility::streamMode::READ) {
-		std::vector<ScoreData*> vectorOutput;
-		char c;
-		std::string str;
+	if (hasFile(filePath)) {
+		_stream.open(filePath.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
 
-		this->stream.seekg(0, std::ios::beg);
-		while (this->stream.get(c)) {
-			if (c != '#') str += c;
-			else {
-				vectorOutput.push_back(this->formatInput(str));
-				str.clear();
+		if (_stream.is_open()) {
+			std::vector<ScoreData*> vectorOutput;
+			char c;
+			std::string str;
+
+			_stream.seekg(0, std::ios::beg);
+			while (_stream.get(c)) {
+				if (c != '#') str += c;
+				else {
+					vectorOutput.push_back(formatInput(str));
+					str.clear();
+				}
 			}
+			
+			_stream.close();
+			
+			return vectorOutput;
 		}
-
-		this->closeFile();
+		else {
+			std::cerr << "Error - Cannot read [" << filePath << "] " << std::endl;
+			throw std::exception("Error Read");
+		}
 	}
 	else {
-		std::cerr << "Error - Cannot read [" << filePath << "]" << std::endl;
+		std::cerr << "Error - File [" << filePath << "] does not exist " << std::endl;
+		throw std::exception("Nonexistent File");
 	}
 }
 
 void DataStore::WriteFile(const std::string& filePath, std::vector<ScoreData*> data) {
-	if (this->mode == utility::streamMode::WRITE) {
-		bool last;
+	_stream.open(filePath.c_str(), std::ios::out | std::ios::binary);
+	if (_stream.is_open()) {
 		for each (auto score in data)
 		{
-			if (data.back() == score) last = true;
-			else last = false;
-
-			auto str = this->formatOutput(score, last);
-			this->stream << str;
+			_stream << formatOutput(score);
 		}
 
-		this->closeFile();
+		_stream.close();
 	}
 	else {
-		std::cerr << "Error - Cannot read [" << filePath << "]" << std::endl;
+		std::cerr << "Error - Cannot write [" << filePath << "]" << std::endl;
 	}
-}
-
-void DataStore::closeFile() {
-	if (this->mode != DEFAULT)
-		this->stream.close();
-	this->mode = DEFAULT;
 }

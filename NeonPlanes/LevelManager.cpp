@@ -1,5 +1,8 @@
 #include "LevelManager.h"
 
+Distance_HUD* LevelManager::distance_HUD = nullptr;
+Level_HUD* LevelManager::level_HUD = nullptr;
+
 LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers(mapLayers)
 {
 	this->enemiesDestoyed = 0;
@@ -50,7 +53,7 @@ void LevelManager::clearObjects() {
 
 void LevelManager::levelLogic() {
 	if (!this->player->isActive()) {
-		//gravar high score
+		this->saveScores();
 		Notifier::notify(utility::states::GAMEOVER);
 		return;
 	}
@@ -248,6 +251,47 @@ void LevelManager::createPlayer() {
 	CheckerCollision::addObject(this->mapLayers->at("Interaction")->getGameObject("Player"));
 }
 
-void LevelManager::saveScores() {
+unsigned long long int LevelManager::getPlayerScore() {
+	return distance_HUD->getTotalDistance() * (1 + (level_HUD->getLevel() / 10));
+}
 
+void LevelManager::saveScores() {
+	std::string fileName = DATA_PATH + "save.gdata";
+	std::vector<ScoreData*> dataVector;
+	ScoreData* playerScore;
+
+	if (DataStore::hasFile(fileName)) {
+		//read file
+		dataVector = DataStore::ReadFile(fileName);
+		std::cout << std::endl;
+	}
+	else {
+		//create vector with default scores
+
+		ScoreData* score1 = new ScoreData("MT2", 23000000000000);
+		ScoreData* score2 = new ScoreData("MK5", 18000000000);
+		ScoreData* score3 = new ScoreData("LK1", 11000000);
+		ScoreData* score4 = new ScoreData("JN3", 16000);
+		ScoreData* score5 = new ScoreData("EPH", 200);
+
+		dataVector.push_back(score1);
+		dataVector.push_back(score2);
+		dataVector.push_back(score3);
+		dataVector.push_back(score4);
+		dataVector.push_back(score5);
+	}
+
+	playerScore = new ScoreData("J01", LevelManager::getPlayerScore());
+	DataStore::formatOutput(playerScore);
+
+	dataVector.push_back(playerScore);
+	std::sort(dataVector.begin(), dataVector.end(), [](ScoreData* f, ScoreData* s){ return f->totalDistance > s->totalDistance; });
+	
+	std::cout << std::endl;
+
+	std::vector<ScoreData*> greaterFiveScores(dataVector.begin(), dataVector.begin() + 5);
+
+	std::cout << std::endl;
+
+ 	DataStore::WriteFile(fileName, greaterFiveScores);
 }

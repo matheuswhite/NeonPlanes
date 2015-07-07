@@ -9,7 +9,8 @@ World::World()
 	addGameState(new HighscoreState());
 	Notifier::addReciver(this);
 
-	this->switchState = false;
+	this->currentState = this->map_states.at(utility::states::MAIN_MENU);
+
 	this->clearGameWorld = false;
 }
 
@@ -39,7 +40,9 @@ void World::switchGameState(Uint8 state) {
 		}
 	}
 
-	this->switchState = true;
+	if (state == utility::states::GAMEOVER) {
+
+	}
 }
 
 void World::addGameState(GameState* state) {
@@ -57,12 +60,4 @@ void World::addGameState(GameState* state) {
 
 void World::action(int parameter) {
 	this->switchGameState(parameter);
-}
-
-bool World::isSwitchState() const {
-	return this->switchState;
-}
-
-void World::turnOffSwitchState() {
-	this->switchState = false;
 }

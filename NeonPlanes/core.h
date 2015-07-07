@@ -22,12 +22,14 @@
 
 const std::string IMAGE_PATH = "..\\Debug\\Images\\";
 const std::string FONT_PATH = "..\\Debug\\Fonts\\";
+const std::string DATA_PATH = "..\\Debug\\Data\\";
 
 #else
 //Release Mode
 
 const std::string IMAGE_PATH = "Images\\";
 const std::string FONT_PATH = "Fonts\\";
+const std::string DATA_PATH = "Data\\";
 
 #endif // !_DEBUG
 

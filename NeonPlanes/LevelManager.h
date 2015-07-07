@@ -37,6 +37,7 @@ private:
 	void increaseLevel();
 	void updateDistance();
 	void saveScores();
+	static unsigned long long int getPlayerScore();
 	
 	int enemiesDestoyed;
 	int maxEnemies_perLevel;
@@ -49,8 +50,8 @@ private:
 	unsigned long long int currentNameIndexBlue;
 
 	//elements of HUD
-	Distance_HUD* distance_HUD;
-	Level_HUD* level_HUD;
+	static Distance_HUD* distance_HUD;
+	static Level_HUD* level_HUD;
 	Light_HUD* light_HUD;
 
 	Player* player;

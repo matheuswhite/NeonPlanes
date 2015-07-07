@@ -64,7 +64,8 @@ void Light_HUD::decreaseLightLevel() {
 			this->decreaseTimer->loop();
 		}
 	}
-	else {
+	else if (this->lightLevel < 0) {
+		this->lightLevel = 0;
 		this->decreaseTimer->loop();
 		this->decreaseTimer->pause();
 	}

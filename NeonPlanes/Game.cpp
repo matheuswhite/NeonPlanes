@@ -68,12 +68,10 @@ bool Game::initialize() {
 #if _DEBUG
 	//Debug Mode
 	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
-	this->gameWorld->switchGameState(utility::MAIN_MENU);
 
 #else
 	//Release Mode
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	this->gameWorld->switchGameState(utility::MAIN_MENU);
 
 #endif // !_DEBUG
 
@@ -355,29 +353,24 @@ bool Game::handlingEvents() {
 		}
 	}
 
-	if (this->getGameWorld()->isSwitchState()) {
-		this->getGameWorld()->turnOffSwitchState();
-	}
-	else {
-		if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-			if (this->lightState) {
-				this->gameWorld->getCurrentState()->execute_BTN_Z();
-			}
-			if (this->upState) {
-				this->gameWorld->getCurrentState()->execute_UP();
-			}
-			if (this->downState) {
-				this->gameWorld->getCurrentState()->execute_DOWN();
-			}
-			if (this->leftState) {
-				this->gameWorld->getCurrentState()->execute_LEFT();
-			}
-			if (this->rightState) {
-				this->gameWorld->getCurrentState()->execute_RIGHT();
-			}
+
+	if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
+		if (this->lightState) {
+			this->gameWorld->getCurrentState()->execute_BTN_Z();
+		}
+		if (this->upState) {
+			this->gameWorld->getCurrentState()->execute_UP();
+		}
+		if (this->downState) {
+			this->gameWorld->getCurrentState()->execute_DOWN();
+		}
+		if (this->leftState) {
+			this->gameWorld->getCurrentState()->execute_LEFT();
+		}
+		if (this->rightState) {
+			this->gameWorld->getCurrentState()->execute_RIGHT();
 		}
 	}
-	
 
 	return true;
 }
