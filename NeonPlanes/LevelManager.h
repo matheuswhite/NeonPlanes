@@ -26,6 +26,7 @@ public:
 
 	void clearObjects();
 	void levelLogic();
+	std::pair<std::string, std::pair<std::string, std::string> > getLevelDistanceTotal();
 private:
 	void createEnemy(char side = DEFAULT);
 	bool enemyCanCreated();

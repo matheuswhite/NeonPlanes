@@ -24,6 +24,7 @@ public:
 	void stop(bool direction);
 	void totalStop();
 
+	LevelManager* getLevelManager() const;
 	void createGameWorld();
 	void destroyGameWorld();
 	void runLevelLogic();

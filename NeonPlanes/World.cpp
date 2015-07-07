@@ -30,6 +30,10 @@ void World::switchGameState(Uint8 state) {
 	auto prevState = currentState;
 	currentState = map_states.at(state);
 
+	if (state == utility::states::GAMEOVER) {
+		auto trio = ((PlayState*)this->map_states.at(utility::PLAY))->getLevelManager()->getLevelDistanceTotal();
+		((GameOverState*)this->map_states.at(utility::GAMEOVER))->updateValues(trio.first, trio.second.first, trio.second.second);
+	}
 	if (state == utility::PLAY) {
 		((PlayState*)currentState)->createGameWorld();
 		this->clearGameWorld = false;
@@ -40,7 +44,7 @@ void World::switchGameState(Uint8 state) {
 		}
 	}
 
-	if (state == utility::states::GAMEOVER) {
+	if (state == utility::states::HIGHSCORE) {
 
 	}
 }

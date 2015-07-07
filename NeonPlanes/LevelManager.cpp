@@ -252,7 +252,34 @@ void LevelManager::createPlayer() {
 }
 
 unsigned long long int LevelManager::getPlayerScore() {
-	return distance_HUD->getTotalDistance() * (1 + (level_HUD->getLevel() / 10));
+	return distance_HUD->getTotalDistance() * (1.0 + (level_HUD->getLevel() / 10.0));
+}
+
+std::pair<std::string, std::pair<std::string, std::string> > LevelManager::getLevelDistanceTotal() {
+	std::string level;
+	std::string distance;
+	std::string total;
+	ScoreData* playerData = new ScoreData("J01", distance_HUD->getTotalDistance());
+
+	//Level text formated
+	float param = 1.0 + (level_HUD->getLevel() / 10.0);
+	float unit;
+	float decimal = modf(param, &unit);
+	int decimaInt = decimal * 10.0;
+	level = std::to_string((int)unit) + "." + std::to_string(decimaInt);
+
+	//Distance text formated
+	DataStore::formatOutput(playerData);
+	distance = std::to_string(playerData->unitValue) + "." + std::to_string(playerData->decimalValue) + playerData->modifier;
+
+	//Total text formated
+	playerData->totalDistance = playerData->totalDistance * param;
+	DataStore::formatOutput(playerData);
+	total = std::to_string(playerData->unitValue) + "." + std::to_string(playerData->decimalValue) + playerData->modifier;
+
+	//Return
+	std::pair<std::string, std::string> disTot(distance, total);
+	return std::pair<std::string, std::pair<std::string, std::string> >(level, disTot);
 }
 
 void LevelManager::saveScores() {

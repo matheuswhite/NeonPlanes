@@ -2,8 +2,10 @@
 
 #include "GameState.h"
 #include "TextItem.h"
+#include "DynamicTextItem.h"
 #include "Background.h"
 #include "FPS_HUD.h"
+#include "DataStore.h"
 
 class GameOverState : public GameState
 {
@@ -19,6 +21,5 @@ public:
 	void execute_UP();
 	void execute_DOWN();
 
-	std::pair<int, float> getDistance_Level();
-	void formatBigValue(float val, int* unit, int* rest, char* mod);
+	void updateValues(std::string level, std::string distance, std::string total);
 };

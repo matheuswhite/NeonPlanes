@@ -25,7 +25,7 @@ std::string DataStore::formatOutput(ScoreData* data) {
 	   T   G   M   K
 	*/
 	if (data->totalDistance < 1000000000000000 && data->totalDistance >= 1000000000000) {
-		double param = data->totalDistance / 1000000000000;
+		double param = data->totalDistance / 1000000000000.0;
 		double unit;
 		double decimal = modf(param, &unit);
 		
@@ -34,7 +34,7 @@ std::string DataStore::formatOutput(ScoreData* data) {
 		data->modifier = 'T';
 	}
 	else if (data->totalDistance < 1000000000000 && data->totalDistance >= 1000000000) {
-		double param = data->totalDistance / 1000000000;
+		double param = data->totalDistance / 1000000000.0;
 		double unit;
 		double decimal = modf(param, &unit);
 
@@ -43,7 +43,7 @@ std::string DataStore::formatOutput(ScoreData* data) {
 		data->modifier = 'G';
 	}
 	else if (data->totalDistance < 1000000000 && data->totalDistance >= 1000000) {
-		double param = data->totalDistance / 1000000;
+		double param = data->totalDistance / 1000000.0;
 		double unit;
 		double decimal = modf(param, &unit);
 
@@ -52,7 +52,7 @@ std::string DataStore::formatOutput(ScoreData* data) {
 		data->modifier = 'M';
 	}
 	else if (data->totalDistance < 1000000 && data->totalDistance >= 1000) {
-		double param = data->totalDistance / 1000;
+		double param = data->totalDistance / 1000.0;
 		double unit;
 		double decimal = modf(param, &unit);
 

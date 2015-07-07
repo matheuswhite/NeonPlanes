@@ -19,6 +19,10 @@ PlayState::~PlayState()
 {
 }
 
+LevelManager* PlayState::getLevelManager() const {
+	return this->level;
+}
+
 void PlayState::createGameWorld() {
 	if (!this->gameWorldCreated) {
 		
