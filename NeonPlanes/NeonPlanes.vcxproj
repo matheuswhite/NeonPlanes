@@ -48,8 +48,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\Lua\5.3\lib;C:\Users\Matheus\Documents\Codigos\Cplusplus\NeonPlanes\NeonPlanes\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -72,10 +72,157 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BlueEnemy.cpp" />
+    <ClCompile Include="BlueLight.cpp" />
+    <ClCompile Include="BlueProjectile.cpp" />
+    <ClCompile Include="CheckerCollision.cpp" />
+    <ClCompile Include="ColoredBackgroundSprite.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="DashBehavior.cpp" />
+    <ClCompile Include="DataStore.cpp" />
+    <ClCompile Include="Distance_HUD.cpp" />
+    <ClCompile Include="DynamicTextItem.cpp" />
+    <ClCompile Include="Font.cpp" />
+    <ClCompile Include="FPS_HUD.cpp" />
+    <ClCompile Include="FSM.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="GoDownBehavior.cpp" />
+    <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="HighlightItem.cpp" />
+    <ClCompile Include="HighlightTextSprite.cpp" />
+    <ClCompile Include="HighscoreState.cpp" />
+    <ClCompile Include="InitialEnemyBehavior.cpp" />
+    <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="Level_HUD.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightWallBehavior.cpp" />
+    <ClCompile Include="Light_HUD.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuBehavior.cpp" />
+    <ClCompile Include="MoveBehavior.cpp" />
+    <ClCompile Include="Notifier.cpp" />
+    <ClCompile Include="PatrolBehavior.cpp" />
+    <ClCompile Include="PlayerMoveBehavior.cpp" />
+    <ClCompile Include="RedEnemy_AI.cpp" />
+    <ClCompile Include="RedLight.cpp" />
+    <ClCompile Include="ShootBehavior.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="TextItem.cpp" />
+    <ClCompile Include="TitleText.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="RedEnemy.cpp" />
+    <ClCompile Include="RedProjectile.cpp" />
+    <ClCompile Include="MenuSprite.cpp" />
+    <ClCompile Include="StaticTextSprite.cpp" />
+    <ClCompile Include="StaticSprite.cpp" />
+    <ClCompile Include="Timers.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="PauseState.cpp" />
+    <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="TestMain.cpp" />
+    <ClCompile Include="DynamicTextSprite.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TurnOffBehavior.cpp" />
+    <ClCompile Include="VerticalScrollingSprite.cpp" />
+    <ClCompile Include="WhiteLight.cpp" />
+    <ClCompile Include="WhiteProjectile.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="YellowEnemy.cpp" />
+    <ClCompile Include="YellowEnemy_AI.cpp" />
+    <ClCompile Include="YellowLight.cpp" />
+    <ClCompile Include="YellowProjectile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Debug\Images\background.png" />
+    <Image Include="..\Debug\Images\BlueEnemy.png" />
+    <Image Include="..\Debug\Images\player.png" />
+    <Image Include="..\Debug\Images\RedEnemy.png" />
+    <Image Include="..\Debug\Images\YellowEnemy.png" />
     <Image Include="pict3159.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Airplane.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Base_AI.h" />
+    <ClInclude Include="Behavior.h" />
+    <ClInclude Include="BlueEnemy.h" />
+    <ClInclude Include="BlueLight.h" />
+    <ClInclude Include="BlueProjectile.h" />
+    <ClInclude Include="CheckerCollision.h" />
+    <ClInclude Include="ColoredBackgroundSprite.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="DashBehavior.h" />
+    <ClInclude Include="DataStore.h" />
+    <ClInclude Include="Distance_HUD.h" />
+    <ClInclude Include="DynamicTextItem.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="FPS_HUD.h" />
+    <ClInclude Include="FSM.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOverState.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GoDownBehavior.h" />
+    <ClInclude Include="Graphics.h" />
+    <ClInclude Include="HighlightItem.h" />
+    <ClInclude Include="HighlightTextSprite.h" />
+    <ClInclude Include="HighscoreState.h" />
+    <ClInclude Include="InitialEnemyBehavior.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="Level_HUD.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="LightWallBehavior.h" />
+    <ClInclude Include="Light_HUD.h" />
+    <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuBehavior.h" />
+    <ClInclude Include="MoveBehavior.h" />
+    <ClInclude Include="Notifier.h" />
+    <ClInclude Include="PatrolBehavior.h" />
+    <ClInclude Include="PlayerMoveBehavior.h" />
+    <ClInclude Include="RedEnemy_AI.h" />
+    <ClInclude Include="RedLight.h" />
+    <ClInclude Include="ShootBehavior.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="TextItem.h" />
+    <ClInclude Include="TitleText.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="RedEnemy.h" />
+    <ClInclude Include="RedProjectile.h" />
+    <ClInclude Include="MenuSprite.h" />
+    <ClInclude Include="StaticSprite.h" />
+    <ClInclude Include="StaticTextSprite.h" />
+    <ClInclude Include="Timers.h" />
+    <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="PauseState.h" />
+    <ClInclude Include="PlayState.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="DynamicTextSprite.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TurnOffBehavior.h" />
+    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="VerticalScrollingSprite.h" />
+    <ClInclude Include="WhiteLight.h" />
+    <ClInclude Include="WhiteProjectile.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="YellowEnemy.h" />
+    <ClInclude Include="YellowEnemy_AI.h" />
+    <ClInclude Include="YellowLight.h" />
+    <ClInclude Include="YellowProjectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

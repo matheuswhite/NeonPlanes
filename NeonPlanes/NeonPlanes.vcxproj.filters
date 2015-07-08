@@ -13,15 +13,539 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Tests">
+      <UniqueIdentifier>{f689b388-225f-45b9-b7f0-87f02b8a9b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{9a4a4fdc-7d53-4688-b18e-ae009aa153c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{132a1a73-5ed4-4254-89c9-26f6f602581a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameStates">
+      <UniqueIdentifier>{73ed7877-d879-4278-899e-2a40547bc670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{d480827e-4300-443c-951f-e210e9f6d1fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{4a196b6a-420c-4125-92d9-8ee3e32c8b1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{c79d2ac0-a359-4556-9d0d-9d7c9df8338e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStates">
+      <UniqueIdentifier>{81013e86-9307-43ef-a524-a80dc305afcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{86f4bc66-4d22-49d6-9820-d06a40fd6417}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Sprites">
+      <UniqueIdentifier>{c9ac7ac8-3ac9-4825-9bc7-21e227842daa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Sprites">
+      <UniqueIdentifier>{655092f4-b10d-47aa-863c-cfb557929250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Projectile">
+      <UniqueIdentifier>{ff20838b-95df-445c-8067-f464e3b3d16d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Projectile">
+      <UniqueIdentifier>{7efbe9c4-ddf7-4a87-ab64-3c2ca0d1fe9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Behavior">
+      <UniqueIdentifier>{fb2960bf-4a6a-4efe-8588-9027d17db6f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Behavior">
+      <UniqueIdentifier>{43ae3085-9e87-4fed-9c2b-fe2a11384545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Menu">
+      <UniqueIdentifier>{2bab8662-e661-41c6-9374-bfd7cdb4de19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Menu">
+      <UniqueIdentifier>{97acdc17-0872-4485-a263-c4fb9cce2b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\AirPlane">
+      <UniqueIdentifier>{5df2ca0a-4204-4ccb-beed-08f2a94ed5d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\AirPlane\Enemies">
+      <UniqueIdentifier>{0f245885-00bc-42d9-9d66-bc38f7174c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\AirPlane">
+      <UniqueIdentifier>{134fa821-b22d-4991-9121-b83f626f909e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\AirPlane\Enemies">
+      <UniqueIdentifier>{17f2670d-340a-4fc3-9f1b-99f19450b04c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Lights">
+      <UniqueIdentifier>{ecd84e96-d9b6-4a5e-addc-b7978d8af8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Lights">
+      <UniqueIdentifier>{82977ef1-42e3-4ae4-af4d-cf51910328ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\AI">
+      <UniqueIdentifier>{05a50d6f-9c60-4e5b-9cbc-d70c7a35c83d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\AI">
+      <UniqueIdentifier>{6ef9ce97-9232-401d-8e92-a3eb9c561e58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FSM">
+      <UniqueIdentifier>{3135ee32-fb63-40be-b007-782da03beff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FSM">
+      <UniqueIdentifier>{c7f8e76b-52c5-4586-91f5-aaaf9efdc848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\HUD">
+      <UniqueIdentifier>{3bec8618-2781-4bf9-89c5-838476513398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\HUD">
+      <UniqueIdentifier>{125843fd-2b19-4ff4-a3a2-17e5f810bc3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestMain.cpp">
+    <ClCompile Include="Command.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMain.cpp">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="DataStore.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="VerticalScrollingSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicTextSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticTextSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueEnemy.cpp">
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="RedEnemy.cpp">
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowEnemy.cpp">
+      <Filter>Source Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="RedProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="WhiteProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowProjectile.cpp">
+      <Filter>Source Files\GameObjects\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\GameObjects\AirPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="HighlightTextSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="HighlightItem.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleText.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="TextItem.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Notifier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighscoreState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="RedLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="WhiteLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowLight.cpp">
+      <Filter>Source Files\GameObjects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckerCollision.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMoveBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="PatrolBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="DashBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="GoDownBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="LightWallBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnOffBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="InitialEnemyBehavior.cpp">
+      <Filter>Source Files\Components\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowEnemy_AI.cpp">
+      <Filter>Source Files\GameObjects\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM.cpp">
+      <Filter>Source Files\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="RedEnemy_AI.cpp">
+      <Filter>Source Files\GameObjects\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicTextItem.cpp">
+      <Filter>Source Files\GameObjects\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="FPS_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Distance_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="ColoredBackgroundSprite.cpp">
+      <Filter>Source Files\Components\Sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Light_HUD.cpp">
+      <Filter>Source Files\GameObjects\HUD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pict3159.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\Debug\Images\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\player.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\BlueEnemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\RedEnemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Debug\Images\YellowEnemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStore.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="VerticalScrollingSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicTextSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticTextSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueEnemy.h">
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="RedEnemy.h">
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowEnemy.h">
+      <Filter>Header Files\GameObjects\AirPlane\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="RedProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="WhiteProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowProjectile.h">
+      <Filter>Header Files\GameObjects\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Behavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\GameObjects\AirPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="HighlightTextSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="HighlightItem.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleText.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TextItem.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Notifier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighscoreState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="RedLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="WhiteLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowLight.h">
+      <Filter>Header Files\GameObjects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Airplane.h">
+      <Filter>Header Files\GameObjects\AirPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckerCollision.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMoveBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="PatrolBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="DashBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="GoDownBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="LightWallBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnOffBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="InitialEnemyBehavior.h">
+      <Filter>Header Files\Components\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="Base_AI.h">
+      <Filter>Header Files\GameObjects\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowEnemy_AI.h">
+      <Filter>Header Files\GameObjects\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM.h">
+      <Filter>Header Files\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="RedEnemy_AI.h">
+      <Filter>Header Files\GameObjects\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicTextItem.h">
+      <Filter>Header Files\GameObjects\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="FPS_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Distance_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="ColoredBackgroundSprite.h">
+      <Filter>Header Files\Components\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Light_HUD.h">
+      <Filter>Header Files\GameObjects\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
