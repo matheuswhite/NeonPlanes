@@ -313,12 +313,8 @@ void LevelManager::saveScores() {
 
 	dataVector.push_back(playerScore);
 	std::sort(dataVector.begin(), dataVector.end(), [](ScoreData* f, ScoreData* s){ return f->totalDistance > s->totalDistance; });
-	
-	std::cout << std::endl;
 
 	std::vector<ScoreData*> greaterFiveScores(dataVector.begin(), dataVector.begin() + 5);
-
-	std::cout << std::endl;
 
  	DataStore::WriteFile(fileName, greaterFiveScores);
 }

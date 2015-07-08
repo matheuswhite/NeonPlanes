@@ -45,7 +45,7 @@ void World::switchGameState(Uint8 state) {
 	}
 
 	if (state == utility::states::HIGHSCORE) {
-
+		((HighscoreState*)this->map_states.at(utility::HIGHSCORE))->updateValues();
 	}
 }
 

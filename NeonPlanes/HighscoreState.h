@@ -2,8 +2,10 @@
 
 #include "GameState.h"
 #include "TextItem.h"
+#include "DynamicTextItem.h"
 #include "Background.h"
 #include "FPS_HUD.h"
+#include "DataStore.h"
 
 class HighscoreState : public GameState
 {
@@ -19,6 +21,7 @@ public:
 	void execute_UP();
 	void execute_DOWN();
 
+	void updateValues();
 	std::vector<std::pair<std::string, std::string> > getHighscore();
 };
 
