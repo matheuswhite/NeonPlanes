@@ -292,7 +292,6 @@ void LevelManager::saveScores() {
 	if (DataStore::hasFile(fileName)) {
 		//read file
 		dataVector = DataStore::ReadFile(fileName);
-		std::cout << std::endl;
 	}
 	else {
 		//create vector with default scores

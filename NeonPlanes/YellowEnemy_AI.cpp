@@ -37,7 +37,6 @@ void YellowEnemy_AI::manageBehaviors() {
 			this->getTimer("ShootDisabled")->pause();
 
 			this->enemy->getBehavior("ShootBehavior")->setActive(true);
-			std::cout << "ACTIVED!" << std::endl;
 		}
 
 		if (this->getTimer("ShootActive")->isFinish())
@@ -48,7 +47,6 @@ void YellowEnemy_AI::manageBehaviors() {
 			this->getTimer("ShootActive")->pause();
 
 			this->enemy->getBehavior("ShootBehavior")->setActive(false);
-			std::cout << "DISABLED!" << std::endl;
 		}
 	}
 }
