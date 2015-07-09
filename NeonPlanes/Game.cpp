@@ -58,6 +58,9 @@ Game::~Game()
 
 
 bool Game::initialize() {
+	std::string str = IMAGE_PATH + "icon64.png";
+	SDL_SetWindowIcon(window, IMG_Load(str.c_str()));
+
 	this->gameWorld = new World();
 
 	if (this->gameWorld == nullptr) {
