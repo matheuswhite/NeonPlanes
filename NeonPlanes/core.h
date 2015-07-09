@@ -11,6 +11,7 @@
 #include <fstream>
 #include <math.h>
 #include <stdexcept>
+#include <ctime>
 #include <map>
 #include <set>
 #include <typeinfo>

@@ -4,9 +4,10 @@ bool operator==(SDL_Color f, const SDL_Color s) {
 	return (f.r == s.r) && (f.g == s.g) && (f.b == s.b) && (f.a == s.a);
 }
 
-Level_HUD::Level_HUD(std::string name) : prevBarColor(utility::BLACK), level(1), GameObject(name)
+Level_HUD::Level_HUD(std::string name) : GameObject(name), prevBarColor(utility::BLACK), level(1)
 {
 	this->colors = { utility::YELLOW, utility::BLUE, utility::RED, utility::GREEN, utility::LIGHT_BLUE };
+	srand(time(nullptr));
 	auto colorNum = rand() % this->colors.size();
 	this->currentBarColor = this->colors.at(colorNum);
 	this->nameColor = utility::WHITE;
