@@ -210,9 +210,7 @@ bool Game::handlingEvents() {
 			return false;
 		case SDL_KEYDOWN:
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
-				if (e.key.keysym.sym == SDLK_z) {
-					this->lightState = true;
-				}
+				if (e.key.keysym.sym == SDLK_z) this->lightState = true;
 				if (e.key.keysym.sym == SDLK_RETURN) this->gameWorld->getCurrentState()->execute_BTN_ENTER();
 				if (e.key.keysym.sym == SDLK_UP) this->upState = true;
 				if (e.key.keysym.sym == SDLK_DOWN) this->downState = true;
@@ -281,6 +279,12 @@ bool Game::handlingEvents() {
 				//start
 				this->gameWorld->getCurrentState()->execute_BTN_ENTER();
 			}
+			if (typeid(*this->gameWorld->getCurrentState()) != typeid(PlayState)) {
+				if (e.jbutton.button == 10) {
+					//btn A
+					this->gameWorld->getCurrentState()->execute_BTN_SPACE();
+				}
+			}
 			break;
 		case SDL_JOYBUTTONUP:
 			if (typeid(*this->gameWorld->getCurrentState()) == typeid(PlayState)) {
@@ -333,6 +337,13 @@ bool Game::handlingEvents() {
 
 			else 
 			{
+				this->lightState = false;
+				this->upState = false;
+				this->downState = false;
+				this->leftState = false;
+				this->rightState = false;
+				((PlayState*)this->gameWorld->getMapStates().at(utility::PLAY))->stop(true);
+
 				if (e.jaxis.axis == 0) {
 					if (e.jaxis.value < -this->deadZone) {
 						this->gameWorld->getCurrentState()->execute_LEFT();
