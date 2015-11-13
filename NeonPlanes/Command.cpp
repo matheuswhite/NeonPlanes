@@ -39,7 +39,6 @@ void Command::moveDown(Player* player) {
 }
 
 void Command::doNothing() {
-	std::cout << "DoNothing" << std::endl;
 }
 
 void Command::resume() {
@@ -64,10 +63,8 @@ void Command::select(Uint8 nextState) {
 
 void Command::moveMenuUp(Menu* menu) {
 	menu->prevItem();
-	std::cout << "menu up" << std::endl;
 }
 
 void Command::moveMenuDown(Menu* menu) {
 	menu->nextItem();
-	std::cout << "menu down" << std::endl;
 }

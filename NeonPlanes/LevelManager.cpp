@@ -17,6 +17,8 @@ LevelManager::LevelManager(std::map<std::string, Layer*>* mapLayers) : mapLayers
 	this->level_HUD = new Level_HUD("Level_HUD");
 	this->mapLayers->at("HUD")->addGameObject(this->level_HUD);
 
+	srand(time(nullptr));
+
 	this->light_HUD = new Light_HUD("Light_HUD");
 	this->mapLayers->at("HUD")->addGameObject(this->light_HUD);
 
@@ -290,7 +292,6 @@ void LevelManager::saveScores() {
 	if (DataStore::hasFile(fileName)) {
 		//read file
 		dataVector = DataStore::ReadFile(fileName);
-		std::cout << std::endl;
 	}
 	else {
 		//create vector with default scores

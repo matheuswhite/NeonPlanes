@@ -55,8 +55,6 @@ void Texture::loadTTF(SDL_Renderer* renderer, Font* font) {
 
 	SDL_FreeSurface(surface);
 	surface = nullptr;
-
-	std::cerr << "Loaded !" << std::endl;
 }
 
 void Texture::free() {

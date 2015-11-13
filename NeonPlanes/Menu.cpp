@@ -67,6 +67,5 @@ void Menu::clearAllItem() {
 }
 
 HighlightItem* Menu::getCurrentHighLightItem() const {
-	std::cout << std::endl;
 	return this->itens.at(this->currentItem);
 }

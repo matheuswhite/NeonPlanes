@@ -143,6 +143,7 @@
   <ItemGroup>
     <Image Include="..\Debug\Images\background.png" />
     <Image Include="..\Debug\Images\BlueEnemy.png" />
+    <Image Include="..\Debug\Images\icon64.ico" />
     <Image Include="..\Debug\Images\player.png" />
     <Image Include="..\Debug\Images\RedEnemy.png" />
     <Image Include="..\Debug\Images\YellowEnemy.png" />
@@ -194,6 +195,7 @@
     <ClInclude Include="PlayerMoveBehavior.h" />
     <ClInclude Include="RedEnemy_AI.h" />
     <ClInclude Include="RedLight.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ShootBehavior.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="TextItem.h" />
@@ -223,6 +225,9 @@
     <ClInclude Include="YellowEnemy_AI.h" />
     <ClInclude Include="YellowLight.h" />
     <ClInclude Include="YellowProjectile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NeonPlanes.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

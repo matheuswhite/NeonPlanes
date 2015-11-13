@@ -15,8 +15,6 @@ PauseState::PauseState()
 	itens.push_back(new HighlightItem("Continuar", new Rectangle(Vector2D(posx, posy), Vector2D(280, 50), "destiny"), new Font("Continuar", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::BLUE, utility::PLAY));
 	itens.push_back(new HighlightItem("MainMenu", new Rectangle(Vector2D(posx - 20, posy + 60), Vector2D(300, 50), "destiny"), new Font("Menu Principal", FONT_PATH + "Aero.ttf", 54, utility::WHITE), utility::BLUE, utility::MAIN_MENU));
 
-	std::cout << "size: " << itens.size() << std::endl;
-
 	this->getLayer("Background")->addGameObject(new Background("Background"));
 	this->getLayer("Interaction")->addGameObject(new Menu("Paused", itens));
 	this->getLayer("Interaction")->addGameObject(new TextItem(Vector2D(65, 40), Vector2D(300, 80), "Pausado", 54, FONT_PATH + "distortion_of_the_brain_and_mind.ttf", utility::GREEN, "Title"));

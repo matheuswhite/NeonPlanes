@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
 	int frames = 0;
 	Uint32 totalTime = 0;
 
-	Game* game = new Game("LAST LEVEL - V1.0", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOW_SHOWN);
+	Game* game = new Game("NEON PLANES", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOW_SHOWN);
 
 	if (game == nullptr || !game->isInitialize()) {
 		std::cerr << "Error in main. Line: " << __LINE__ << std::endl;
